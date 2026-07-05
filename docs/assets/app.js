@@ -9,11 +9,13 @@ const el = {
   totalItems: document.querySelector("#totalItems"),
   opportunityIndex: document.querySelector("#opportunityIndex"),
   riskIndex: document.querySelector("#riskIndex"),
-  highPriority: document.querySelector("#highPriority"),
+  goldPrice: document.querySelector("#goldPrice"),
+  goldMeta: document.querySelector("#goldMeta"),
   signals: document.querySelector("#signals"),
   questions: document.querySelector("#questions"),
   actions: document.querySelector("#actions"),
   sourceStatus: document.querySelector("#sourceStatus"),
+  officialCompetitors: document.querySelector("#officialCompetitors"),
   tabs: document.querySelectorAll(".tab"),
   briefBtn: document.querySelector("#briefBtn"),
   briefBox: document.querySelector("#briefBox"),
@@ -38,12 +40,85 @@ function render() {
   el.totalItems.textContent = summary.totalItems ?? data.signals?.length ?? 0;
   el.opportunityIndex.textContent = summary.opportunityIndex ?? "-";
   el.riskIndex.textContent = summary.riskIndex ?? "-";
-  el.highPriority.textContent = summary.highPriority ?? "-";
   el.briefText.textContent = buildBrief(data.signals ?? []);
+  renderGold(data.gold);
+  renderOfficialCompetitors(data.officialCompetitors ?? [], data.signals ?? []);
   renderSignals();
   renderQuestions(data.signals ?? []);
   renderActions(data.signals ?? []);
   renderSourceStatus(data);
+}
+
+async function renderGold(fallbackGold) {
+  const gold = await fetchRealtimeGold().catch(() => fallbackGold);
+  if (!gold || !Number.isFinite(Number(gold.price))) {
+    el.goldPrice.textContent = "暂无数据";
+    el.goldMeta.textContent = "实时行情读取失败，等待下一次自动采集。";
+    return;
+  }
+
+  const changeText = gold.changePercent != null && Number.isFinite(Number(gold.changePercent))
+    ? `，${Number(gold.changePercent) >= 0 ? "+" : ""}${Number(gold.changePercent).toFixed(2)}%`
+    : "";
+  el.goldPrice.textContent = `${Number(gold.price).toLocaleString("en-US", { maximumFractionDigits: 2 })} ${gold.unit ?? "USD/oz"}`;
+  el.goldMeta.textContent = `${gold.source ?? "Gold"} · ${gold.status === "live" ? "实时" : "兜底"} · ${formatDate(new Date(gold.updatedAt ?? Date.now()))}${changeText}`;
+}
+
+async function fetchRealtimeGold() {
+  const providers = [
+    {
+      source: "COMEX Gold Futures",
+      url: "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=1d&interval=1m",
+      unit: "USD/oz"
+    },
+    {
+      source: "XAU/USD Spot",
+      url: "https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD=X?range=1d&interval=1m",
+      unit: "USD/oz"
+    }
+  ];
+
+  for (const provider of providers) {
+    try {
+      const response = await fetch(provider.url, { cache: "no-store" });
+      if (!response.ok) continue;
+      const data = await response.json();
+      const meta = data.chart?.result?.[0]?.meta;
+      const price = Number(meta?.regularMarketPrice);
+      const previousClose = Number(meta?.chartPreviousClose ?? meta?.previousClose);
+      if (!Number.isFinite(price)) continue;
+      const change = Number.isFinite(previousClose) ? price - previousClose : null;
+      return {
+        source: provider.source,
+        price: Number(price.toFixed(2)),
+        unit: provider.unit,
+        change,
+        changePercent: Number.isFinite(previousClose) && previousClose !== 0 ? (change / previousClose) * 100 : null,
+        updatedAt: new Date((meta?.regularMarketTime ?? Date.now() / 1000) * 1000).toISOString(),
+        status: "live"
+      };
+    } catch {
+      // Try next provider.
+    }
+  }
+  throw new Error("gold price unavailable");
+}
+
+function renderOfficialCompetitors(competitors, signals) {
+  const officialSignals = new Map(
+    signals.filter((item) => item.official).map((item) => [item.sourceId, item])
+  );
+
+  el.officialCompetitors.innerHTML = competitors.map((item) => {
+    const signal = officialSignals.get(item.id);
+    const title = signal?.summary || item.focus;
+    return `
+      <a class="official-item" href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">
+        <b>${escapeHtml(item.name)}</b>
+        <span>${escapeHtml(title)}</span>
+      </a>
+    `;
+  }).join("");
 }
 
 function renderSignals() {
@@ -66,7 +141,7 @@ function renderSignals() {
         <span>${escapeHtml(item.category ?? "未分类")}</span>
         <span>${escapeHtml(item.source ?? "未知来源")}</span>
         <span>${formatDate(new Date(item.publishedAt ?? Date.now()))}</span>
-        <span>分值 ${Number(item.score ?? 0)}</span>
+        ${item.official ? "<span>官网来源</span>" : ""}
       </div>
       <div class="signal-body">
         <div><b>对潮宏基影响</b>${escapeHtml(item.impact ?? "需人工补充判断。")}</div>
@@ -107,7 +182,7 @@ function renderSourceStatus(data) {
   if (!errors.length) {
     el.sourceStatus.textContent = data.mode === "live"
       ? "本次自动采集无明显源错误。仍需人工复核每条公开信息的可信度。"
-      : "当前展示种子数据。上线后 GitHub Actions 会每天自动生成 live 数据。";
+      : "当前展示兜底数据；上线后由 GitHub Actions 自动更新。";
     return;
   }
   if (data.mode === "fallback") {
@@ -124,7 +199,6 @@ function buildBrief(signals) {
   const opportunity = top.find((item) => item.category === "战略机会" || item.category === "出海机会");
   const competitor = top.find((item) => item.category === "竞品观察");
   return [
-    "董事长，今天的 AI 战略情报雷达显示：",
     opportunity ? `机会侧重点是“${opportunity.title}”，${opportunity.impact}` : "机会侧仍围绕东方美学、年轻化渠道和出海验证展开。",
     risk ? `风险侧需要关注“${risk.title}”，${risk.action}` : "风险侧暂未出现需要升级的公开信号，但仍建议跟踪金价、库存和加盟质量。",
     competitor ? `竞品侧出现“${competitor.title}”，建议纳入竞品周报并拆解其产品、渠道和传播动作。` : "竞品侧建议继续固定跟踪头部品牌的新品、渠道和传播动作。",

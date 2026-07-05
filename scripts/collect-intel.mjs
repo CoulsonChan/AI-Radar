@@ -10,6 +10,20 @@ const ARCHIVE_DIR = path.join(ROOT, "docs", "data", "archive");
 const DRY_RUN = process.argv.includes("--dry-run");
 const MAX_PER_FEED = 8;
 const MAX_TOTAL = 48;
+const GOLD_SOURCES = [
+  {
+    id: "gc-futures",
+    name: "COMEX Gold Futures",
+    url: "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=1d&interval=1m",
+    unit: "USD/oz"
+  },
+  {
+    id: "xau-usd",
+    name: "XAU/USD Spot",
+    url: "https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD=X?range=1d&interval=1m",
+    unit: "USD/oz"
+  }
+];
 
 const categoryRules = [
   { category: "经营风险", words: ["金价", "黄金价格", "库存", "现金流", "闭店", "加盟", "投诉", "放缓", "下滑", "亏损", "风险"] },
@@ -68,6 +82,45 @@ function parseRss(xml, source) {
   });
 }
 
+function extractHtmlText(html) {
+  return html
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function extractTitle(html, fallback) {
+  const title = stripHtml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
+  return title || fallback;
+}
+
+function parseOfficialPage(html, source) {
+  const text = extractHtmlText(html);
+  const title = extractTitle(html, source.name);
+  const snippets = text
+    .split(/(?<=[。.!?？])\s+|\s{2,}/u)
+    .map((item) => item.trim())
+    .filter((item) => item.length >= 10 && item.length <= 120)
+    .filter((item) => /新品|新闻|公告|门店|品牌|珠宝|黄金|jewel|press|release|store|collection|diamond|sustain/i.test(item))
+    .slice(0, 3);
+
+  return enrichSignal({
+    id: hash(`official|${source.id}|${title}`),
+    title: `${source.name} 官方更新入口`,
+    summary: snippets.join(" / ") || title,
+    source: `${source.name}官网`,
+    sourceId: source.id,
+    group: "competitor",
+    url: source.url,
+    publishedAt: new Date().toISOString(),
+    weight: 1.25,
+    official: true,
+    focus: source.focus
+  });
+}
+
 function hash(input) {
   return crypto.createHash("sha1").update(input).digest("hex").slice(0, 12);
 }
@@ -110,7 +163,7 @@ function enrichSignal(signal) {
     score,
     impact,
     action,
-    confidence: "公开网络情报，需人工复核"
+    confidence: signal.official ? "竞品官方网站，需人工复核页面更新" : "公开网络情报，需人工复核"
   };
 }
 
@@ -178,6 +231,70 @@ async function collectFeed(source) {
   }
 }
 
+async function collectOfficialPage(source) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 14000);
+  try {
+    const response = await fetch(source.url, {
+      signal: controller.signal,
+      headers: {
+        "user-agent": "CHJ-AI-Strategic-Radar/1.0 (+official competitor source monitor)"
+      }
+    });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const html = await response.text();
+    return parseOfficialPage(html, source);
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function collectGoldPrice() {
+  for (const source of GOLD_SOURCES) {
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+      const response = await fetch(source.url, {
+        signal: controller.signal,
+        headers: { "user-agent": "CHJ-AI-Strategic-Radar/1.0" }
+      });
+      clearTimeout(timeout);
+      if (!response.ok) continue;
+      const data = await response.json();
+      const result = data.chart?.result?.[0];
+      const meta = result?.meta;
+      const regularMarketPrice = Number(meta?.regularMarketPrice);
+      const previousClose = Number(meta?.chartPreviousClose ?? meta?.previousClose);
+      if (!Number.isFinite(regularMarketPrice)) continue;
+      const change = Number.isFinite(previousClose) ? regularMarketPrice - previousClose : null;
+      const changePercent = Number.isFinite(previousClose) && previousClose !== 0 ? (change / previousClose) * 100 : null;
+      return {
+        source: source.name,
+        symbol: source.id,
+        price: Number(regularMarketPrice.toFixed(2)),
+        unit: source.unit,
+        change: change == null ? null : Number(change.toFixed(2)),
+        changePercent: changePercent == null ? null : Number(changePercent.toFixed(2)),
+        updatedAt: new Date((meta?.regularMarketTime ?? Date.now() / 1000) * 1000).toISOString(),
+        status: "live"
+      };
+    } catch {
+      // Try next source.
+    }
+  }
+
+  return {
+    source: "兜底样例",
+    symbol: "gold-demo",
+    price: 2350,
+    unit: "USD/oz",
+    change: null,
+    changePercent: null,
+    updatedAt: new Date().toISOString(),
+    status: "fallback"
+  };
+}
+
 async function main() {
   const sourceConfig = JSON.parse(await fs.readFile(SOURCES_PATH, "utf8"));
   if (DRY_RUN) {
@@ -185,13 +302,22 @@ async function main() {
     return;
   }
 
+  const gold = await collectGoldPrice();
   const settled = await Promise.allSettled(sourceConfig.feeds.map(collectFeed));
+  const officialSettled = await Promise.allSettled((sourceConfig.officialCompetitors ?? []).map(collectOfficialPage));
   const errors = settled
     .map((result, index) => ({ result, source: sourceConfig.feeds[index] }))
     .filter(({ result }) => result.status === "rejected")
     .map(({ result, source }) => ({ source: source.name, error: result.reason?.message ?? String(result.reason) }));
+  const officialErrors = officialSettled
+    .map((result, index) => ({ result, source: sourceConfig.officialCompetitors?.[index] }))
+    .filter(({ result }) => result.status === "rejected")
+    .map(({ result, source }) => ({ source: source?.name ?? "official", error: result.reason?.message ?? String(result.reason) }));
 
-  const rawSignals = settled.flatMap((result) => result.status === "fulfilled" ? result.value : []);
+  const rawSignals = [
+    ...officialSettled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []),
+    ...settled.flatMap((result) => result.status === "fulfilled" ? result.value : [])
+  ];
   let signals = dedupe(rawSignals)
     .sort((a, b) => b.score - a.score || Date.parse(b.publishedAt) - Date.parse(a.publishedAt))
     .slice(0, MAX_TOTAL);
@@ -206,8 +332,10 @@ async function main() {
   const payload = {
     generatedAt: new Date().toISOString(),
     mode,
+    gold,
+    officialCompetitors: sourceConfig.officialCompetitors ?? [],
     summary: buildSummary(signals),
-    errors,
+    errors: [...errors, ...officialErrors],
     signals
   };
 

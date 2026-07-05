@@ -1,6 +1,43 @@
 {
   "updatedAt": "2026-07-05",
-  "note": "公开网络情报源配置。正式商用前建议补充公司内部经营数据、券商研报、公告接口、舆情平台和社媒数据源。",
+  "note": "公开网络情报源配置。竞品优先使用官方网站/官方投资者关系/官方新闻页；宏观趋势仍使用公开新闻 RSS。正式商用前建议补充公司内部经营数据、券商研报、公告接口、舆情平台和社媒数据源。",
+  "officialCompetitors": [
+    {
+      "id": "ctf",
+      "name": "周大福",
+      "url": "https://www.ctfjewellerygroup.com/en/media/press-releases/",
+      "backupUrl": "https://www.ctfjewellerygroup.com/en/investor-relations/",
+      "focus": "产品、门店网络、财务表现、品牌年轻化"
+    },
+    {
+      "id": "laofengxiang",
+      "name": "老凤祥",
+      "url": "https://www.laofengxiang.com/",
+      "backupUrl": "https://www.laofengxiang.com/news.html",
+      "focus": "老字号黄金心智、产品与活动、公告声明"
+    },
+    {
+      "id": "chow-tai-seng",
+      "name": "周大生",
+      "url": "https://www.chowtaiseng.com/",
+      "backupUrl": "https://www.chowtaiseng.com/",
+      "focus": "东方美学产品、门店规模、品牌合作"
+    },
+    {
+      "id": "pandora",
+      "name": "Pandora",
+      "url": "https://www.pandoragroup.com/media/press-releases",
+      "backupUrl": "https://www.pandoragroup.com/investor",
+      "focus": "串饰、培育钻石、全球新品、可持续"
+    },
+    {
+      "id": "swarovski",
+      "name": "Swarovski",
+      "url": "https://www.swarovski.com/",
+      "backupUrl": "https://www.swarovskigroup.com/",
+      "focus": "国际轻奢、视觉符号、礼赠与零售体验"
+    }
+  ],
   "feeds": [
     {
       "id": "chj-company",
@@ -8,41 +45,6 @@
       "group": "company",
       "url": "https://news.google.com/rss/search?q=%E6%BD%AE%E5%AE%8F%E5%9F%BA%20OR%20002345&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
       "weight": 1.5
-    },
-    {
-      "id": "ctf",
-      "name": "周大福",
-      "group": "competitor",
-      "url": "https://news.google.com/rss/search?q=%E5%91%A8%E5%A4%A7%E7%A6%8F%20%E7%8F%A0%E5%AE%9D%20OR%20%E9%BB%84%E9%87%91&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "weight": 1.2
-    },
-    {
-      "id": "laofengxiang",
-      "name": "老凤祥",
-      "group": "competitor",
-      "url": "https://news.google.com/rss/search?q=%E8%80%81%E5%87%A4%E7%A5%A5%20%E9%BB%84%E9%87%91%20OR%20%E7%8F%A0%E5%AE%9D&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "weight": 1.1
-    },
-    {
-      "id": "chow-tai-seng",
-      "name": "周大生",
-      "group": "competitor",
-      "url": "https://news.google.com/rss/search?q=%E5%91%A8%E5%A4%A7%E7%94%9F%20%E7%8F%A0%E5%AE%9D%20OR%20%E9%BB%84%E9%87%91&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "weight": 1.1
-    },
-    {
-      "id": "pandora",
-      "name": "潘多拉",
-      "group": "competitor",
-      "url": "https://news.google.com/rss/search?q=Pandora%20%E6%BD%98%E5%A4%9A%E6%8B%89%20%E7%8F%A0%E5%AE%9D%20%E4%B8%B2%E9%A5%B0&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "weight": 1
-    },
-    {
-      "id": "swarovski",
-      "name": "施华洛世奇",
-      "group": "competitor",
-      "url": "https://news.google.com/rss/search?q=%E6%96%BD%E5%8D%8E%E6%B4%9B%E4%B8%96%E5%A5%87%20%E7%8F%A0%E5%AE%9D%20OR%20Swarovski&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
-      "weight": 1
     },
     {
       "id": "gold-price",

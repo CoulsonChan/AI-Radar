@@ -1,6 +1,53 @@
 {
-  "generatedAt": "2026-07-05T10:00:30.905Z",
+  "generatedAt": "2026-07-05T10:30:37.381Z",
   "mode": "fallback",
+  "gold": {
+    "source": "兜底样例",
+    "symbol": "gold-demo",
+    "price": 2350,
+    "unit": "USD/oz",
+    "change": null,
+    "changePercent": null,
+    "updatedAt": "2026-07-05T10:30:37.374Z",
+    "status": "fallback"
+  },
+  "officialCompetitors": [
+    {
+      "id": "ctf",
+      "name": "周大福",
+      "url": "https://www.ctfjewellerygroup.com/en/media/press-releases/",
+      "backupUrl": "https://www.ctfjewellerygroup.com/en/investor-relations/",
+      "focus": "产品、门店网络、财务表现、品牌年轻化"
+    },
+    {
+      "id": "laofengxiang",
+      "name": "老凤祥",
+      "url": "https://www.laofengxiang.com/",
+      "backupUrl": "https://www.laofengxiang.com/news.html",
+      "focus": "老字号黄金心智、产品与活动、公告声明"
+    },
+    {
+      "id": "chow-tai-seng",
+      "name": "周大生",
+      "url": "https://www.chowtaiseng.com/",
+      "backupUrl": "https://www.chowtaiseng.com/",
+      "focus": "东方美学产品、门店规模、品牌合作"
+    },
+    {
+      "id": "pandora",
+      "name": "Pandora",
+      "url": "https://www.pandoragroup.com/media/press-releases",
+      "backupUrl": "https://www.pandoragroup.com/investor",
+      "focus": "串饰、培育钻石、全球新品、可持续"
+    },
+    {
+      "id": "swarovski",
+      "name": "Swarovski",
+      "url": "https://www.swarovski.com/",
+      "backupUrl": "https://www.swarovskigroup.com/",
+      "focus": "国际轻奢、视觉符号、礼赠与零售体验"
+    }
+  ],
   "summary": {
     "totalItems": 8,
     "opportunityIndex": 70,
@@ -10,6 +57,18 @@
   "errors": [
     {
       "source": "潮宏基动态",
+      "error": "fetch failed"
+    },
+    {
+      "source": "金价与黄金消费",
+      "error": "fetch failed"
+    },
+    {
+      "source": "珠宝新品与消费趋势",
+      "error": "fetch failed"
+    },
+    {
+      "source": "东南亚珠宝与黄金市场",
       "error": "fetch failed"
     },
     {
@@ -25,23 +84,11 @@
       "error": "fetch failed"
     },
     {
-      "source": "潘多拉",
+      "source": "Pandora",
       "error": "fetch failed"
     },
     {
-      "source": "施华洛世奇",
-      "error": "fetch failed"
-    },
-    {
-      "source": "金价与黄金消费",
-      "error": "fetch failed"
-    },
-    {
-      "source": "珠宝新品与消费趋势",
-      "error": "fetch failed"
-    },
-    {
-      "source": "东南亚珠宝与黄金市场",
+      "source": "Swarovski",
       "error": "fetch failed"
     }
   ],
