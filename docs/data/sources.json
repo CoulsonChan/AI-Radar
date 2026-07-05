@@ -1,0 +1,69 @@
+{
+  "updatedAt": "2026-07-05",
+  "note": "公开网络情报源配置。正式商用前建议补充公司内部经营数据、券商研报、公告接口、舆情平台和社媒数据源。",
+  "feeds": [
+    {
+      "id": "chj-company",
+      "name": "潮宏基动态",
+      "group": "company",
+      "url": "https://news.google.com/rss/search?q=%E6%BD%AE%E5%AE%8F%E5%9F%BA%20OR%20002345&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.5
+    },
+    {
+      "id": "ctf",
+      "name": "周大福",
+      "group": "competitor",
+      "url": "https://news.google.com/rss/search?q=%E5%91%A8%E5%A4%A7%E7%A6%8F%20%E7%8F%A0%E5%AE%9D%20OR%20%E9%BB%84%E9%87%91&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.2
+    },
+    {
+      "id": "laofengxiang",
+      "name": "老凤祥",
+      "group": "competitor",
+      "url": "https://news.google.com/rss/search?q=%E8%80%81%E5%87%A4%E7%A5%A5%20%E9%BB%84%E9%87%91%20OR%20%E7%8F%A0%E5%AE%9D&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.1
+    },
+    {
+      "id": "chow-tai-seng",
+      "name": "周大生",
+      "group": "competitor",
+      "url": "https://news.google.com/rss/search?q=%E5%91%A8%E5%A4%A7%E7%94%9F%20%E7%8F%A0%E5%AE%9D%20OR%20%E9%BB%84%E9%87%91&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.1
+    },
+    {
+      "id": "pandora",
+      "name": "潘多拉",
+      "group": "competitor",
+      "url": "https://news.google.com/rss/search?q=Pandora%20%E6%BD%98%E5%A4%9A%E6%8B%89%20%E7%8F%A0%E5%AE%9D%20%E4%B8%B2%E9%A5%B0&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1
+    },
+    {
+      "id": "swarovski",
+      "name": "施华洛世奇",
+      "group": "competitor",
+      "url": "https://news.google.com/rss/search?q=%E6%96%BD%E5%8D%8E%E6%B4%9B%E4%B8%96%E5%A5%87%20%E7%8F%A0%E5%AE%9D%20OR%20Swarovski&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1
+    },
+    {
+      "id": "gold-price",
+      "name": "金价与黄金消费",
+      "group": "macro",
+      "url": "https://news.google.com/rss/search?q=%E9%87%91%E4%BB%B7%20%E9%BB%84%E9%87%91%E6%B6%88%E8%B4%B9%20%E7%8F%A0%E5%AE%9D&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.3
+    },
+    {
+      "id": "jewelry-trend",
+      "name": "珠宝新品与消费趋势",
+      "group": "trend",
+      "url": "https://news.google.com/rss/search?q=%E7%8F%A0%E5%AE%9D%20%E6%96%B0%E5%93%81%20%E5%B9%B4%E8%BD%BB%E5%8C%96%20OR%20%E4%B8%9C%E6%96%B9%E7%BE%8E%E5%AD%A6&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.15
+    },
+    {
+      "id": "sea-expansion",
+      "name": "东南亚珠宝与黄金市场",
+      "group": "overseas",
+      "url": "https://news.google.com/rss/search?q=%E4%B8%9C%E5%8D%97%E4%BA%9A%20%E7%8F%A0%E5%AE%9D%20%E9%BB%84%E9%87%91%20%E6%96%B0%E5%8A%A0%E5%9D%A1%20%E9%A9%AC%E6%9D%A5%E8%A5%BF%E4%BA%9A&hl=zh-CN&gl=CN&ceid=CN:zh-Hans",
+      "weight": 1.2
+    }
+  ]
+}

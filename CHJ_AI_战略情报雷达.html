@@ -1,0 +1,1107 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHJ AI 战略情报雷达</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --panel: #ffffff;
+      --ink: #202126;
+      --muted: #686b73;
+      --line: #ded8cd;
+      --gold: #b8892f;
+      --gold-soft: #f4ead3;
+      --teal: #23746f;
+      --wine: #8f3f4d;
+      --blue: #3d638f;
+      --green: #3f7a54;
+      --shadow: 0 18px 48px rgba(33, 31, 24, 0.10);
+      --radius: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .app {
+      min-height: 100vh;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 245, 240, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner,
+    .wrap {
+      width: min(1220px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 260px;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #b99756;
+      background: #fffaf0;
+      color: #76530d;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 16px;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.15;
+      font-weight: 760;
+    }
+
+    .brand p {
+      margin: 3px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .tabs {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .tabs::-webkit-scrollbar {
+      display: none;
+    }
+
+    .tab {
+      appearance: none;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #555861;
+      padding: 9px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+    }
+
+    .tab:hover {
+      background: #fffaf0;
+      border-color: #ead7aa;
+    }
+
+    .tab[aria-selected="true"] {
+      background: #27251f;
+      color: #fff;
+      border-color: #27251f;
+    }
+
+    main {
+      padding: 26px 0 38px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.8fr);
+      gap: 18px;
+      align-items: stretch;
+      margin-bottom: 18px;
+    }
+
+    .hero-main,
+    .panel,
+    .metric,
+    .card,
+    .brief-box {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-main {
+      padding: 26px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 220px;
+      gap: 22px;
+      min-height: 310px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 6px 9px;
+      border-radius: 999px;
+      background: var(--gold-soft);
+      color: #775412;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      margin: 18px 0 12px;
+      font-size: clamp(32px, 5vw, 56px);
+      line-height: 1.02;
+      font-weight: 820;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 0;
+      color: #4f5158;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .primary-btn,
+    .ghost-btn {
+      min-height: 42px;
+      border-radius: 6px;
+      border: 1px solid #2a2925;
+      padding: 10px 14px;
+      cursor: pointer;
+      font-weight: 720;
+    }
+
+    .primary-btn {
+      background: #2a2925;
+      color: #fff;
+    }
+
+    .ghost-btn {
+      background: #fff;
+      color: #2a2925;
+      border-color: #c8beb0;
+    }
+
+    .radar-wrap {
+      display: grid;
+      place-items: center;
+      min-width: 0;
+    }
+
+    .radar {
+      position: relative;
+      width: 210px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, transparent 0 22%, rgba(184,137,47,0.16) 23% 24%, transparent 25% 45%, rgba(35,116,111,0.18) 46% 47%, transparent 48% 68%, rgba(143,63,77,0.17) 69% 70%, transparent 71%),
+        conic-gradient(from -18deg, rgba(184,137,47,0.66), rgba(35,116,111,0.58), rgba(61,99,143,0.52), rgba(143,63,77,0.58), rgba(184,137,47,0.66));
+      border: 1px solid #d3c5a9;
+      overflow: hidden;
+    }
+
+    .radar::before {
+      content: "";
+      position: absolute;
+      inset: 22px;
+      background: rgba(255,255,255,0.72);
+      clip-path: polygon(50% 3%, 91% 32%, 78% 83%, 24% 84%, 9% 33%);
+      border: 1px solid rgba(32,33,38,0.12);
+    }
+
+    .radar::after {
+      content: "AI";
+      position: absolute;
+      inset: 78px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: #27251f;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 820;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.18);
+    }
+
+    .radar-label {
+      position: absolute;
+      font-size: 11px;
+      font-weight: 740;
+      color: #2d3034;
+      background: rgba(255,255,255,0.82);
+      border: 1px solid #e1dacd;
+      border-radius: 999px;
+      padding: 5px 7px;
+      white-space: nowrap;
+    }
+
+    .r1 { top: 8px; left: 70px; }
+    .r2 { top: 82px; right: 0; }
+    .r3 { right: 18px; bottom: 20px; }
+    .r4 { left: 12px; bottom: 26px; }
+    .r5 { top: 82px; left: 0; }
+
+    .hero-side {
+      display: grid;
+      gap: 12px;
+    }
+
+    .metric {
+      padding: 18px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 5px;
+      font-size: 28px;
+      line-height: 1;
+    }
+
+    .metric-badge {
+      min-width: 64px;
+      text-align: center;
+      padding: 7px 8px;
+      border-radius: 999px;
+      background: #f0eee8;
+      color: #41444a;
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .metric.opportunity strong { color: var(--green); }
+    .metric.risk strong { color: var(--wine); }
+    .metric.action strong { color: var(--blue); }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 18px;
+      margin: 26px 0 14px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-size: 22px;
+    }
+
+    .section-header p {
+      margin: 6px 0 0;
+      max-width: 760px;
+      color: var(--muted);
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .stamp {
+      flex: 0 0 auto;
+      color: #755615;
+      background: #fbf5e8;
+      border: 1px solid #ead6a8;
+      border-radius: 6px;
+      padding: 8px 10px;
+      font-size: 12px;
+      font-weight: 720;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .panel {
+      padding: 18px;
+    }
+
+    .panel h3,
+    .card h3 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.35;
+    }
+
+    .panel p,
+    .card p {
+      margin: 10px 0 0;
+      color: #50535a;
+      line-height: 1.65;
+      font-size: 14px;
+    }
+
+    .signal-kpi {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid #ebe6dc;
+    }
+
+    .signal-kpi strong {
+      font-size: 24px;
+    }
+
+    .signal-kpi span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .card {
+      padding: 18px;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid #ded7ca;
+      background: #fbfaf6;
+      color: #4e5158;
+      border-radius: 999px;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: 680;
+    }
+
+    .tag.gold {
+      color: #76530d;
+      background: var(--gold-soft);
+      border-color: #ead3a2;
+    }
+
+    .tag.red {
+      color: #813044;
+      background: #f7e8eb;
+      border-color: #e7c7ce;
+    }
+
+    .tag.green {
+      color: #2e6e47;
+      background: #e8f3ec;
+      border-color: #cde4d4;
+    }
+
+    .tag.blue {
+      color: #2f5f8c;
+      background: #e9f0f8;
+      border-color: #cbd9e9;
+    }
+
+    .card-meta {
+      display: grid;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .meta-item {
+      border-left: 3px solid #d7c391;
+      padding-left: 10px;
+    }
+
+    .meta-item b {
+      display: block;
+      font-size: 12px;
+      color: #2f3137;
+      margin-bottom: 3px;
+    }
+
+    .meta-item span {
+      color: #5d6068;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .confidence {
+      margin-top: auto;
+      padding-top: 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .compare-table th,
+    .compare-table td {
+      text-align: left;
+      vertical-align: top;
+      padding: 13px 14px;
+      border-bottom: 1px solid #eee8df;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .compare-table th {
+      background: #f1ece3;
+      color: #36383d;
+      font-size: 13px;
+      font-weight: 760;
+    }
+
+    .compare-table tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .timeline-step {
+      position: relative;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 178px;
+    }
+
+    .step-no {
+      display: grid;
+      place-items: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 12px;
+      border-radius: 50%;
+      background: #28251f;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 760;
+    }
+
+    .timeline-step h3 {
+      margin: 0;
+      font-size: 15px;
+    }
+
+    .timeline-step p {
+      margin: 9px 0 0;
+      color: #5f626a;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .brief-box {
+      display: none;
+      margin-top: 14px;
+      padding: 18px;
+      border-color: #d2b66f;
+      background: #fffaf0;
+    }
+
+    .brief-box.show {
+      display: block;
+    }
+
+    .brief-box h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .brief-box p {
+      margin: 0;
+      color: #4a463d;
+      line-height: 1.85;
+      font-size: 15px;
+    }
+
+    .questions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      counter-reset: q;
+    }
+
+    .question {
+      counter-increment: q;
+      display: grid;
+      grid-template-columns: 36px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+    }
+
+    .question::before {
+      content: counter(q);
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 6px;
+      background: #f0e7d5;
+      color: #73520f;
+      font-weight: 780;
+      font-size: 13px;
+    }
+
+    .question p {
+      margin: 0;
+      color: #3f4248;
+      line-height: 1.62;
+      font-size: 14px;
+    }
+
+    .footer-note {
+      margin-top: 24px;
+      padding: 16px 18px;
+      color: #5c5f66;
+      background: #ede8de;
+      border: 1px solid #ded6c8;
+      border-radius: var(--radius);
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    @media (max-width: 980px) {
+      .topbar-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .hero-main,
+      .grid,
+      .grid.two,
+      .grid.three,
+      .timeline,
+      .questions {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-main {
+        min-height: auto;
+      }
+
+      .radar-wrap {
+        justify-content: start;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .topbar-inner,
+      .wrap {
+        width: min(100% - 24px, 1220px);
+      }
+
+      .hero-main,
+      .panel,
+      .card {
+        padding: 16px;
+      }
+
+      .hero-title {
+        font-size: 34px;
+      }
+
+      .radar {
+        width: 190px;
+      }
+
+      .compare-table {
+        display: block;
+        overflow-x: auto;
+        white-space: normal;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand" aria-label="CHJ AI Strategic Radar">
+          <div class="brand-mark">CHJ</div>
+          <div>
+            <h1>CHJ AI 战略情报雷达</h1>
+            <p>董事长助理面试 Demo · 公开资料 + 演示样例</p>
+          </div>
+        </div>
+        <nav class="tabs" aria-label="页面模块">
+          <button class="tab" type="button" aria-selected="true" data-target="overview">总览</button>
+          <button class="tab" type="button" aria-selected="false" data-target="opportunity">机会</button>
+          <button class="tab" type="button" aria-selected="false" data-target="risk">风险</button>
+          <button class="tab" type="button" aria-selected="false" data-target="competitor">竞品</button>
+          <button class="tab" type="button" aria-selected="false" data-target="global">出海</button>
+          <button class="tab" type="button" aria-selected="false" data-target="meeting">会议准备</button>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap">
+        <section class="hero" aria-label="战略情报总览">
+          <div class="hero-main">
+            <div>
+              <div class="eyebrow"><span class="dot"></span>董事长决策支持 · 本周战略信号</div>
+              <h2 class="hero-title">把海量信息压缩成可行动判断</h2>
+              <p class="hero-copy">
+                这套 Demo 展示董事长助理如何用 AI 持续扫描行业、竞品、金价、渠道、出海与经营风险，
+                并把碎片信息转化为机会判断、风险预警、会议追问和下周行动清单。
+              </p>
+              <div class="hero-actions">
+                <button class="primary-btn" type="button" id="briefBtn">生成董事长简报</button>
+                <button class="ghost-btn" type="button" id="riskBtn">先看风险预警</button>
+              </div>
+              <div class="brief-box" id="briefBox" aria-live="polite">
+                <h3>1 分钟口述简报</h3>
+                <p>
+                  董事长，我用 AI 做了一版战略情报雷达。本周核心判断是：潮宏基的增长机会仍在“东方美学 + 时尚黄金 + 年轻化渠道 + 东南亚验证”这条主线上，但需要同步关注金价高位、库存资金占用、加盟质量和海外模型验证四类风险。建议下周优先推进三件事：第一，做一版加盟质量指标拆解；第二，围绕东南亚重点国家形成产品和价格带假设；第三，把竞品动作、消费者内容趋势和公司内部经营数据接到同一张周报里，形成可持续的董事长决策支持机制。
+                </p>
+              </div>
+            </div>
+            <div class="radar-wrap" aria-hidden="true">
+              <div class="radar">
+                <span class="radar-label r1">行业趋势</span>
+                <span class="radar-label r2">竞品动作</span>
+                <span class="radar-label r3">经营风险</span>
+                <span class="radar-label r4">出海机会</span>
+                <span class="radar-label r5">会议议题</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-side" aria-label="本周指数">
+            <div class="metric opportunity">
+              <div>
+                <span>机会指数</span>
+                <strong>82</strong>
+              </div>
+              <div class="metric-badge">偏积极</div>
+            </div>
+            <div class="metric risk">
+              <div>
+                <span>风险指数</span>
+                <strong>68</strong>
+              </div>
+              <div class="metric-badge">需跟踪</div>
+            </div>
+            <div class="metric action">
+              <div>
+                <span>行动优先级</span>
+                <strong>5项</strong>
+              </div>
+              <div class="metric-badge">下周推进</div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section active" id="overview" aria-label="总览">
+          <div class="section-header">
+            <div>
+              <h2>本周战略信号总览</h2>
+              <p>面向董事长的第一屏，只保留高层需要看到的趋势、判断和动作，不把页面做成普通信息堆砌。</p>
+            </div>
+            <div class="stamp">更新口径：2026 面试 Demo</div>
+          </div>
+
+          <div class="grid">
+            <article class="panel">
+              <h3>行业趋势</h3>
+              <p>黄金珠宝消费从婚庆、保值、克重，继续向悦己、日常佩戴、文化表达和社交分享迁移。</p>
+              <div class="signal-kpi"><span>对 CHJ 意义</span><strong>高</strong></div>
+            </article>
+            <article class="panel">
+              <h3>竞品动作</h3>
+              <p>头部品牌分别沿规模渠道、传统黄金、年轻饰品和国际轻奢路线竞争，差异化表达更重要。</p>
+              <div class="signal-kpi"><span>需跟踪对象</span><strong>5</strong></div>
+            </article>
+            <article class="panel">
+              <h3>经营风险</h3>
+              <p>金价高位、库存现金流、加盟体验一致性和海外投入节奏，是扩张期需要前置管理的变量。</p>
+              <div class="signal-kpi"><span>风险等级</span><strong>中高</strong></div>
+            </article>
+            <article class="panel">
+              <h3>出海机会</h3>
+              <p>东南亚适合作为东方美学和时尚黄金的第一阶段验证场，但本地化不能只做语言翻译。</p>
+              <div class="signal-kpi"><span>验证市场</span><strong>4国</strong></div>
+            </article>
+          </div>
+
+          <div class="section-header">
+            <div>
+              <h2>下周建议动作</h2>
+              <p>把情报转化为董事长助理可以推动的具体工作，体现“研究、协调、跟进”的岗位价值。</p>
+            </div>
+          </div>
+
+          <div class="timeline">
+            <div class="timeline-step">
+              <div class="step-no">1</div>
+              <h3>加盟质量指标拆解</h3>
+              <p>把开好店、开大店、不滥开拆成单店销售、加盟商盈利、坪效、复购和服务一致性指标。</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-no">2</div>
+              <h3>金价影响备忘</h3>
+              <p>跟踪金价高位对客单、购买频次、库存资金和轻量化产品结构的影响。</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-no">3</div>
+              <h3>东南亚国家画像</h3>
+              <p>按华人客群、本地年轻女性、游客礼赠三类场景，做国家优先级和产品假设。</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-no">4</div>
+              <h3>竞品周报机制</h3>
+              <p>固定跟踪周大福、老凤祥、周大生、潘多拉、施华洛世奇的产品、渠道和传播动作。</p>
+            </div>
+            <div class="timeline-step">
+              <div class="step-no">5</div>
+              <h3>董事长追问清单</h3>
+              <p>每次专题会前准备 8 到 10 个关键问题，帮助会议从汇报转向决策。</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="opportunity" aria-label="战略机会">
+          <div class="section-header">
+            <div>
+              <h2>战略机会</h2>
+              <p>围绕潮宏基的差异化资产，AI 将外部趋势转成可讨论的战略机会，而不是停留在泛泛的市场描述。</p>
+            </div>
+            <div class="stamp">可信度：公开事实 + 演示推演</div>
+          </div>
+
+          <div class="grid three">
+            <article class="card">
+              <div class="tag-row"><span class="tag gold">东方美学</span><span class="tag green">品牌资产</span></div>
+              <h3>非遗花丝从工艺卖点升级为品牌心智</h3>
+              <p>潮宏基长期围绕花丝工艺、东方文化和现代设计做沉淀，适合进一步沉淀为“非克重价值”的高端叙事。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>对潮宏基影响</b><span>有助于减弱单纯金价和克重竞争，强化设计、文化和情绪价值。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>形成一页式“花丝资产地图”，用于董事长对外沟通和内部产品战略会。</span></div>
+              </div>
+              <div class="confidence">可信度：高，基于公司既有品牌资产。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag gold">黄金串珠</span><span class="tag blue">年轻化</span></div>
+              <h3>串珠和 IP 产品适合承接年轻女性的日常佩戴</h3>
+              <p>年轻消费者更看重搭配、分享、情绪表达和礼赠理由，串珠产品具备组合、复购和内容传播潜力。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>对潮宏基影响</b><span>可把黄金从资产型消费进一步变成时尚饰品和社交表达。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>跟踪小红书、抖音中“通勤珠宝、生日礼物、轻量黄金、手链叠戴”内容样例。</span></div>
+              </div>
+              <div class="confidence">可信度：中高，趋势为演示样例，需正式接入平台数据。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag green">1+N 品牌</span><span class="tag blue">场景拓展</span></div>
+              <h3>多品牌组合可服务更细分的都市女性生活场景</h3>
+              <p>Souffle、臻、FION、Cevol 等业务可围绕礼赠、高端、女包、培育钻石做场景探索，但需要清晰的资源边界。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>对潮宏基影响</b><span>如果模型成立，可从单一珠宝消费扩展到时尚生活方式生态。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>按增长潜力、资源消耗、品牌协同、组织复杂度做 N 品牌评估矩阵。</span></div>
+              </div>
+              <div class="confidence">可信度：中，需结合内部经营数据验证。</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="risk" aria-label="风险预警">
+          <div class="section-header">
+            <div>
+              <h2>风险预警</h2>
+              <p>董事长助理的价值不只是汇总好消息，也要把扩张期的风险提前摆上桌面，并给出可跟踪指标。</p>
+            </div>
+            <div class="stamp">优先级：建议先看</div>
+          </div>
+
+          <div class="grid two">
+            <article class="card">
+              <div class="tag-row"><span class="tag red">金价高位</span><span class="tag">库存</span></div>
+              <h3>金价上涨既可能提升客单，也可能压制购买意愿</h3>
+              <p>如果消费者从“悦己购买”转为观望，门店转化、轻量化产品占比和库存资金压力都需要同步监测。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>建议关注指标</b><span>同店销售、进店转化、黄金类库存周转、经营现金流、轻量化产品销售占比。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>准备一版“高金价周期产品结构策略”研究备忘。</span></div>
+              </div>
+              <div class="confidence">可信度：高，基于行业常识和公司经营数据关注点。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag red">加盟质量</span><span class="tag">品牌一致性</span></div>
+              <h3>加盟扩张进入质量管理阶段</h3>
+              <p>门店数量增加后，总部需要把商品、陈列、服务、会员运营和内容表达能力稳定复制到加盟体系。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>建议关注指标</b><span>单店销售、加盟商盈利、闭店率、客诉率、会员复购、培训达标率。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>把“开好店、开大店、不滥开”拆成董事长可追踪的经营看板。</span></div>
+              </div>
+              <div class="confidence">可信度：高，匹配公司扩张阶段。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag red">海外验证</span><span class="tag blue">投入节奏</span></div>
+              <h3>出海早期不能只看开店数量</h3>
+              <p>东南亚市场有华人基础和黄金文化认知，但长期增长需要验证本地客群是否接受潮宏基的东方美学表达。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>建议关注指标</b><span>海外单店销售、游客与本地客比例、复购、价格带适配、产品退换和内容互动。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>每个国家先形成“客群、产品、价格、渠道、内容”的小模型。</span></div>
+              </div>
+              <div class="confidence">可信度：中高，正式落地需接入海外经营数据。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag red">资源分散</span><span class="tag green">多品牌</span></div>
+              <h3>N 品牌需要明确继续投入的判断标准</h3>
+              <p>多品牌有想象空间，但也可能带来组织精力分散、品牌心智稀释和投入回报周期拉长。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>建议关注指标</b><span>品牌定位清晰度、渠道协同、毛利贡献、复购、获客成本、管理复杂度。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>做一版 N 品牌战略体检，明确保留、加码、调整和观察对象。</span></div>
+              </div>
+              <div class="confidence">可信度：中，需结合内部战略优先级。</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="competitor" aria-label="竞品观察">
+          <div class="section-header">
+            <div>
+              <h2>竞品观察</h2>
+              <p>竞品不是简单罗列新闻，而是识别不同竞争逻辑，判断潮宏基应避开什么、强化什么。</p>
+            </div>
+            <div class="stamp">演示样例：非实时数据</div>
+          </div>
+
+          <table class="compare-table" aria-label="竞品战略观察表">
+            <thead>
+              <tr>
+                <th>观察对象</th>
+                <th>可能竞争逻辑</th>
+                <th>对潮宏基的启示</th>
+                <th>下周跟踪动作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>周大福</td>
+                <td>品牌规模、渠道网络、产品系列化和供应链能力。</td>
+                <td>潮宏基不宜只拼规模，应强化东方美学、设计感和年轻化表达。</td>
+                <td>跟踪其新品系列、门店升级和年轻化传播动作。</td>
+              </tr>
+              <tr>
+                <td>老凤祥</td>
+                <td>传统黄金心智、老字号信任和大众市场覆盖。</td>
+                <td>潮宏基需要区分传统黄金购买和时尚黄金购买，突出审美价值。</td>
+                <td>对比传统黄金品牌在高金价周期的促销和产品结构。</td>
+              </tr>
+              <tr>
+                <td>周大生</td>
+                <td>加盟渠道扩张、区域覆盖和婚恋珠宝心智。</td>
+                <td>加盟体系质量管理是同类扩张公司的共同关键题。</td>
+                <td>拆解加盟商赋能、闭店率、单店效率等公开指标。</td>
+              </tr>
+              <tr>
+                <td>潘多拉</td>
+                <td>串饰、情绪表达、可组合复购和女性自我表达。</td>
+                <td>潮宏基串珠可借鉴组合和复购逻辑，但要保留东方文化差异化。</td>
+                <td>观察社交平台上的叠戴、纪念日、礼赠内容结构。</td>
+              </tr>
+              <tr>
+                <td>施华洛世奇</td>
+                <td>国际轻奢、视觉符号、礼赠场景和全球门店体验。</td>
+                <td>潮宏基出海时要把东方美学转译为本地可理解的礼赠和佩戴理由。</td>
+                <td>整理国际轻奢品牌在东南亚商场和内容渠道的表达方式。</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="section" id="global" aria-label="出海机会">
+          <div class="section-header">
+            <div>
+              <h2>出海机会雷达</h2>
+              <p>把东南亚作为验证市场，不只看开店，而看潮宏基的东方美学能否转化为跨文化消费理由。</p>
+            </div>
+            <div class="stamp">重点：在地化假设</div>
+          </div>
+
+          <div class="grid three">
+            <article class="card">
+              <div class="tag-row"><span class="tag blue">新加坡</span><span class="tag gold">品牌窗口</span></div>
+              <h3>适合作为国际形象和高质量门店样板</h3>
+              <p>新加坡华人基础强、商业体系成熟，适合验证更精致的门店体验和东方美学表达。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>关键假设</b><span>高品质商场 + 礼赠场景 + 设计款黄金，比单纯价格竞争更适配。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>整理本地节日、游客消费、华人婚嫁与生日礼赠场景。</span></div>
+              </div>
+              <div class="confidence">可信度：中，需结合门店数据验证。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag blue">马来西亚</span><span class="tag green">华人基础</span></div>
+              <h3>适合验证华人客群和本地年轻女性的双路径</h3>
+              <p>华人黄金文化认知提供进入基础，但本地化内容和价格带要单独测试。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>关键假设</b><span>婚嫁、节庆、礼赠和日常轻量佩戴可以分层运营。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>按华人客群、本地女性、游客三类做产品组合假设。</span></div>
+              </div>
+              <div class="confidence">可信度：中，趋势为演示推演。</div>
+            </article>
+
+            <article class="card">
+              <div class="tag-row"><span class="tag blue">泰国/柬埔寨</span><span class="tag">旅游礼赠</span></div>
+              <h3>适合观察游客消费与本地商圈承接能力</h3>
+              <p>早期重点不是大规模复制，而是找到能够稳定复用的产品、价格和渠道模型。</p>
+              <div class="card-meta">
+                <div class="meta-item"><b>关键假设</b><span>东方美学需要转译成“好佩戴、好送礼、好分享”的直观理由。</span></div>
+                <div class="meta-item"><b>建议动作</b><span>建立海外门店月度复盘模板，跟踪动销、复购和客群结构。</span></div>
+              </div>
+              <div class="confidence">可信度：中，需内部数据补强。</div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="meeting" aria-label="会议准备">
+          <div class="section-header">
+            <div>
+              <h2>董事长关注问题</h2>
+              <p>AI 的落点是让董事长助理在会前把问题想深，让会议从“听汇报”变成“做判断”。</p>
+            </div>
+            <div class="stamp">可用于战略会 / 经营会</div>
+          </div>
+
+          <div class="questions">
+            <div class="question"><p>公司现在强调“有质量增长”，我们最希望用哪 3 个指标定义质量？单店销售、加盟商盈利、复购还是品牌声量？</p></div>
+            <div class="question"><p>在金价高位周期下，潮宏基的产品结构应如何平衡克重产品、轻量黄金、串珠和高毛利时尚珠宝？</p></div>
+            <div class="question"><p>加盟体系继续扩大后，总部能力下沉最短板的是商品、培训、会员运营、内容表达，还是数据工具？</p></div>
+            <div class="question"><p>东南亚出海第一阶段，我们到底要验证门店模型、产品模型、客群模型，还是品牌表达模型？</p></div>
+            <div class="question"><p>潮宏基未来三到五年希望消费者形成的第一心智是什么：东方美学、非遗花丝、时尚黄金，还是年轻礼赠？</p></div>
+            <div class="question"><p>1+N 品牌中，每个 N 品牌继续投入的判断标准是什么？收入规模、毛利、复购、品牌协同还是战略卡位？</p></div>
+            <div class="question"><p>如果要建设董事长 AI 战略情报机制，哪些数据必须接入：公告研报、竞品动态、舆情内容、内部经营还是门店反馈？</p></div>
+            <div class="question"><p>董事长助理在 AI 落地中应承担什么角色：研究中台、会议推进、项目 PMO、风险预警，还是跨部门信息枢纽？</p></div>
+          </div>
+        </section>
+
+        <div class="footer-note">
+          免责声明：本 Demo 用于面试展示，部分行业与竞品信息为演示样例；正式落地需接入公司内部数据、公告、研报、舆情和业务系统。页面不接入真实 AI API，通过预设样例模拟 AI 输出，以降低现场网络和接口风险。
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const sections = document.querySelectorAll(".section");
+    const briefBtn = document.getElementById("briefBtn");
+    const briefBox = document.getElementById("briefBox");
+    const riskBtn = document.getElementById("riskBtn");
+
+    function activate(targetId) {
+      tabs.forEach((tab) => {
+        tab.setAttribute("aria-selected", String(tab.dataset.target === targetId));
+      });
+      sections.forEach((section) => {
+        section.classList.toggle("active", section.id === targetId);
+      });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => activate(tab.dataset.target));
+    });
+
+    briefBtn.addEventListener("click", () => {
+      briefBox.classList.toggle("show");
+      briefBtn.textContent = briefBox.classList.contains("show") ? "收起董事长简报" : "生成董事长简报";
+    });
+
+    riskBtn.addEventListener("click", () => {
+      activate("risk");
+      document.getElementById("risk").scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  </script>
+</body>
+</html>

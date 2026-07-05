@@ -1,0 +1,4 @@
+.tmp_chj_reports/
+.DS_Store
+node_modules/
+npm-debug.log*

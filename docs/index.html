@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CHJ AI 战略情报雷达</title>
+  <link rel="stylesheet" href="./assets/styles.css">
+</head>
+<body>
+  <header class="shell-header">
+    <div class="brand">
+      <div class="brand-mark">CHJ</div>
+      <div>
+        <h1>CHJ AI 战略情报雷达</h1>
+        <p>每日自动收集公开情报 · 竞品 / 金价 / 趋势 / 出海 / 风险</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span id="updateTime">等待更新</span>
+      <span id="modeLabel">LIVE</span>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <span class="eyebrow">董事长助理 · 战略研究与决策支持</span>
+        <h2>把每天的外部信息，压缩成董事长可用的判断</h2>
+        <p>
+          系统每天自动抓取公开新闻与搜索源，将竞品动作、行业趋势、金价风险、珠宝新品和海外市场信号转成
+          机会判断、风险预警、会议追问和下周行动建议。
+        </p>
+        <div class="hero-actions">
+          <button id="briefBtn" class="primary" type="button">生成董事长简报</button>
+          <button id="refreshBtn" class="secondary" type="button">重新读取数据</button>
+        </div>
+      </div>
+      <div class="radar-panel">
+        <div class="radar" aria-hidden="true">
+          <span>竞品</span>
+          <span>金价</span>
+          <span>新品</span>
+          <span>出海</span>
+          <strong>AI</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="brief" id="briefBox" hidden>
+      <h2>1 分钟董事长简报</h2>
+      <p id="briefText"></p>
+    </section>
+
+    <section class="metrics" aria-label="战略情报指数">
+      <article>
+        <span>今日情报</span>
+        <strong id="totalItems">-</strong>
+        <p>自动抓取后去重排序</p>
+      </article>
+      <article>
+        <span>机会指数</span>
+        <strong id="opportunityIndex">-</strong>
+        <p>新品、年轻化、出海、品牌资产</p>
+      </article>
+      <article>
+        <span>风险指数</span>
+        <strong id="riskIndex">-</strong>
+        <p>金价、库存、加盟、经营压力</p>
+      </article>
+      <article>
+        <span>高优先级</span>
+        <strong id="highPriority">-</strong>
+        <p>建议董事长助理优先跟进</p>
+      </article>
+    </section>
+
+    <nav class="tabs" aria-label="情报分类">
+      <button class="tab active" type="button" data-filter="all">全部</button>
+      <button class="tab" type="button" data-filter="竞品观察">竞品观察</button>
+      <button class="tab" type="button" data-filter="战略机会">战略机会</button>
+      <button class="tab" type="button" data-filter="经营风险">经营风险</button>
+      <button class="tab" type="button" data-filter="出海机会">出海机会</button>
+      <button class="tab" type="button" data-filter="资本市场">资本市场</button>
+    </nav>
+
+    <section class="layout">
+      <div>
+        <div class="section-title">
+          <h2>最新情报信号</h2>
+          <p>每张卡片都保留原始来源链接，并给出 AI 生成的影响判断和建议动作。</p>
+        </div>
+        <div id="signals" class="cards"></div>
+      </div>
+
+      <aside>
+        <div class="side-card">
+          <h2>董事长本周可追问</h2>
+          <ol id="questions"></ol>
+        </div>
+        <div class="side-card">
+          <h2>下周行动清单</h2>
+          <ul id="actions"></ul>
+        </div>
+        <div class="side-card">
+          <h2>数据源状态</h2>
+          <p id="sourceStatus">加载中</p>
+        </div>
+      </aside>
+    </section>
+
+    <footer>
+      本网站基于公开网络情报自动生成，正式经营决策前必须人工复核，并结合公司内部销售、库存、会员、渠道和财务数据。
+    </footer>
+  </main>
+
+  <script src="./assets/app.js"></script>
+</body>
+</html>

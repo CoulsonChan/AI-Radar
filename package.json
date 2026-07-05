@@ -1,0 +1,11 @@
+{
+  "name": "chj-ai-strategic-radar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "collect": "node scripts/collect-intel.mjs",
+    "collect:dry": "node scripts/collect-intel.mjs --dry-run",
+    "check": "node --check scripts/collect-intel.mjs"
+  }
+}
