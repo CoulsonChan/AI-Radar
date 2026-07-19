@@ -1,6 +1,7 @@
 const state = {
   data: null,
-  filter: "all"
+  filter: "all",
+  productBrand: "all"
 };
 
 const el = {
@@ -16,6 +17,9 @@ const el = {
   actions: document.querySelector("#actions"),
   sourceStatus: document.querySelector("#sourceStatus"),
   officialCompetitors: document.querySelector("#officialCompetitors"),
+  products: document.querySelector("#products"),
+  productFilters: document.querySelector("#productFilters"),
+  productStatus: document.querySelector("#productStatus"),
   tabs: document.querySelectorAll(".tab"),
   briefBtn: document.querySelector("#briefBtn"),
   briefBox: document.querySelector("#briefBox"),
@@ -42,11 +46,86 @@ function render() {
   el.riskIndex.textContent = summary.riskIndex ?? "-";
   el.briefText.textContent = buildBrief(data.signals ?? []);
   renderGold(data.gold);
+  renderProducts(data.products ?? [], data.productCollection ?? {});
   renderOfficialCompetitors(data.officialCompetitors ?? [], data.signals ?? []);
   renderSignals();
   renderQuestions(data.signals ?? []);
   renderActions(data.signals ?? []);
   renderSourceStatus(data);
+}
+
+function renderProducts(products, collection) {
+  const brands = [...new Set(products.map((item) => item.brand).filter(Boolean))];
+  if (state.productBrand !== "all" && !brands.includes(state.productBrand)) {
+    state.productBrand = "all";
+  }
+
+  el.productFilters.innerHTML = ["all", ...brands].map((brand) => `
+    <button class="product-filter${state.productBrand === brand ? " active" : ""}" type="button" data-brand="${escapeHtml(brand)}">
+      ${brand === "all" ? "全部品牌" : escapeHtml(brand)}
+    </button>
+  `).join("");
+
+  el.productFilters.querySelectorAll(".product-filter").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.productBrand = button.dataset.brand;
+      renderProducts(products, collection);
+    });
+  });
+
+  const visible = state.productBrand === "all"
+    ? interleaveProducts(products, brands).slice(0, 12)
+    : products.filter((item) => item.brand === state.productBrand).slice(0, 12);
+  const totalStores = collection.stores?.length ?? 0;
+  const successfulStores = collection.successfulStores ?? 0;
+  const newItems = products.filter((item) => item.isNew).length;
+  const sourceText = totalStores ? `${successfulStores}/${totalStores} 个官网来源正常` : "等待官网采集";
+  el.productStatus.textContent = `${newItems} 个近 72 小时新发现 · ${sourceText}`;
+
+  if (!visible.length) {
+    const storeLinks = (collection.stores ?? []).map((store) => `
+      <a href="${safeAttr(store.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(store.brand)}</a>
+    `).join(" · ");
+    el.products.innerHTML = `<div class="empty product-empty">尚未完成首次商品采集。${storeLinks ? `可先查看 ${storeLinks}` : ""}</div>`;
+    return;
+  }
+
+  el.products.innerHTML = visible.map((item) => {
+    const observedAt = item.sourcePublishedAt ?? item.firstSeenAt;
+    const dateLabel = item.sourcePublishedAt ? "官网日期" : "首次发现";
+    const image = item.image
+      ? `<img src="${safeAttr(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" referrerpolicy="no-referrer">`
+      : `<div class="product-placeholder">${escapeHtml(item.brand)}</div>`;
+    return `
+      <article class="product-card">
+        <a class="product-image" href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">
+          ${image}
+          ${item.isNew ? "<span class=\"new-badge\">新发现</span>" : ""}
+        </a>
+        <div class="product-content">
+          <div class="product-brand">${escapeHtml(item.brand)} · ${escapeHtml(item.platform ?? "品牌官网")}</div>
+          <h3><a href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a></h3>
+          <div class="product-foot">
+            <strong>${escapeHtml(item.priceLabel ?? "价格见官网")}</strong>
+            <span>${dateLabel} ${formatShortDate(new Date(observedAt ?? Date.now()))}</span>
+          </div>
+        </div>
+      </article>
+    `;
+  }).join("");
+}
+
+function interleaveProducts(products, brands) {
+  const queues = new Map(brands.map((brand) => [brand, products.filter((item) => item.brand === brand)]));
+  const result = [];
+  const maxLength = Math.max(0, ...[...queues.values()].map((items) => items.length));
+  for (let index = 0; index < maxLength; index += 1) {
+    for (const brand of brands) {
+      const item = queues.get(brand)?.[index];
+      if (item) result.push(item);
+    }
+  }
+  return result;
 }
 
 async function renderGold(fallbackGold) {
@@ -214,6 +293,15 @@ function formatDate(date) {
     day: "2-digit",
     hour: "2-digit",
     minute: "2-digit"
+  });
+}
+
+function formatShortDate(date) {
+  if (Number.isNaN(date.getTime())) return "未知";
+  return date.toLocaleDateString("zh-CN", {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit"
   });
 }
 

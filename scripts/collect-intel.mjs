@@ -10,6 +10,7 @@ const ARCHIVE_DIR = path.join(ROOT, "docs", "data", "archive");
 const DRY_RUN = process.argv.includes("--dry-run");
 const MAX_PER_FEED = 8;
 const MAX_TOTAL = 48;
+const PRODUCT_NEW_WINDOW_HOURS = 72;
 const GOLD_SOURCES = [
   {
     id: "gc-futures",
@@ -94,6 +95,210 @@ function extractHtmlText(html) {
 function extractTitle(html, fallback) {
   const title = stripHtml(html.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] ?? "");
   return title || fallback;
+}
+
+function absoluteUrl(value, baseUrl) {
+  const cleaned = decodeXml(String(value ?? ""))
+    .replaceAll("\\/", "/")
+    .replaceAll("\\u002F", "/")
+    .trim();
+  if (!cleaned || cleaned.startsWith("data:")) return null;
+  try {
+    return new URL(cleaned.startsWith("//") ? `https:${cleaned}` : cleaned, baseUrl).href;
+  } catch {
+    return null;
+  }
+}
+
+function readAttribute(attributes, name) {
+  const match = attributes.match(new RegExp(`${name}=["']([^"']+)["']`, "i"));
+  return decodeXml(match?.[1] ?? "");
+}
+
+function cleanProductTitle(value) {
+  return stripHtml(value)
+    .replace(/^\s*(?:新品|New)\s*/i, "")
+    .replace(/\s+-\s+Swarovski,?\s*\d+\s*$/i, "")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function dateFromUploadPath(imageUrl) {
+  const raw = imageUrl?.match(/\/upload\/(20\d{2})(\d{2})(\d{2})\//);
+  if (!raw) return null;
+  const parsed = new Date(`${raw[1]}-${raw[2]}-${raw[3]}T00:00:00+08:00`);
+  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
+}
+
+function createProduct(store, fields, previousById) {
+  const now = new Date().toISOString();
+  const id = `${store.id}:${fields.productId}`;
+  const previous = previousById.get(id);
+  const firstSeenAt = previous?.firstSeenAt ?? now;
+  const ageHours = Math.max(0, (Date.now() - Date.parse(firstSeenAt)) / 36e5);
+  return {
+    id,
+    productId: fields.productId,
+    storeId: store.id,
+    brand: store.brand,
+    storeName: store.name,
+    platform: store.platform,
+    title: fields.title || previous?.title || "未命名商品",
+    price: fields.price ?? previous?.price ?? null,
+    currency: fields.currency ?? previous?.currency ?? null,
+    priceLabel: fields.priceLabel ?? previous?.priceLabel ?? null,
+    url: fields.url || previous?.url || store.storeUrl,
+    image: fields.image || previous?.image || null,
+    listedOrder: fields.listedOrder,
+    sourcePublishedAt: fields.sourcePublishedAt ?? previous?.sourcePublishedAt ?? null,
+    firstSeenAt,
+    lastSeenAt: now,
+    isNew: ageHours <= PRODUCT_NEW_WINDOW_HOURS,
+    official: true
+  };
+}
+
+function parseCtfProducts(html, store, previousById) {
+  const products = [];
+  const seen = new Set();
+  const anchorPattern = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(anchorPattern)) {
+    const attributes = match[1];
+    const href = readAttribute(attributes, "href");
+    const idMatch = href.match(/\/jewelry\/[^"']*\/info_(\d+)\.(?:html|aspx)/i);
+    if (!idMatch || seen.has(idMatch[1]) || !/<h3\b/i.test(match[2])) continue;
+    const title = cleanProductTitle(match[2].match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] ?? "");
+    const imageValue = match[2].match(/<img\b[^>]*(?:src|data-src|data-original)=["']([^"']+)["']/i)?.[1];
+    const image = absoluteUrl(imageValue, store.url);
+    if (!title) continue;
+    seen.add(idMatch[1]);
+    products.push(createProduct(store, {
+      productId: idMatch[1],
+      title,
+      priceLabel: "官网未展示价格",
+      url: absoluteUrl(href, store.url),
+      image,
+      listedOrder: products.length + 1,
+      sourcePublishedAt: dateFromUploadPath(image)
+    }, previousById));
+    if (products.length >= (store.maxItems ?? 8)) break;
+  }
+  return products;
+}
+
+function parseSwarovskiProducts(html, store, previousById) {
+  const products = [];
+  const seen = new Set();
+  const anchorPattern = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
+  for (const match of html.matchAll(anchorPattern)) {
+    const attributes = match[1];
+    const href = readAttribute(attributes, "href");
+    if (!href.includes("/p-")) continue;
+    const variant = readAttribute(attributes, "data-gtm-product-variant")
+      || href.match(/[?&]variantID=(\d+)/i)?.[1]
+      || readAttribute(attributes, "data-gtm-product-id");
+    if (!variant || seen.has(variant)) continue;
+    const alt = match[2].match(/<img\b[^>]*alt=["']([^"']+)["']/i)?.[1] ?? "";
+    const title = cleanProductTitle(alt);
+    const price = Number(readAttribute(attributes, "data-gtm-product-price"));
+    const srcset = match[2].match(/<source\b[^>]*srcset=["']([^"']+)["']/i)?.[1];
+    const imageValue = srcset?.split(/\s+\d+(?:\.\d+)?x\s*,/)[0]?.trim()
+      || match[2].match(/<img\b[^>]*(?:src|data-src)=["']([^"']+)["']/i)?.[1];
+    if (!title) continue;
+    seen.add(variant);
+    products.push(createProduct(store, {
+      productId: variant,
+      title,
+      price: Number.isFinite(price) ? price : null,
+      currency: Number.isFinite(price) ? "CNY" : null,
+      priceLabel: Number.isFinite(price) ? `${price.toLocaleString("zh-CN")} 元` : null,
+      url: absoluteUrl(href, store.url),
+      image: absoluteUrl(imageValue, store.url),
+      listedOrder: products.length + 1
+    }, previousById));
+    if (products.length >= (store.maxItems ?? 8)) break;
+  }
+  return products;
+}
+
+function parseShopifyProducts(html, store, previousById) {
+  const normalized = html.replaceAll("\\/", "/");
+  const products = [];
+  const seen = new Set();
+  const headingPattern = /<h3\b[^>]*class=["'][^"']*card__heading[^"']*["'][^>]*>([\s\S]*?)<\/h3>/gi;
+  for (const match of normalized.matchAll(headingPattern)) {
+    const heading = match[1];
+    const href = heading.match(/<a\b[^>]*href=["']([^"']*\/products\/([a-z0-9][a-z0-9-]+)[^"']*)["'][^>]*>/i);
+    const slug = href?.[2];
+    const title = cleanProductTitle(heading);
+    if (!slug || seen.has(slug) || !title) continue;
+    const start = Math.max(0, (match.index ?? 0) - 5200);
+    const end = Math.min(normalized.length, (match.index ?? 0) + 3600);
+    const before = normalized.slice(start, match.index ?? 0);
+    const after = normalized.slice(match.index ?? 0, end);
+    const imageTags = [...before.matchAll(/<img\b[^>]*>/gi)];
+    const imageAttributes = [...imageTags].reverse()
+      .find((candidate) => cleanProductTitle(readAttribute(candidate[0], "alt")) === title)?.[0]
+      ?? [...imageTags].reverse().find((candidate) => /alt=["'][^"']{4,}["']/i.test(candidate[0]))?.[0]
+      ?? "";
+    const imageValue = readAttribute(imageAttributes, "src")
+      || readAttribute(imageAttributes, "data-src")
+      || readAttribute(imageAttributes, "srcset").split(/[ ,]/)[0];
+    const priceText = stripHtml(after).match(/(?:From\s+)?(?:HK\$|US\$|\$)\s?[\d,.]+(?:\.\d{2})?(?:\s+(?:HKD|USD))?/i)?.[0] ?? null;
+    seen.add(slug);
+    products.push(createProduct(store, {
+      productId: slug,
+      title,
+      priceLabel: priceText,
+      currency: priceText?.includes("HK$") || priceText?.includes("HKD") ? "HKD" : priceText ? "USD" : null,
+      url: absoluteUrl(href[1], store.url),
+      image: absoluteUrl(imageValue, store.url),
+      listedOrder: products.length + 1
+    }, previousById));
+    if (products.length >= (store.maxItems ?? 8)) break;
+  }
+  return products;
+}
+
+function parseTmallProducts(html, store, previousById) {
+  const normalized = decodeXml(html).replaceAll("\\/", "/").replaceAll("\\u002F", "/");
+  const products = [];
+  const seen = new Set();
+  const linkPattern = /(?:https?:)?\/\/detail\.(?:tmall|taobao)\.com\/item\.htm[^"'<>\s]*?[?&]id=(\d+)[^"'<>\s]*/gi;
+  for (const match of normalized.matchAll(linkPattern)) {
+    const productId = match[1];
+    if (seen.has(productId)) continue;
+    const start = Math.max(0, (match.index ?? 0) - 1800);
+    const end = Math.min(normalized.length, (match.index ?? 0) + 2600);
+    const block = normalized.slice(start, end);
+    const imageTag = [...block.matchAll(/<img\b[^>]*>/gi)].find((candidate) => /alt=["'][^"']{4,}["']/i.test(candidate[0]));
+    const title = cleanProductTitle(readAttribute(imageTag?.[0] ?? "", "alt"));
+    const imageValue = readAttribute(imageTag?.[0] ?? "", "data-ks-lazyload")
+      || readAttribute(imageTag?.[0] ?? "", "data-src")
+      || readAttribute(imageTag?.[0] ?? "", "src");
+    const priceText = stripHtml(block).match(/(?:¥|￥)\s?[\d,.]+(?:\.\d{1,2})?/i)?.[0] ?? null;
+    if (!title) continue;
+    seen.add(productId);
+    products.push(createProduct(store, {
+      productId,
+      title,
+      priceLabel: priceText,
+      currency: priceText ? "CNY" : null,
+      url: absoluteUrl(match[0], store.url),
+      image: absoluteUrl(imageValue, store.url),
+      listedOrder: products.length + 1
+    }, previousById));
+    if (products.length >= (store.maxItems ?? 8)) break;
+  }
+  return products;
+}
+
+function parseStoreProducts(html, store, previousById, parserType = store.type) {
+  if (parserType === "ctf-html") return parseCtfProducts(html, store, previousById);
+  if (parserType === "swarovski-html") return parseSwarovskiProducts(html, store, previousById);
+  if (parserType === "shopify-html") return parseShopifyProducts(html, store, previousById);
+  if (parserType === "tmall-html") return parseTmallProducts(html, store, previousById);
+  throw new Error(`Unsupported product source type: ${parserType}`);
 }
 
 function parseOfficialPage(html, source) {
@@ -249,6 +454,52 @@ async function collectOfficialPage(source) {
   }
 }
 
+async function fetchProductHtml(url, store) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 18000);
+  try {
+    const response = await fetch(url, {
+      signal: controller.signal,
+      redirect: "follow",
+      headers: {
+        "accept": "text/html,application/xhtml+xml,application/json;q=0.9,*/*;q=0.8",
+        "accept-language": "zh-CN,zh;q=0.9,en;q=0.7",
+        "cache-control": "no-cache",
+        "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/126.0 Safari/537.36 CHJ-Radar/1.0",
+        "referer": store.storeUrl ?? url
+      }
+    });
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    const html = await response.text();
+    if (/login\.taobao\.com|sec\.taobao\.com|punish/i.test(response.url)
+      || /<title[^>]*>[^<]*(?:安全验证|验证码|登录淘宝)[^<]*<\/title>/i.test(html.slice(0, 12000))) {
+      throw new Error("页面要求登录或安全验证");
+    }
+    return html;
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function collectProductStore(store, previousById) {
+  const attempts = [
+    { url: store.url, parserType: store.type },
+    ...(store.fallbackUrl ? [{ url: store.fallbackUrl, parserType: "tmall-html" }] : [])
+  ];
+  const failures = [];
+  for (const attempt of attempts) {
+    try {
+      const html = await fetchProductHtml(attempt.url, store);
+      const products = parseStoreProducts(html, store, previousById, attempt.parserType);
+      if (!products.length) throw new Error("页面可访问，但未识别到商品卡片");
+      return { store, products, sourceUrl: attempt.url };
+    } catch (error) {
+      failures.push(`${attempt.url}: ${error.message}`);
+    }
+  }
+  throw new Error(failures.join(" | "));
+}
+
 async function collectGoldPrice() {
   for (const source of GOLD_SOURCES) {
     try {
@@ -298,13 +549,20 @@ async function collectGoldPrice() {
 async function main() {
   const sourceConfig = JSON.parse(await fs.readFile(SOURCES_PATH, "utf8"));
   if (DRY_RUN) {
-    console.log(`Dry run OK. ${sourceConfig.feeds.length} feeds configured.`);
+    console.log(`Dry run OK. ${sourceConfig.feeds.length} feeds and ${(sourceConfig.productStores ?? []).length} product stores configured.`);
     return;
   }
 
+  const previousData = await fs.readFile(OUT_PATH, "utf8")
+    .then((value) => JSON.parse(value))
+    .catch(() => ({}));
+  const previousProducts = previousData.products ?? [];
+  const previousById = new Map(previousProducts.map((item) => [item.id, item]));
   const gold = await collectGoldPrice();
   const settled = await Promise.allSettled(sourceConfig.feeds.map(collectFeed));
   const officialSettled = await Promise.allSettled((sourceConfig.officialCompetitors ?? []).map(collectOfficialPage));
+  const productStores = sourceConfig.productStores ?? [];
+  const productSettled = await Promise.allSettled(productStores.map((store) => collectProductStore(store, previousById)));
   const errors = settled
     .map((result, index) => ({ result, source: sourceConfig.feeds[index] }))
     .filter(({ result }) => result.status === "rejected")
@@ -313,6 +571,47 @@ async function main() {
     .map((result, index) => ({ result, source: sourceConfig.officialCompetitors?.[index] }))
     .filter(({ result }) => result.status === "rejected")
     .map(({ result, source }) => ({ source: source?.name ?? "official", error: result.reason?.message ?? String(result.reason) }));
+  const productErrors = productSettled
+    .map((result, index) => ({ result, source: productStores[index] }))
+    .filter(({ result }) => result.status === "rejected")
+    .map(({ result, source }) => ({ source: source?.name ?? "product-store", type: "product", error: result.reason?.message ?? String(result.reason) }));
+
+  const successfulProductResults = productSettled
+    .filter((result) => result.status === "fulfilled")
+    .map((result) => result.value);
+  const successfulStoreIds = new Set(successfulProductResults.map((result) => result.store.id));
+  const collectedProducts = successfulProductResults.flatMap((result) => result.products);
+  const retainedProducts = previousProducts
+    .filter((product) => !successfulStoreIds.has(product.storeId))
+    .map((product) => ({
+      ...product,
+      isNew: Math.max(0, (Date.now() - Date.parse(product.firstSeenAt ?? 0)) / 36e5) <= PRODUCT_NEW_WINDOW_HOURS
+    }));
+  const products = [...collectedProducts, ...retainedProducts]
+    .sort((a, b) => Number(b.isNew) - Number(a.isNew)
+      || Date.parse(b.sourcePublishedAt ?? b.firstSeenAt) - Date.parse(a.sourcePublishedAt ?? a.firstSeenAt)
+      || a.listedOrder - b.listedOrder)
+    .slice(0, 36);
+  const productCollection = {
+    checkedAt: new Date().toISOString(),
+    totalItems: products.length,
+    newItems: products.filter((product) => product.isNew).length,
+    successfulStores: successfulStoreIds.size,
+    failedStores: productErrors.length,
+    stores: productStores.map((store, index) => {
+      const result = productSettled[index];
+      return {
+        id: store.id,
+        brand: store.brand,
+        name: store.name,
+        platform: store.platform,
+        url: store.storeUrl ?? store.url,
+        status: result?.status === "fulfilled" ? "ok" : "failed",
+        count: result?.status === "fulfilled" ? result.value.products.length : previousProducts.filter((item) => item.storeId === store.id).length,
+        message: result?.status === "rejected" ? (result.reason?.message ?? String(result.reason)) : null
+      };
+    })
+  };
 
   const rawSignals = [
     ...officialSettled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []),
@@ -333,9 +632,11 @@ async function main() {
     generatedAt: new Date().toISOString(),
     mode,
     gold,
+    products,
+    productCollection,
     officialCompetitors: sourceConfig.officialCompetitors ?? [],
     summary: buildSummary(signals),
-    errors: [...errors, ...officialErrors],
+    errors: [...errors, ...officialErrors, ...productErrors],
     signals
   };
 
@@ -343,7 +644,7 @@ async function main() {
   await fs.writeFile(OUT_PATH, `${JSON.stringify(payload, null, 2)}\n`);
   const day = new Date().toISOString().slice(0, 10);
   await fs.writeFile(path.join(ARCHIVE_DIR, `${day}.json`), `${JSON.stringify(payload, null, 2)}\n`);
-  console.log(`Collected ${signals.length} signals. ${errors.length} source errors.`);
+  console.log(`Collected ${signals.length} signals and ${products.length} products. ${errors.length + officialErrors.length + productErrors.length} source errors.`);
 }
 
 main().catch((error) => {

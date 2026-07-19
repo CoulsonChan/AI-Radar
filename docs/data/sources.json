@@ -1,12 +1,45 @@
 {
   "updatedAt": "2026-07-05",
   "note": "公开网络情报源配置。竞品优先使用官方网站/官方投资者关系/官方新闻页；宏观趋势仍使用公开新闻 RSS。正式商用前建议补充公司内部经营数据、券商研报、公告接口、舆情平台和社媒数据源。",
+  "productStores": [
+    {
+      "id": "ctf-official-products",
+      "brand": "周大福",
+      "name": "周大福官方网站",
+      "platform": "品牌官网",
+      "type": "ctf-html",
+      "url": "https://www.ctf.com.cn/zh-hans/jewelry/index.html",
+      "storeUrl": "https://www.ctf.com.cn/zh-hans/jewelry/index.html",
+      "fallbackUrl": "https://ctf.tmall.com/search.htm?search=y&orderType=newOn_desc&tsearch=y&scene=taobao_shop",
+      "maxItems": 8
+    },
+    {
+      "id": "swarovski-new-in",
+      "brand": "Swarovski",
+      "name": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "type": "swarovski-html",
+      "url": "https://www.swarovski.com.cn/zh-CN/c-swa-root/%E7%B1%BB%E5%88%AB/f/flags/fl-newin/flags/fl-new/",
+      "storeUrl": "https://www.swarovski.com.cn/zh-CN/c-swa-root/%E7%B1%BB%E5%88%AB/f/flags/fl-newin/flags/fl-new/",
+      "maxItems": 8
+    },
+    {
+      "id": "chowtaiseng-new-arrivals",
+      "brand": "周大生",
+      "name": "ChowTaiSeng New Arrivals",
+      "platform": "品牌官网",
+      "type": "shopify-html",
+      "url": "https://shop.chowtaiseng.com/collections/new-arrivals?sort_by=created-descending",
+      "storeUrl": "https://shop.chowtaiseng.com/collections/new-arrivals",
+      "maxItems": 8
+    }
+  ],
   "officialCompetitors": [
     {
       "id": "ctf",
       "name": "周大福",
-      "url": "https://www.ctfjewellerygroup.com/en/media/press-releases/",
-      "backupUrl": "https://www.ctfjewellerygroup.com/en/investor-relations/",
+      "url": "https://www.ctf.com.cn/zh-hans/about/index.html",
+      "backupUrl": "https://www.ctfjewellerygroup.com/sc/investors/company-announcements.html",
       "focus": "产品、门店网络、财务表现、品牌年轻化"
     },
     {
