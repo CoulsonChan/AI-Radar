@@ -73,14 +73,15 @@ function renderProducts(products, collection) {
     });
   });
 
-  const visible = state.productBrand === "all"
-    ? interleaveProducts(products, brands).slice(0, 12)
-    : products.filter((item) => item.brand === state.productBrand).slice(0, 12);
+  const visible = (state.productBrand === "all"
+    ? products
+    : products.filter((item) => item.brand === state.productBrand))
+    .slice(0, state.productBrand === "all" ? 24 : 12);
   const totalStores = collection.stores?.length ?? 0;
   const successfulStores = collection.successfulStores ?? 0;
   const newItems = products.filter((item) => item.isNew).length;
   const sourceText = totalStores ? `${successfulStores}/${totalStores} 个官网来源正常` : "等待官网采集";
-  el.productStatus.textContent = `${newItems} 个近 72 小时新发现 · ${sourceText}`;
+  el.productStatus.textContent = `按官网发布时间降序（无日期按首次发现） · ${newItems} 个近 72 小时新发现 · ${sourceText}`;
 
   if (!visible.length) {
     const storeLinks = (collection.stores ?? []).map((store) => `
@@ -92,7 +93,7 @@ function renderProducts(products, collection) {
 
   el.products.innerHTML = visible.map((item) => {
     const observedAt = item.sourcePublishedAt ?? item.firstSeenAt;
-    const dateLabel = item.sourcePublishedAt ? "官网日期" : "首次发现";
+    const dateLabel = item.sourcePublishedAt ? "官网发布" : "首次发现";
     const image = item.image
       ? `<img src="${safeAttr(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" referrerpolicy="no-referrer">`
       : `<div class="product-placeholder">${escapeHtml(item.brand)}</div>`;
@@ -113,19 +114,6 @@ function renderProducts(products, collection) {
       </article>
     `;
   }).join("");
-}
-
-function interleaveProducts(products, brands) {
-  const queues = new Map(brands.map((brand) => [brand, products.filter((item) => item.brand === brand)]));
-  const result = [];
-  const maxLength = Math.max(0, ...[...queues.values()].map((items) => items.length));
-  for (let index = 0; index < maxLength; index += 1) {
-    for (const brand of brands) {
-      const item = queues.get(brand)?.[index];
-      if (item) result.push(item);
-    }
-  }
-  return result;
 }
 
 async function renderGold(fallbackGold) {

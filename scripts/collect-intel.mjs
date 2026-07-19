@@ -123,13 +123,6 @@ function cleanProductTitle(value) {
     .trim();
 }
 
-function dateFromUploadPath(imageUrl) {
-  const raw = imageUrl?.match(/\/upload\/(20\d{2})(\d{2})(\d{2})\//);
-  if (!raw) return null;
-  const parsed = new Date(`${raw[1]}-${raw[2]}-${raw[3]}T00:00:00+08:00`);
-  return Number.isNaN(parsed.getTime()) ? null : parsed.toISOString();
-}
-
 function createProduct(store, fields, previousById) {
   const now = new Date().toISOString();
   const id = `${store.id}:${fields.productId}`;
@@ -150,7 +143,9 @@ function createProduct(store, fields, previousById) {
     url: fields.url || previous?.url || store.storeUrl,
     image: fields.image || previous?.image || null,
     listedOrder: fields.listedOrder,
-    sourcePublishedAt: fields.sourcePublishedAt ?? previous?.sourcePublishedAt ?? null,
+    sourcePublishedAt: Object.hasOwn(fields, "sourcePublishedAt")
+      ? fields.sourcePublishedAt
+      : previous?.sourcePublishedAt ?? null,
     firstSeenAt,
     lastSeenAt: now,
     isNew: ageHours <= PRODUCT_NEW_WINDOW_HOURS,
@@ -179,7 +174,7 @@ function parseCtfProducts(html, store, previousById) {
       url: absoluteUrl(href, store.url),
       image,
       listedOrder: products.length + 1,
-      sourcePublishedAt: dateFromUploadPath(image)
+      sourcePublishedAt: null
     }, previousById));
     if (products.length >= (store.maxItems ?? 8)) break;
   }
@@ -260,6 +255,71 @@ function parseShopifyProducts(html, store, previousById) {
   return products;
 }
 
+function parseShopifyJsonProducts(json, store, previousById) {
+  const data = JSON.parse(json);
+  const sourceProducts = Array.isArray(data.products) ? data.products : [];
+  return sourceProducts
+    .sort((a, b) => Date.parse(b.published_at ?? b.created_at ?? 0) - Date.parse(a.published_at ?? a.created_at ?? 0))
+    .slice(0, store.maxItems ?? 8)
+    .map((item, index) => {
+      const variant = item.variants?.find((candidate) => candidate.available) ?? item.variants?.[0];
+      const price = Number(variant?.price);
+      const publishedAt = item.published_at ?? item.created_at;
+      return createProduct(store, {
+        productId: String(item.id),
+        title: cleanProductTitle(item.title),
+        price: Number.isFinite(price) ? price : null,
+        currency: Number.isFinite(price) ? store.currency ?? null : null,
+        priceLabel: Number.isFinite(price)
+          ? `${store.currencySymbol ?? ""}${price.toLocaleString("zh-CN", { maximumFractionDigits: 2 })}${store.currencySuffix ?? ""}`
+          : null,
+        url: absoluteUrl(`/products/${item.handle}`, store.storeUrl ?? store.url),
+        image: absoluteUrl(item.images?.[0]?.src ?? item.image?.src, store.storeUrl ?? store.url),
+        listedOrder: index + 1,
+        sourcePublishedAt: Number.isNaN(Date.parse(publishedAt)) ? null : new Date(publishedAt).toISOString()
+      }, previousById);
+    });
+}
+
+function parseLukfookApiProducts(json, store, previousById) {
+  const data = JSON.parse(json);
+  const sourceProducts = data.DataResponse?.itemList;
+  if (!Array.isArray(sourceProducts)) return [];
+  return sourceProducts.slice(0, store.maxItems ?? 8).map((item, index) => {
+    const price = Number(item.fprice);
+    return createProduct(store, {
+      productId: item.fmould || item.fid,
+      title: cleanProductTitle(item.fname),
+      price: Number.isFinite(price) ? price : null,
+      currency: Number.isFinite(price) ? "CNY" : null,
+      priceLabel: Number.isFinite(price) ? `¥ ${price.toLocaleString("zh-CN")}` : null,
+      url: absoluteUrl(`/lfg-category/${item.fcategoryparentename || item.fcategoryename}/${item.fmould}`, store.storeUrl),
+      image: absoluteUrl(item.fimage, store.imageBaseUrl ?? store.storeUrl),
+      listedOrder: index + 1,
+      sourcePublishedAt: Number.isNaN(Date.parse(item.date)) ? null : new Date(item.date).toISOString()
+    }, previousById);
+  });
+}
+
+function parseChowSangSangJsonProducts(json, store, previousById) {
+  const data = JSON.parse(json);
+  const sourceProducts = data.productRefinements?.[0]?.productList;
+  if (!Array.isArray(sourceProducts)) return [];
+  return sourceProducts.slice(0, store.maxItems ?? 8).map((item, index) => {
+    const price = Number(item.price ?? item.originalPrice);
+    return createProduct(store, {
+      productId: item.productCode || item.documentId,
+      title: cleanProductTitle(item.name2 || item.name),
+      price: Number.isFinite(price) ? price : null,
+      currency: Number.isFinite(price) ? "HKD" : null,
+      priceLabel: Number.isFinite(price) ? `HK$ ${price.toLocaleString("zh-CN")}` : null,
+      url: absoluteUrl(`${store.productBaseUrl?.replace(/\/$/, "") ?? ""}${item.productDetailUrl}`, store.storeUrl),
+      image: absoluteUrl(item.imageUrl, store.storeUrl),
+      listedOrder: index + 1
+    }, previousById);
+  });
+}
+
 function parseTmallProducts(html, store, previousById) {
   const normalized = decodeXml(html).replaceAll("\\/", "/").replaceAll("\\u002F", "/");
   const products = [];
@@ -297,6 +357,9 @@ function parseStoreProducts(html, store, previousById, parserType = store.type) 
   if (parserType === "ctf-html") return parseCtfProducts(html, store, previousById);
   if (parserType === "swarovski-html") return parseSwarovskiProducts(html, store, previousById);
   if (parserType === "shopify-html") return parseShopifyProducts(html, store, previousById);
+  if (parserType === "shopify-json") return parseShopifyJsonProducts(html, store, previousById);
+  if (parserType === "lukfook-api") return parseLukfookApiProducts(html, store, previousById);
+  if (parserType === "chowsangsang-json") return parseChowSangSangJsonProducts(html, store, previousById);
   if (parserType === "tmall-html") return parseTmallProducts(html, store, previousById);
   throw new Error(`Unsupported product source type: ${parserType}`);
 }
@@ -454,11 +517,11 @@ async function collectOfficialPage(source) {
   }
 }
 
-async function fetchProductHtml(url, store) {
+async function fetchProductHtml(url, store, parserType) {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), 18000);
   try {
-    const response = await fetch(url, {
+    const request = {
       signal: controller.signal,
       redirect: "follow",
       headers: {
@@ -468,7 +531,29 @@ async function fetchProductHtml(url, store) {
         "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/126.0 Safari/537.36 CHJ-Radar/1.0",
         "referer": store.storeUrl ?? url
       }
-    });
+    };
+    if (parserType === "lukfook-api") {
+      request.method = "POST";
+      request.headers["content-type"] = "application/x-www-form-urlencoded; charset=UTF-8";
+      request.body = new URLSearchParams({
+        DataRequest: JSON.stringify({
+          frow: store.maxItems ?? 8,
+          fpage: 1,
+          fcounttypeList: [],
+          applicationidList: [],
+          textureidList: [],
+          categoryidList: [],
+          seriesidList: [],
+          priceFlage: "",
+          dateFlage: 1,
+          fsalesFlage: "",
+          startPrice: null,
+          endPrice: null
+        }),
+        SID: ""
+      });
+    }
+    const response = await fetch(url, request);
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     const html = await response.text();
     if (/login\.taobao\.com|sec\.taobao\.com|punish/i.test(response.url)
@@ -489,7 +574,7 @@ async function collectProductStore(store, previousById) {
   const failures = [];
   for (const attempt of attempts) {
     try {
-      const html = await fetchProductHtml(attempt.url, store);
+      const html = await fetchProductHtml(attempt.url, store, attempt.parserType);
       const products = parseStoreProducts(html, store, previousById, attempt.parserType);
       if (!products.length) throw new Error("页面可访问，但未识别到商品卡片");
       return { store, products, sourceUrl: attempt.url };
@@ -588,10 +673,9 @@ async function main() {
       isNew: Math.max(0, (Date.now() - Date.parse(product.firstSeenAt ?? 0)) / 36e5) <= PRODUCT_NEW_WINDOW_HOURS
     }));
   const products = [...collectedProducts, ...retainedProducts]
-    .sort((a, b) => Number(b.isNew) - Number(a.isNew)
-      || Date.parse(b.sourcePublishedAt ?? b.firstSeenAt) - Date.parse(a.sourcePublishedAt ?? a.firstSeenAt)
+    .sort((a, b) => Date.parse(b.sourcePublishedAt ?? b.firstSeenAt) - Date.parse(a.sourcePublishedAt ?? a.firstSeenAt)
       || a.listedOrder - b.listedOrder)
-    .slice(0, 36);
+    .slice(0, 48);
   const productCollection = {
     checkedAt: new Date().toISOString(),
     totalItems: products.length,

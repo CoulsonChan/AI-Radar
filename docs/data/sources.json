@@ -28,9 +28,45 @@
       "brand": "周大生",
       "name": "ChowTaiSeng New Arrivals",
       "platform": "品牌官网",
-      "type": "shopify-html",
-      "url": "https://shop.chowtaiseng.com/collections/new-arrivals?sort_by=created-descending",
+      "type": "shopify-json",
+      "url": "https://shop.chowtaiseng.com/collections/new-arrivals/products.json?limit=8",
       "storeUrl": "https://shop.chowtaiseng.com/collections/new-arrivals",
+      "currency": "USD",
+      "currencySymbol": "US$ ",
+      "maxItems": 8
+    },
+    {
+      "id": "apm-monaco-new-in",
+      "brand": "APM Monaco",
+      "name": "APM Monaco New In",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.apm.mc/zh/collections/ete/products.json?limit=8",
+      "storeUrl": "https://www.apm.mc/zh/collections/ete",
+      "currency": "EUR",
+      "currencySymbol": "€ ",
+      "maxItems": 8
+    },
+    {
+      "id": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "name": "六福珠宝新品",
+      "platform": "品牌官网",
+      "type": "lukfook-api",
+      "url": "https://www.lukfookeshop.com.cn/store/spu/searchByKeyWord",
+      "storeUrl": "https://www.lukfookeshop.com.cn/lfg-category/all",
+      "imageBaseUrl": "https://www.lukfookeshop.com.cn/",
+      "maxItems": 8
+    },
+    {
+      "id": "chow-sang-sang-new-in",
+      "brand": "周生生",
+      "name": "Chow Sang Sang New-in",
+      "platform": "品牌官网",
+      "type": "chowsangsang-json",
+      "url": "https://www.chowsangsang.com/eshop-hk/en/Product/c/getProductList/anonymous/WhatsNew-WhatsNew?sort=&q=:newInStock&pageSize=8&page=0&country=HK",
+      "storeUrl": "https://www.chowsangsang.com/en/product/WhatsNew-WhatsNew",
+      "productBaseUrl": "https://www.chowsangsang.com/eshop-hk/en/",
       "maxItems": 8
     }
   ],
