@@ -5,6 +5,8 @@ const MARKET_SOURCES = [
   { id: "comex-gold", secid: "101.GC00Y", name: "COMEX 黄金", scale: 10, unit: "USD/oz" }
 ];
 
+const INTEL_TREND_START = new Date(2026, 6, 19);
+
 const state = {
   data: null,
   productBrand: "all",
@@ -209,10 +211,11 @@ function renderIntelTrend(signals) {
   const days = [];
   const today = new Date();
   today.setHours(0, 0, 0, 0);
-  for (let offset = 6; offset >= 0; offset -= 1) {
-    const date = new Date(today);
-    date.setDate(today.getDate() - offset);
-    days.push({ date, key: dayKey(date), count: 0 });
+  const rollingStart = new Date(today);
+  rollingStart.setDate(today.getDate() - 29);
+  const start = rollingStart > INTEL_TREND_START ? rollingStart : new Date(INTEL_TREND_START);
+  for (const date = new Date(start); date <= today; date.setDate(date.getDate() + 1)) {
+    days.push({ date: new Date(date), key: dayKey(date), count: 0 });
   }
   const byKey = new Map(days.map((item) => [item.key, item]));
   signals.forEach((signal) => {
@@ -220,20 +223,20 @@ function renderIntelTrend(signals) {
     const bucket = Number.isNaN(published.getTime()) ? null : byKey.get(dayKey(published));
     if (bucket) bucket.count += 1;
   });
-  el.intelTotal.textContent = `${signals.length} 条`;
-  el.intelTrendChart.innerHTML = buildSevenDayChart(days);
+  el.intelTotal.textContent = `${days.reduce((total, item) => total + item.count, 0)} 条`;
+  el.intelTrendChart.innerHTML = buildThirtyDayChart(days);
 }
 
-function buildSevenDayChart(days) {
-  const width = 700;
+function buildThirtyDayChart(days) {
+  const width = 1000;
   const height = 260;
-  const left = 36;
-  const right = 14;
-  const top = 20;
-  const bottom = 34;
+  const left = 44;
+  const right = 18;
+  const top = 24;
+  const bottom = 42;
   const max = Math.max(1, ...days.map((item) => item.count));
   const coords = days.map((item, index) => ({
-    x: left + (index / 6) * (width - left - right),
+    x: left + (index / Math.max(days.length - 1, 1)) * (width - left - right),
     y: top + ((max - item.count) / max) * (height - top - bottom),
     ...item
   }));
@@ -241,19 +244,30 @@ function buildSevenDayChart(days) {
   const grid = [0, 0.5, 1].map((ratio) => {
     const y = top + ratio * (height - top - bottom);
     const value = Math.round(max * (1 - ratio));
-    return `<line class="chart-gridline" x1="${left}" y1="${y}" x2="${width - right}" y2="${y}"></line><text class="chart-label" x="${left - 8}" y="${y + 4}" text-anchor="end">${value}</text>`;
+    return `<line class="chart-gridline" x1="${left}" y1="${y}" x2="${width - right}" y2="${y}"></line>`;
   }).join("");
-  const points = coords.map((point) => `
-    <circle class="trend-point" cx="${point.x}" cy="${point.y}" r="4"></circle>
-    <text class="chart-count" x="${point.x}" y="${point.y - 10}" text-anchor="middle">${point.count}</text>
-    <text class="chart-label" x="${point.x}" y="${height - 8}" text-anchor="middle">${String(point.date.getMonth() + 1).padStart(2, "0")}/${String(point.date.getDate()).padStart(2, "0")}</text>
-  `).join("");
+  const labelStep = days.length <= 7 ? 1 : days.length <= 14 ? 2 : 5;
+  const shouldLabel = (index) => index % labelStep === 0 || index === days.length - 1;
+  const points = coords.map((point) => `<circle class="trend-point" cx="${point.x}" cy="${point.y}" r="4"><title>${point.date.getMonth() + 1}月${point.date.getDate()}日：${point.count} 条</title></circle>`).join("");
+  const yLabels = [0, 0.5, 1].map((ratio) => {
+    const value = Math.round(max * (1 - ratio));
+    const topPosition = top + ratio * (height - top - bottom);
+    return `<span class="trend-y-label" style="top:${topPosition}px">${value}</span>`;
+  }).join("");
+  const pointLabels = coords.map((point, index) => shouldLabel(index) ? `
+    <strong class="trend-count-label" style="left:${(point.x / width) * 100}%;top:${Math.max(2, point.y - 24)}px">${point.count}</strong>
+    <span class="trend-date-label" style="left:${(point.x / width) * 100}%">${point.date.getMonth() + 1}月${point.date.getDate()}日</span>
+  ` : "").join("");
   return `
-    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="最近七日公开情报数量" preserveAspectRatio="none">
-      ${grid}
-      <path class="trend-path" d="${line}"></path>
-      ${points}
-    </svg>
+    <div class="trend-plot">
+      <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="最近三十日公开情报数量" preserveAspectRatio="none">
+        ${grid}
+        <path class="trend-path" d="${line}"></path>
+        ${points}
+      </svg>
+      ${yLabels}
+      ${pointLabels}
+    </div>
   `;
 }
 
