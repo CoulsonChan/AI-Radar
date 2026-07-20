@@ -22,8 +22,6 @@ const el = {
   goldSecondary: document.querySelector("#goldSecondary"),
   intelTotal: document.querySelector("#intelTotal"),
   intelTrendChart: document.querySelector("#intelTrendChart"),
-  brandCoverage: document.querySelector("#brandCoverage"),
-  brandBarChart: document.querySelector("#brandBarChart"),
   products: document.querySelector("#products"),
   productFilters: document.querySelector("#productFilters"),
   productStatus: document.querySelector("#productStatus")
@@ -45,7 +43,6 @@ function render() {
   state.market = data.goldMarket ?? (data.gold ? { primary: data.gold, secondary: [], history: [] } : null);
   renderMarket(state.market);
   renderIntelTrend(data.signals ?? []);
-  renderBrandBars(data.products ?? [], data.productCollection ?? {});
   renderProducts(data.products ?? [], data.productCollection ?? {});
   startMarketPolling();
 }
@@ -258,21 +255,6 @@ function buildSevenDayChart(days) {
       ${points}
     </svg>
   `;
-}
-
-function renderBrandBars(products, collection) {
-  const configuredBrands = (collection.stores ?? []).map((store) => store.brand);
-  const brands = [...new Set([...configuredBrands, ...products.map((item) => item.brand).filter(Boolean)])];
-  const counts = brands.map((brand) => ({ brand, count: products.filter((item) => item.brand === brand).length }));
-  const max = Math.max(1, ...counts.map((item) => item.count));
-  el.brandCoverage.textContent = `${brands.length} 个品牌`;
-  el.brandBarChart.innerHTML = counts.map((item) => `
-    <div class="bar-row">
-      <span title="${escapeHtml(item.brand)}">${escapeHtml(item.brand)}</span>
-      <div class="bar-track"><i style="width:${Math.max(4, (item.count / max) * 100).toFixed(1)}%"></i></div>
-      <b>${item.count}</b>
-    </div>
-  `).join("");
 }
 
 function renderProducts(products, collection) {
