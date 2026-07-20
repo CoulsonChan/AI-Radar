@@ -1,30 +1,32 @@
+const MARKET_SOURCES = [
+  { id: "au9999", secid: "118.AU9999", name: "上金所 Au99.99", scale: 100, unit: "CNY/g", primary: true },
+  { id: "autd", secid: "118.AUTD", name: "黄金 T+D", scale: 100, unit: "CNY/g" },
+  { id: "xau-usd", secid: "122.XAU", name: "伦敦现货金", scale: 100, unit: "USD/oz" },
+  { id: "comex-gold", secid: "101.GC00Y", name: "COMEX 黄金", scale: 10, unit: "USD/oz" }
+];
+
 const state = {
   data: null,
-  filter: "all",
-  productBrand: "all"
+  productBrand: "all",
+  market: null,
+  marketTimer: null
 };
 
 const el = {
   updateTime: document.querySelector("#updateTime"),
   modeLabel: document.querySelector("#modeLabel"),
-  totalItems: document.querySelector("#totalItems"),
-  opportunityIndex: document.querySelector("#opportunityIndex"),
-  riskIndex: document.querySelector("#riskIndex"),
   goldPrice: document.querySelector("#goldPrice"),
+  goldChange: document.querySelector("#goldChange"),
   goldMeta: document.querySelector("#goldMeta"),
-  signals: document.querySelector("#signals"),
-  questions: document.querySelector("#questions"),
-  actions: document.querySelector("#actions"),
-  sourceStatus: document.querySelector("#sourceStatus"),
-  officialCompetitors: document.querySelector("#officialCompetitors"),
+  goldSparkline: document.querySelector("#goldSparkline"),
+  goldSecondary: document.querySelector("#goldSecondary"),
+  intelTotal: document.querySelector("#intelTotal"),
+  intelTrendChart: document.querySelector("#intelTrendChart"),
+  brandCoverage: document.querySelector("#brandCoverage"),
+  brandBarChart: document.querySelector("#brandBarChart"),
   products: document.querySelector("#products"),
   productFilters: document.querySelector("#productFilters"),
-  productStatus: document.querySelector("#productStatus"),
-  tabs: document.querySelectorAll(".tab"),
-  briefBtn: document.querySelector("#briefBtn"),
-  briefBox: document.querySelector("#briefBox"),
-  briefText: document.querySelector("#briefText"),
-  refreshBtn: document.querySelector("#refreshBtn")
+  productStatus: document.querySelector("#productStatus")
 };
 
 async function loadIntel() {
@@ -36,33 +38,252 @@ async function loadIntel() {
 
 function render() {
   const data = state.data;
-  const summary = data.summary ?? {};
   const generatedAt = data.generatedAt ? new Date(data.generatedAt) : null;
+  el.updateTime.textContent = generatedAt ? `数据更新：${formatDate(generatedAt)}` : "数据更新：未知";
+  el.modeLabel.textContent = data.mode === "live" ? "自动采集" : "兜底数据";
 
-  el.updateTime.textContent = generatedAt ? `更新时间：${formatDate(generatedAt)}` : "更新时间：未知";
-  el.modeLabel.textContent = data.mode === "live" ? "自动采集" : "种子数据";
-  el.totalItems.textContent = summary.totalItems ?? data.signals?.length ?? 0;
-  el.opportunityIndex.textContent = summary.opportunityIndex ?? "-";
-  el.riskIndex.textContent = summary.riskIndex ?? "-";
-  el.briefText.textContent = buildBrief(data.signals ?? []);
-  renderGold(data.gold);
+  state.market = data.goldMarket ?? (data.gold ? { primary: data.gold, secondary: [], history: [] } : null);
+  renderMarket(state.market);
+  renderIntelTrend(data.signals ?? []);
+  renderBrandBars(data.products ?? [], data.productCollection ?? {});
   renderProducts(data.products ?? [], data.productCollection ?? {});
-  renderOfficialCompetitors(data.officialCompetitors ?? [], data.signals ?? []);
-  renderSignals();
-  renderQuestions(data.signals ?? []);
-  renderActions(data.signals ?? []);
-  renderSourceStatus(data);
+  startMarketPolling();
+}
+
+function startMarketPolling() {
+  if (state.marketTimer) clearInterval(state.marketTimer);
+  refreshMarket(true).catch(() => {});
+  state.marketTimer = setInterval(() => refreshMarket(false).catch(() => {}), 60_000);
+}
+
+async function refreshMarket(includeTrend) {
+  const settled = await Promise.allSettled(MARKET_SOURCES.map(fetchMarketQuote));
+  const quotes = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
+  const primary = quotes.find((item) => item.id === "au9999");
+  if (!primary) throw new Error("国内金价暂不可用");
+
+  let history = state.market?.history ?? [];
+  if (includeTrend) {
+    history = await fetchMarketTrend(MARKET_SOURCES[0]).catch(() => history);
+  } else {
+    const point = { time: formatMarketPointTime(primary.updatedAt), price: primary.price };
+    if (history.at(-1)?.time !== point.time) history = [...history.slice(-71), point];
+  }
+
+  state.market = {
+    primary,
+    secondary: quotes.filter((item) => item.id !== "au9999"),
+    history,
+    refreshSeconds: 60,
+    checkedAt: new Date().toISOString(),
+    status: "live"
+  };
+  renderMarket(state.market);
+}
+
+async function fetchMarketQuote(source) {
+  const url = new URL("https://push2.eastmoney.com/api/qt/stock/get");
+  url.searchParams.set("secid", source.secid);
+  url.searchParams.set("fields", "f43,f44,f45,f46,f57,f58,f60,f86,f170");
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) throw new Error(`${source.name} ${response.status}`);
+  const data = (await response.json()).data;
+  const price = Number(data?.f43) / source.scale;
+  const previousClose = Number(data?.f60) / source.scale;
+  if (!Number.isFinite(price)) throw new Error(`${source.name} 行情字段缺失`);
+  return {
+    id: source.id,
+    symbol: data?.f57 ?? source.secid,
+    source: source.name,
+    price: Number(price.toFixed(2)),
+    previousClose: Number.isFinite(previousClose) ? Number(previousClose.toFixed(2)) : null,
+    open: Number.isFinite(Number(data?.f46)) ? Number((Number(data.f46) / source.scale).toFixed(2)) : null,
+    high: Number.isFinite(Number(data?.f44)) ? Number((Number(data.f44) / source.scale).toFixed(2)) : null,
+    low: Number.isFinite(Number(data?.f45)) ? Number((Number(data.f45) / source.scale).toFixed(2)) : null,
+    change: Number.isFinite(previousClose) ? Number((price - previousClose).toFixed(2)) : null,
+    changePercent: Number.isFinite(Number(data?.f170)) ? Number((Number(data.f170) / 100).toFixed(2)) : null,
+    unit: source.unit,
+    updatedAt: new Date((Number(data?.f86) || Date.now() / 1000) * 1000).toISOString(),
+    status: "live"
+  };
+}
+
+async function fetchMarketTrend(source) {
+  const url = new URL("https://push2his.eastmoney.com/api/qt/stock/trends2/get");
+  url.searchParams.set("secid", source.secid);
+  url.searchParams.set("fields1", "f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13");
+  url.searchParams.set("fields2", "f51,f52,f53,f54,f55,f56,f57,f58");
+  url.searchParams.set("ndays", "1");
+  url.searchParams.set("iscr", "0");
+  const response = await fetch(url, { cache: "no-store" });
+  if (!response.ok) throw new Error(`日内走势 ${response.status}`);
+  const trends = (await response.json()).data?.trends ?? [];
+  const points = trends.map((row) => {
+    const [time, rawPrice] = row.split(",");
+    const price = Number(rawPrice);
+    return Number.isFinite(price) ? { time, price } : null;
+  }).filter(Boolean);
+  const step = Math.max(1, Math.floor(points.length / 72));
+  const sampled = points.filter((_, index) => index % step === 0);
+  const last = points.at(-1);
+  if (last && sampled.at(-1)?.time !== last.time) sampled.push(last);
+  return sampled;
+}
+
+function renderMarket(market) {
+  const primary = market?.primary;
+  if (!primary || !Number.isFinite(Number(primary.price))) {
+    el.goldPrice.textContent = "暂无数据";
+    el.goldChange.textContent = "--";
+    el.goldMeta.textContent = "等待下一次行情刷新";
+    el.goldSparkline.innerHTML = '<div class="chart-empty">行情走势暂不可用</div>';
+    el.goldSecondary.innerHTML = '<div class="chart-empty">辅助行情暂不可用</div>';
+    return;
+  }
+
+  el.goldPrice.textContent = `${formatPrice(primary.price)} ${primary.unit ?? "CNY/g"}`;
+  setChange(el.goldChange, primary);
+  const range = [
+    Number.isFinite(Number(primary.open)) ? `开 ${formatPrice(primary.open)}` : null,
+    Number.isFinite(Number(primary.high)) ? `高 ${formatPrice(primary.high)}` : null,
+    Number.isFinite(Number(primary.low)) ? `低 ${formatPrice(primary.low)}` : null
+  ].filter(Boolean).join(" · ");
+  el.goldMeta.textContent = `${range ? `${range} · ` : ""}${formatTime(new Date(primary.updatedAt ?? Date.now()))}`;
+  el.goldSparkline.innerHTML = buildSparkline(market.history ?? []);
+
+  const secondary = market.secondary ?? [];
+  el.goldSecondary.innerHTML = secondary.length ? secondary.map((item) => `
+    <div class="secondary-quote">
+      <div>
+        <b>${escapeHtml(item.source)}</b>
+        <span>${escapeHtml(item.unit ?? "")}</span>
+      </div>
+      <div class="secondary-value">
+        <strong>${formatPrice(item.price)}</strong>
+        <span class="${changeClass(item.changePercent)}">${formatPercent(item.changePercent)}</span>
+      </div>
+    </div>
+  `).join("") : '<div class="chart-empty">辅助行情暂不可用</div>';
+}
+
+function setChange(node, quote) {
+  node.className = `quote-change ${changeClass(quote.changePercent)}`;
+  const change = Number(quote.change);
+  const changeText = Number.isFinite(change) ? `${change >= 0 ? "+" : ""}${change.toFixed(2)}` : "--";
+  node.textContent = `${changeText} / ${formatPercent(quote.changePercent)}`;
+}
+
+function buildSparkline(history) {
+  const points = history.filter((item) => Number.isFinite(Number(item.price)));
+  if (points.length < 2) return '<div class="chart-empty">正在积累日内走势</div>';
+  const width = 720;
+  const height = 150;
+  const left = 12;
+  const right = 10;
+  const top = 18;
+  const bottom = 24;
+  const values = points.map((item) => Number(item.price));
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+  const range = Math.max(max - min, 0.01);
+  const coords = points.map((item, index) => ({
+    x: left + (index / Math.max(points.length - 1, 1)) * (width - left - right),
+    y: top + ((max - Number(item.price)) / range) * (height - top - bottom)
+  }));
+  const line = coords.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const last = coords.at(-1);
+  const firstLabel = formatTrendLabel(points[0].time);
+  const lastLabel = formatTrendLabel(points.at(-1).time);
+  return `
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="Au99.99 日内价格走势" preserveAspectRatio="none">
+      <line class="chart-gridline" x1="${left}" y1="${top}" x2="${width - right}" y2="${top}"></line>
+      <line class="chart-gridline" x1="${left}" y1="${height - bottom}" x2="${width - right}" y2="${height - bottom}"></line>
+      <path class="sparkline-path" d="${line}"></path>
+      <circle class="sparkline-point" cx="${last.x.toFixed(1)}" cy="${last.y.toFixed(1)}" r="4"></circle>
+      <text class="chart-label" x="${left}" y="${height - 5}">${escapeHtml(firstLabel)}</text>
+      <text class="chart-label" x="${width - right}" y="${height - 5}" text-anchor="end">${escapeHtml(lastLabel)}</text>
+      <text class="chart-value-label" x="${left}" y="12">${max.toFixed(2)}</text>
+      <text class="chart-value-label" x="${left}" y="${height - bottom - 5}">${min.toFixed(2)}</text>
+    </svg>
+  `;
+}
+
+function renderIntelTrend(signals) {
+  const days = [];
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  for (let offset = 6; offset >= 0; offset -= 1) {
+    const date = new Date(today);
+    date.setDate(today.getDate() - offset);
+    days.push({ date, key: dayKey(date), count: 0 });
+  }
+  const byKey = new Map(days.map((item) => [item.key, item]));
+  signals.forEach((signal) => {
+    const published = new Date(signal.publishedAt);
+    const bucket = Number.isNaN(published.getTime()) ? null : byKey.get(dayKey(published));
+    if (bucket) bucket.count += 1;
+  });
+  el.intelTotal.textContent = `${signals.length} 条`;
+  el.intelTrendChart.innerHTML = buildSevenDayChart(days);
+}
+
+function buildSevenDayChart(days) {
+  const width = 700;
+  const height = 260;
+  const left = 36;
+  const right = 14;
+  const top = 20;
+  const bottom = 34;
+  const max = Math.max(1, ...days.map((item) => item.count));
+  const coords = days.map((item, index) => ({
+    x: left + (index / 6) * (width - left - right),
+    y: top + ((max - item.count) / max) * (height - top - bottom),
+    ...item
+  }));
+  const line = coords.map((point, index) => `${index ? "L" : "M"}${point.x.toFixed(1)},${point.y.toFixed(1)}`).join(" ");
+  const grid = [0, 0.5, 1].map((ratio) => {
+    const y = top + ratio * (height - top - bottom);
+    const value = Math.round(max * (1 - ratio));
+    return `<line class="chart-gridline" x1="${left}" y1="${y}" x2="${width - right}" y2="${y}"></line><text class="chart-label" x="${left - 8}" y="${y + 4}" text-anchor="end">${value}</text>`;
+  }).join("");
+  const points = coords.map((point) => `
+    <circle class="trend-point" cx="${point.x}" cy="${point.y}" r="4"></circle>
+    <text class="chart-count" x="${point.x}" y="${point.y - 10}" text-anchor="middle">${point.count}</text>
+    <text class="chart-label" x="${point.x}" y="${height - 8}" text-anchor="middle">${String(point.date.getMonth() + 1).padStart(2, "0")}/${String(point.date.getDate()).padStart(2, "0")}</text>
+  `).join("");
+  return `
+    <svg viewBox="0 0 ${width} ${height}" role="img" aria-label="最近七日公开情报数量" preserveAspectRatio="none">
+      ${grid}
+      <path class="trend-path" d="${line}"></path>
+      ${points}
+    </svg>
+  `;
+}
+
+function renderBrandBars(products, collection) {
+  const configuredBrands = (collection.stores ?? []).map((store) => store.brand);
+  const brands = [...new Set([...configuredBrands, ...products.map((item) => item.brand).filter(Boolean)])];
+  const counts = brands.map((brand) => ({ brand, count: products.filter((item) => item.brand === brand).length }));
+  const max = Math.max(1, ...counts.map((item) => item.count));
+  el.brandCoverage.textContent = `${brands.length} 个品牌`;
+  el.brandBarChart.innerHTML = counts.map((item) => `
+    <div class="bar-row">
+      <span title="${escapeHtml(item.brand)}">${escapeHtml(item.brand)}</span>
+      <div class="bar-track"><i style="width:${Math.max(4, (item.count / max) * 100).toFixed(1)}%"></i></div>
+      <b>${item.count}</b>
+    </div>
+  `).join("");
 }
 
 function renderProducts(products, collection) {
-  const brands = [...new Set(products.map((item) => item.brand).filter(Boolean))];
-  if (state.productBrand !== "all" && !brands.includes(state.productBrand)) {
-    state.productBrand = "all";
-  }
+  const configuredBrands = (collection.stores ?? []).map((store) => store.brand);
+  const brands = [...new Set([...configuredBrands, ...products.map((item) => item.brand).filter(Boolean)])];
+  if (state.productBrand !== "all" && !brands.includes(state.productBrand)) state.productBrand = "all";
+  const counts = new Map(brands.map((brand) => [brand, products.filter((item) => item.brand === brand).length]));
 
   el.productFilters.innerHTML = ["all", ...brands].map((brand) => `
     <button class="product-filter${state.productBrand === brand ? " active" : ""}" type="button" data-brand="${escapeHtml(brand)}">
-      ${brand === "all" ? "全部品牌" : escapeHtml(brand)}
+      ${brand === "all" ? "全部品牌" : escapeHtml(brand)}<span>${brand === "all" ? products.length : counts.get(brand) ?? 0}</span>
     </button>
   `).join("");
 
@@ -73,21 +294,14 @@ function renderProducts(products, collection) {
     });
   });
 
-  const visible = (state.productBrand === "all"
-    ? products
-    : products.filter((item) => item.brand === state.productBrand))
-    .slice(0, state.productBrand === "all" ? 24 : 12);
+  const visible = (state.productBrand === "all" ? products : products.filter((item) => item.brand === state.productBrand))
+    .slice(0, state.productBrand === "all" ? 48 : 12);
   const totalStores = collection.stores?.length ?? 0;
   const successfulStores = collection.successfulStores ?? 0;
-  const newItems = products.filter((item) => item.isNew).length;
-  const sourceText = totalStores ? `${successfulStores}/${totalStores} 个官网来源正常` : "等待官网采集";
-  el.productStatus.textContent = `按官网发布时间降序（无日期按首次发现） · ${newItems} 个近 72 小时新发现 · ${sourceText}`;
+  el.productStatus.textContent = `${products.length} 件官网新品 · ${successfulStores}/${totalStores} 个来源正常 · 按官网发布时间降序（无日期按首次发现）`;
 
   if (!visible.length) {
-    const storeLinks = (collection.stores ?? []).map((store) => `
-      <a href="${safeAttr(store.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(store.brand)}</a>
-    `).join(" · ");
-    el.products.innerHTML = `<div class="empty product-empty">尚未完成首次商品采集。${storeLinks ? `可先查看 ${storeLinks}` : ""}</div>`;
+    el.products.innerHTML = '<div class="empty product-empty">当前品牌暂无可展示商品。</div>';
     return;
   }
 
@@ -101,7 +315,7 @@ function renderProducts(products, collection) {
       <article class="product-card">
         <a class="product-image" href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">
           ${image}
-          ${item.isNew ? "<span class=\"new-badge\">新发现</span>" : ""}
+          ${item.isNew ? '<span class="new-badge">新发现</span>' : ""}
         </a>
         <div class="product-content">
           <div class="product-brand">${escapeHtml(item.brand)} · ${escapeHtml(item.platform ?? "品牌官网")}</div>
@@ -114,163 +328,48 @@ function renderProducts(products, collection) {
       </article>
     `;
   }).join("");
-}
 
-async function renderGold(fallbackGold) {
-  const gold = await fetchRealtimeGold().catch(() => fallbackGold);
-  if (!gold || !Number.isFinite(Number(gold.price))) {
-    el.goldPrice.textContent = "暂无数据";
-    el.goldMeta.textContent = "实时行情读取失败，等待下一次自动采集。";
-    return;
-  }
-
-  const changeText = gold.changePercent != null && Number.isFinite(Number(gold.changePercent))
-    ? `，${Number(gold.changePercent) >= 0 ? "+" : ""}${Number(gold.changePercent).toFixed(2)}%`
-    : "";
-  el.goldPrice.textContent = `${Number(gold.price).toLocaleString("en-US", { maximumFractionDigits: 2 })} ${gold.unit ?? "USD/oz"}`;
-  el.goldMeta.textContent = `${gold.source ?? "Gold"} · ${gold.status === "live" ? "实时" : "兜底"} · ${formatDate(new Date(gold.updatedAt ?? Date.now()))}${changeText}`;
-}
-
-async function fetchRealtimeGold() {
-  const providers = [
-    {
-      source: "COMEX Gold Futures",
-      url: "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=1d&interval=1m",
-      unit: "USD/oz"
-    },
-    {
-      source: "XAU/USD Spot",
-      url: "https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD=X?range=1d&interval=1m",
-      unit: "USD/oz"
-    }
-  ];
-
-  for (const provider of providers) {
-    try {
-      const response = await fetch(provider.url, { cache: "no-store" });
-      if (!response.ok) continue;
-      const data = await response.json();
-      const meta = data.chart?.result?.[0]?.meta;
-      const price = Number(meta?.regularMarketPrice);
-      const previousClose = Number(meta?.chartPreviousClose ?? meta?.previousClose);
-      if (!Number.isFinite(price)) continue;
-      const change = Number.isFinite(previousClose) ? price - previousClose : null;
-      return {
-        source: provider.source,
-        price: Number(price.toFixed(2)),
-        unit: provider.unit,
-        change,
-        changePercent: Number.isFinite(previousClose) && previousClose !== 0 ? (change / previousClose) * 100 : null,
-        updatedAt: new Date((meta?.regularMarketTime ?? Date.now() / 1000) * 1000).toISOString(),
-        status: "live"
-      };
-    } catch {
-      // Try next provider.
-    }
-  }
-  throw new Error("gold price unavailable");
-}
-
-function renderOfficialCompetitors(competitors, signals) {
-  const officialSignals = new Map(
-    signals.filter((item) => item.official).map((item) => [item.sourceId, item])
-  );
-
-  el.officialCompetitors.innerHTML = competitors.map((item) => {
-    const signal = officialSignals.get(item.id);
-    const title = signal?.summary || item.focus;
-    return `
-      <a class="official-item" href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">
-        <b>${escapeHtml(item.name)}</b>
-        <span>${escapeHtml(title)}</span>
-      </a>
-    `;
-  }).join("");
-}
-
-function renderSignals() {
-  const signals = (state.data?.signals ?? []).filter((item) => {
-    return state.filter === "all" || item.category === state.filter;
+  el.products.querySelectorAll(".product-image img").forEach((image) => {
+    image.addEventListener("error", () => {
+      const placeholder = document.createElement("div");
+      placeholder.className = "product-placeholder";
+      placeholder.textContent = image.alt || "品牌新品";
+      image.replaceWith(placeholder);
+    }, { once: true });
   });
-
-  if (!signals.length) {
-    el.signals.innerHTML = `<div class="empty">当前分类暂无情报。可以等待明日自动采集，或手动运行 GitHub Actions。</div>`;
-    return;
-  }
-
-  el.signals.innerHTML = signals.map((item) => `
-    <article class="signal-card">
-      <div class="signal-head">
-        <h3><a href="${safeAttr(item.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(item.title)}</a></h3>
-        <span class="badge">${escapeHtml(item.priority ?? "中")}</span>
-      </div>
-      <div class="signal-meta">
-        <span>${escapeHtml(item.category ?? "未分类")}</span>
-        <span>${escapeHtml(item.source ?? "未知来源")}</span>
-        <span>${formatDate(new Date(item.publishedAt ?? Date.now()))}</span>
-        ${item.official ? "<span>官网来源</span>" : ""}
-      </div>
-      <div class="signal-body">
-        <div><b>对潮宏基影响</b>${escapeHtml(item.impact ?? "需人工补充判断。")}</div>
-        <div><b>建议动作</b>${escapeHtml(item.action ?? "纳入董事长助理周报跟踪。")}</div>
-      </div>
-    </article>
-  `).join("");
 }
 
-function renderQuestions(signals) {
-  const categories = new Set(signals.slice(0, 12).map((item) => item.category));
-  const questions = [
-    categories.has("经营风险") ? "哪些风险需要从周报升级为董事长专题会？对应的内部指标是否已经能拿到？" : null,
-    categories.has("竞品观察") ? "竞品的动作是在抢规模、抢心智、抢渠道，还是抢年轻消费者？潮宏基要避开什么同质化竞争？" : null,
-    categories.has("出海机会") ? "海外市场当前最应该验证的是客群、产品、价格带、门店模型，还是品牌表达？" : null,
-    categories.has("资本市场") ? "这些外部信号对港股 IPO 叙事、增长质量和投资者问答有什么影响？" : null,
-    "高金价周期下，潮宏基应如何平衡克重产品、轻量黄金、串珠和高毛利时尚珠宝？",
-    "加盟扩张阶段，单店质量和加盟商盈利应该用哪 3 个指标做董事长看板？",
-    "哪些信号值得形成专题研究，哪些只需要继续观察？",
-    "董事长助理下一周应推动哪些跨部门信息补齐？"
-  ].filter(Boolean).slice(0, 8);
-
-  el.questions.innerHTML = questions.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+function formatPrice(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "--";
+  return number.toLocaleString("zh-CN", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
-function renderActions(signals) {
-  const top = signals.slice(0, 5);
-  const actions = top.length ? top.map((item) => item.action) : [
-    "补充公司内部经营数据后重新生成风险看板。",
-    "维护竞品与珠宝新品关键词。",
-    "每周固定输出董事长战略情报简报。"
-  ];
-  el.actions.innerHTML = actions.map((item) => `<li>${escapeHtml(item)}</li>`).join("");
+function formatPercent(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number)) return "--";
+  return `${number >= 0 ? "+" : ""}${number.toFixed(2)}%`;
 }
 
-function renderSourceStatus(data) {
-  const errors = data.errors ?? [];
-  if (!errors.length) {
-    el.sourceStatus.textContent = data.mode === "live"
-      ? "本次自动采集无明显源错误。仍需人工复核每条公开信息的可信度。"
-      : "当前展示兜底数据；上线后由 GitHub Actions 自动更新。";
-    return;
-  }
-  if (data.mode === "fallback") {
-    el.sourceStatus.textContent = "当前环境未能访问公开源，页面已启用兜底样例；上线到 GitHub Actions 后会自动联网采集。";
-    return;
-  }
-  el.sourceStatus.textContent = `本次有 ${errors.length} 个数据源读取失败，页面已保留其他来源结果。`;
+function changeClass(value) {
+  const number = Number(value);
+  if (!Number.isFinite(number) || number === 0) return "flat";
+  return number > 0 ? "positive" : "negative";
 }
 
-function buildBrief(signals) {
-  const top = signals.slice(0, 5);
-  if (!top.length) return "今日暂未采集到有效公开情报，建议检查数据源或手动运行采集任务。";
-  const risk = top.find((item) => item.category === "经营风险") ?? signals.find((item) => item.category === "经营风险");
-  const opportunity = top.find((item) => item.category === "战略机会" || item.category === "出海机会");
-  const competitor = top.find((item) => item.category === "竞品观察");
-  return [
-    opportunity ? `机会侧重点是“${opportunity.title}”，${opportunity.impact}` : "机会侧仍围绕东方美学、年轻化渠道和出海验证展开。",
-    risk ? `风险侧需要关注“${risk.title}”，${risk.action}` : "风险侧暂未出现需要升级的公开信号，但仍建议跟踪金价、库存和加盟质量。",
-    competitor ? `竞品侧出现“${competitor.title}”，建议纳入竞品周报并拆解其产品、渠道和传播动作。` : "竞品侧建议继续固定跟踪头部品牌的新品、渠道和传播动作。",
-    "我的建议是：把高优先级信号进入本周董事长助理行动清单，并在正式汇报前用内部销售、库存、会员和渠道数据做二次验证。"
-  ].join("");
+function dayKey(date) {
+  return `${date.getFullYear()}-${String(date.getMonth() + 1).padStart(2, "0")}-${String(date.getDate()).padStart(2, "0")}`;
+}
+
+function formatMarketPointTime(value) {
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return "";
+  return `${dayKey(date)} ${String(date.getHours()).padStart(2, "0")}:${String(date.getMinutes()).padStart(2, "0")}`;
+}
+
+function formatTrendLabel(value) {
+  const text = String(value ?? "");
+  return text.includes(" ") ? text.split(" ").at(-1).slice(0, 5) : text.slice(-5);
 }
 
 function formatDate(date) {
@@ -284,13 +383,14 @@ function formatDate(date) {
   });
 }
 
+function formatTime(date) {
+  if (Number.isNaN(date.getTime())) return "时间未知";
+  return `更新 ${date.toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit", second: "2-digit" })}`;
+}
+
 function formatShortDate(date) {
   if (Number.isNaN(date.getTime())) return "未知";
-  return date.toLocaleDateString("zh-CN", {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit"
-  });
+  return date.toLocaleDateString("zh-CN", { year: "numeric", month: "2-digit", day: "2-digit" });
 }
 
 function escapeHtml(value) {
@@ -298,7 +398,7 @@ function escapeHtml(value) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;")
-    .replaceAll("\"", "&quot;")
+    .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
 }
 
@@ -308,26 +408,8 @@ function safeAttr(value) {
   return "#";
 }
 
-el.tabs.forEach((tab) => {
-  tab.addEventListener("click", () => {
-    state.filter = tab.dataset.filter;
-    el.tabs.forEach((item) => item.classList.toggle("active", item === tab));
-    renderSignals();
-  });
-});
-
-el.briefBtn.addEventListener("click", () => {
-  el.briefBox.hidden = !el.briefBox.hidden;
-  el.briefBtn.textContent = el.briefBox.hidden ? "生成董事长简报" : "收起董事长简报";
-});
-
-el.refreshBtn.addEventListener("click", () => {
-  loadIntel().catch((error) => {
-    el.signals.innerHTML = `<div class="empty">${escapeHtml(error.message)}</div>`;
-  });
-});
-
 loadIntel().catch((error) => {
-  el.signals.innerHTML = `<div class="empty">${escapeHtml(error.message)}</div>`;
-  el.sourceStatus.textContent = "数据读取失败，请检查 docs/data/intel.json 是否存在。";
+  el.productStatus.textContent = error.message;
+  el.products.innerHTML = '<div class="empty product-empty">新品数据读取失败，请稍后刷新。</div>';
+  startMarketPolling();
 });

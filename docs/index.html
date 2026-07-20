@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CHJ AI 战略情报雷达</title>
-  <link rel="stylesheet" href="./assets/styles.css?v=20260719-2">
+  <link rel="stylesheet" href="./assets/styles.css?v=20260720-1">
 </head>
 <body>
   <header class="shell-header">
@@ -12,7 +12,7 @@
       <div class="brand-mark">CHJ</div>
       <div>
         <h1>CHJ AI 战略情报雷达</h1>
-        <p>金价 · 竞品官网 · 经营风险 · 战略机会</p>
+        <p>国内金价 · 品牌官网新品 · 7 日情报趋势</p>
       </div>
     </div>
     <div class="header-meta">
@@ -22,27 +22,56 @@
   </header>
 
   <main class="shell">
-    <section class="top-grid" aria-label="关键指标">
-      <article class="gold-card">
-        <span>实时金价</span>
-        <strong id="goldPrice">读取中</strong>
-        <p id="goldMeta">优先读取实时行情，失败时显示每日采集兜底价。</p>
+    <section class="market-grid" aria-label="黄金行情">
+      <article class="market-primary">
+        <div class="market-heading">
+          <div>
+            <span class="eyebrow">国内金价</span>
+            <h2>上金所 Au99.99</h2>
+          </div>
+          <span class="live-status"><i></i>每 60 秒刷新</span>
+        </div>
+        <div class="primary-quote">
+          <strong id="goldPrice">读取中</strong>
+          <span id="goldChange" class="quote-change">--</span>
+        </div>
+        <p id="goldMeta">正在读取最新行情</p>
+        <div id="goldSparkline" class="sparkline" aria-label="Au99.99 日内走势"></div>
       </article>
 
-      <article>
-        <span>今日情报</span>
-        <strong id="totalItems">-</strong>
-        <p>去重后进入看板</p>
+      <aside class="market-secondary" aria-labelledby="secondaryMarketTitle">
+        <div class="market-heading compact">
+          <div>
+            <span class="eyebrow">辅助行情</span>
+            <h2 id="secondaryMarketTitle">国内与国际参考</h2>
+          </div>
+        </div>
+        <div id="goldSecondary" class="secondary-quotes"></div>
+        <p class="market-note">国际金价仅作方向参考，国内业务以人民币/克口径为主。</p>
+      </aside>
+    </section>
+
+    <section class="chart-grid" aria-label="情报看板">
+      <article class="chart-panel">
+        <div class="chart-heading">
+          <div>
+            <span class="eyebrow">外部信息</span>
+            <h2>7 日情报量</h2>
+          </div>
+          <strong id="intelTotal">-</strong>
+        </div>
+        <div id="intelTrendChart" class="trend-chart" aria-label="最近七日情报量折线图"></div>
       </article>
-      <article>
-        <span>风险指数</span>
-        <strong id="riskIndex">-</strong>
-        <p>金价、库存、加盟、经营压力</p>
-      </article>
-      <article>
-        <span>机会指数</span>
-        <strong id="opportunityIndex">-</strong>
-        <p>新品、出海、品牌资产</p>
+
+      <article class="chart-panel">
+        <div class="chart-heading">
+          <div>
+            <span class="eyebrow">采集覆盖</span>
+            <h2>品牌新品量</h2>
+          </div>
+          <strong id="brandCoverage">-</strong>
+        </div>
+        <div id="brandBarChart" class="bar-chart" aria-label="品牌新品数量柱状图"></div>
       </article>
     </section>
 
@@ -57,56 +86,11 @@
       <div id="products" class="product-grid"></div>
     </section>
 
-    <section class="brief" id="briefBox" hidden>
-      <h2>董事长简报</h2>
-      <p id="briefText"></p>
-    </section>
-
-    <section class="toolbar" aria-label="操作">
-      <button id="briefBtn" class="primary" type="button">生成简报</button>
-      <button id="refreshBtn" class="secondary" type="button">刷新数据</button>
-      <span id="sourceStatus">加载中</span>
-    </section>
-
-    <nav class="tabs" aria-label="情报分类">
-      <button class="tab active" type="button" data-filter="all">全部</button>
-      <button class="tab" type="button" data-filter="竞品观察">竞品观察</button>
-      <button class="tab" type="button" data-filter="战略机会">战略机会</button>
-      <button class="tab" type="button" data-filter="经营风险">经营风险</button>
-      <button class="tab" type="button" data-filter="出海机会">出海机会</button>
-      <button class="tab" type="button" data-filter="资本市场">资本市场</button>
-    </nav>
-
-    <section class="layout">
-      <div>
-        <div class="section-title">
-          <h2>最新情报信号</h2>
-          <p>优先展示需要董事长助理跟进的信号。</p>
-        </div>
-        <div id="signals" class="cards"></div>
-      </div>
-
-      <aside>
-        <div class="side-card">
-          <h2>竞品官方来源</h2>
-          <div id="officialCompetitors" class="official-list"></div>
-        </div>
-        <div class="side-card">
-          <h2>董事长本周可追问</h2>
-          <ol id="questions"></ol>
-        </div>
-        <div class="side-card">
-          <h2>下周行动清单</h2>
-          <ul id="actions"></ul>
-        </div>
-      </aside>
-    </section>
-
     <footer>
-      本网站基于公开网络情报自动生成，正式经营决策前必须人工复核，并结合公司内部销售、库存、会员、渠道和财务数据。
+      金价为公开延时行情，网页约每 60 秒刷新；新品信息来自品牌官网。正式经营决策前仍需人工复核，并结合公司内部销售、库存和渠道数据。
     </footer>
   </main>
 
-  <script src="./assets/app.js?v=20260719-2"></script>
+  <script src="./assets/app.js?v=20260720-1"></script>
 </body>
 </html>

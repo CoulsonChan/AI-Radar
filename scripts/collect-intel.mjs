@@ -11,20 +11,39 @@ const DRY_RUN = process.argv.includes("--dry-run");
 const MAX_PER_FEED = 8;
 const MAX_TOTAL = 48;
 const PRODUCT_NEW_WINDOW_HOURS = 72;
-const GOLD_SOURCES = [
+const GOLD_MARKET_SOURCES = [
   {
-    id: "gc-futures",
-    name: "COMEX Gold Futures",
-    url: "https://query1.finance.yahoo.com/v8/finance/chart/GC=F?range=1d&interval=1m",
-    unit: "USD/oz"
+    id: "au9999",
+    secid: "118.AU9999",
+    name: "上金所 Au99.99",
+    scale: 100,
+    unit: "CNY/g",
+    primary: true
+  },
+  {
+    id: "autd",
+    secid: "118.AUTD",
+    name: "黄金 T+D",
+    scale: 100,
+    unit: "CNY/g"
   },
   {
     id: "xau-usd",
-    name: "XAU/USD Spot",
-    url: "https://query1.finance.yahoo.com/v8/finance/chart/XAUUSD=X?range=1d&interval=1m",
+    secid: "122.XAU",
+    name: "伦敦现货金",
+    scale: 100,
+    unit: "USD/oz"
+  },
+  {
+    id: "comex-gold",
+    secid: "101.GC00Y",
+    name: "COMEX 黄金",
+    scale: 10,
     unit: "USD/oz"
   }
 ];
+const EASTMONEY_QUOTE_URL = "https://push2.eastmoney.com/api/qt/stock/get";
+const EASTMONEY_TREND_URL = "https://push2his.eastmoney.com/api/qt/stock/trends2/get";
 
 const categoryRules = [
   { category: "经营风险", words: ["金价", "黄金价格", "库存", "现金流", "闭店", "加盟", "投诉", "放缓", "下滑", "亏损", "风险"] },
@@ -320,6 +339,42 @@ function parseChowSangSangJsonProducts(json, store, previousById) {
   });
 }
 
+function parseTiffanyProducts(html, store, previousById) {
+  const products = [];
+  const seen = new Set();
+  const tilePattern = /<li\b[^>]*class=["'][^"']*ais-InfiniteHits-item[^"']*["'][^>]*>([\s\S]*?)<\/li>/gi;
+  for (const match of html.matchAll(tilePattern)) {
+    const block = match[1];
+    const productId = block.match(/data-pid=["'](\d+)["']/i)?.[1];
+    if (!productId || seen.has(productId)) continue;
+    const title = cleanProductTitle(
+      block.match(/class=["'][^"']*pdp-link-name[^"']*["'][^>]*>([\s\S]*?)<\/span>/i)?.[1]
+      ?? block.match(/<img\b[^>]*alt=["']([^"']+)["']/i)?.[1]
+      ?? ""
+    );
+    const url = block.match(/<a\b[^>]*class=["'][^"']*link[^"']*["'][^>]*href=["']([^"']+)["']/i)?.[1]
+      ?? block.match(/<a\b[^>]*href=["']([^"']+)["'][^>]*data-pid=["']\d+["']/i)?.[1];
+    const image = block.match(/<img\b[^>]*class=["'][^"']*tile-image[^"']*["'][^>]*src=["']([^"']+)["']/i)?.[1];
+    const priceText = stripHtml(
+      block.match(/<span\b[^>]*class=["'][^"']*value[^"']*["'][^>]*>([\s\S]*?)<\/span>/i)?.[1] ?? ""
+    ) || null;
+    if (!title || !url) continue;
+    seen.add(productId);
+    products.push(createProduct(store, {
+      productId,
+      title,
+      priceLabel: priceText,
+      currency: priceText ? "USD" : null,
+      url: absoluteUrl(url, store.storeUrl),
+      image: absoluteUrl(image, store.storeUrl),
+      listedOrder: products.length + 1,
+      sourcePublishedAt: null
+    }, previousById));
+    if (products.length >= (store.maxItems ?? 8)) break;
+  }
+  return products;
+}
+
 function parseTmallProducts(html, store, previousById) {
   const normalized = decodeXml(html).replaceAll("\\/", "/").replaceAll("\\u002F", "/");
   const products = [];
@@ -360,6 +415,7 @@ function parseStoreProducts(html, store, previousById, parserType = store.type) 
   if (parserType === "shopify-json") return parseShopifyJsonProducts(html, store, previousById);
   if (parserType === "lukfook-api") return parseLukfookApiProducts(html, store, previousById);
   if (parserType === "chowsangsang-json") return parseChowSangSangJsonProducts(html, store, previousById);
+  if (parserType === "tiffany-html") return parseTiffanyProducts(html, store, previousById);
   if (parserType === "tmall-html") return parseTmallProducts(html, store, previousById);
   throw new Error(`Unsupported product source type: ${parserType}`);
 }
@@ -585,49 +641,68 @@ async function collectProductStore(store, previousById) {
   throw new Error(failures.join(" | "));
 }
 
-async function collectGoldPrice() {
-  for (const source of GOLD_SOURCES) {
-    try {
-      const controller = new AbortController();
-      const timeout = setTimeout(() => controller.abort(), 10000);
-      const response = await fetch(source.url, {
-        signal: controller.signal,
-        headers: { "user-agent": "CHJ-AI-Strategic-Radar/1.0" }
-      });
-      clearTimeout(timeout);
-      if (!response.ok) continue;
-      const data = await response.json();
-      const result = data.chart?.result?.[0];
-      const meta = result?.meta;
-      const regularMarketPrice = Number(meta?.regularMarketPrice);
-      const previousClose = Number(meta?.chartPreviousClose ?? meta?.previousClose);
-      if (!Number.isFinite(regularMarketPrice)) continue;
-      const change = Number.isFinite(previousClose) ? regularMarketPrice - previousClose : null;
-      const changePercent = Number.isFinite(previousClose) && previousClose !== 0 ? (change / previousClose) * 100 : null;
-      return {
-        source: source.name,
-        symbol: source.id,
-        price: Number(regularMarketPrice.toFixed(2)),
-        unit: source.unit,
-        change: change == null ? null : Number(change.toFixed(2)),
-        changePercent: changePercent == null ? null : Number(changePercent.toFixed(2)),
-        updatedAt: new Date((meta?.regularMarketTime ?? Date.now() / 1000) * 1000).toISOString(),
-        status: "live"
-      };
-    } catch {
-      // Try next source.
-    }
-  }
-
+async function fetchGoldQuote(source) {
+  const url = new URL(EASTMONEY_QUOTE_URL);
+  url.searchParams.set("secid", source.secid);
+  url.searchParams.set("fields", "f43,f44,f45,f46,f57,f58,f60,f86,f170");
+  const response = await fetch(url, { headers: { "user-agent": "CHJ-AI-Strategic-Radar/2.0" } });
+  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+  const data = (await response.json()).data;
+  const price = Number(data?.f43) / source.scale;
+  const previousClose = Number(data?.f60) / source.scale;
+  if (!Number.isFinite(price)) throw new Error(`${source.name} 行情字段缺失`);
   return {
-    source: "兜底样例",
-    symbol: "gold-demo",
-    price: 2350,
-    unit: "USD/oz",
-    change: null,
-    changePercent: null,
-    updatedAt: new Date().toISOString(),
-    status: "fallback"
+    id: source.id,
+    symbol: data?.f57 ?? source.secid,
+    source: source.name,
+    price: Number(price.toFixed(2)),
+    previousClose: Number.isFinite(previousClose) ? Number(previousClose.toFixed(2)) : null,
+    open: Number.isFinite(Number(data?.f46)) ? Number((Number(data.f46) / source.scale).toFixed(2)) : null,
+    high: Number.isFinite(Number(data?.f44)) ? Number((Number(data.f44) / source.scale).toFixed(2)) : null,
+    low: Number.isFinite(Number(data?.f45)) ? Number((Number(data.f45) / source.scale).toFixed(2)) : null,
+    change: Number.isFinite(previousClose) ? Number((price - previousClose).toFixed(2)) : null,
+    changePercent: Number.isFinite(Number(data?.f170)) ? Number((Number(data.f170) / 100).toFixed(2)) : null,
+    unit: source.unit,
+    updatedAt: new Date((Number(data?.f86) || Date.now() / 1000) * 1000).toISOString(),
+    status: "live"
+  };
+}
+
+async function fetchGoldTrend(source) {
+  const url = new URL(EASTMONEY_TREND_URL);
+  url.searchParams.set("secid", source.secid);
+  url.searchParams.set("fields1", "f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11,f12,f13");
+  url.searchParams.set("fields2", "f51,f52,f53,f54,f55,f56,f57,f58");
+  url.searchParams.set("ndays", "1");
+  url.searchParams.set("iscr", "0");
+  const response = await fetch(url, { headers: { "user-agent": "CHJ-AI-Strategic-Radar/2.0" } });
+  if (!response.ok) return [];
+  const trends = (await response.json()).data?.trends ?? [];
+  const points = trends.map((row) => {
+    const [time, rawPrice] = row.split(",");
+    const price = Number(rawPrice);
+    return Number.isFinite(price) ? { time, price } : null;
+  }).filter(Boolean);
+  const step = Math.max(1, Math.floor(points.length / 72));
+  const sampled = points.filter((_, index) => index % step === 0);
+  const last = points.at(-1);
+  if (last && sampled.at(-1)?.time !== last.time) sampled.push(last);
+  return sampled;
+}
+
+async function collectGoldMarket(previousMarket) {
+  const settled = await Promise.allSettled(GOLD_MARKET_SOURCES.map(fetchGoldQuote));
+  const quotes = settled.flatMap((result) => result.status === "fulfilled" ? [result.value] : []);
+  const primary = quotes.find((item) => item.id === "au9999") ?? previousMarket?.primary ?? null;
+  const history = await fetchGoldTrend(GOLD_MARKET_SOURCES[0]).catch(() => previousMarket?.history ?? []);
+  return {
+    primary,
+    secondary: quotes.filter((item) => item.id !== "au9999"),
+    history,
+    refreshSeconds: 60,
+    sourceUrl: "https://www.sge.com.cn/sjzx/yshqbg",
+    checkedAt: new Date().toISOString(),
+    status: primary ? "live" : "unavailable"
   };
 }
 
@@ -643,7 +718,7 @@ async function main() {
     .catch(() => ({}));
   const previousProducts = previousData.products ?? [];
   const previousById = new Map(previousProducts.map((item) => [item.id, item]));
-  const gold = await collectGoldPrice();
+  const goldMarket = await collectGoldMarket(previousData.goldMarket);
   const settled = await Promise.allSettled(sourceConfig.feeds.map(collectFeed));
   const officialSettled = await Promise.allSettled((sourceConfig.officialCompetitors ?? []).map(collectOfficialPage));
   const productStores = sourceConfig.productStores ?? [];
@@ -675,7 +750,7 @@ async function main() {
   const products = [...collectedProducts, ...retainedProducts]
     .sort((a, b) => Date.parse(b.sourcePublishedAt ?? b.firstSeenAt) - Date.parse(a.sourcePublishedAt ?? a.firstSeenAt)
       || a.listedOrder - b.listedOrder)
-    .slice(0, 48);
+    .slice(0, 160);
   const productCollection = {
     checkedAt: new Date().toISOString(),
     totalItems: products.length,
@@ -715,7 +790,8 @@ async function main() {
   const payload = {
     generatedAt: new Date().toISOString(),
     mode,
-    gold,
+    gold: goldMarket.primary,
+    goldMarket,
     products,
     productCollection,
     officialCompetitors: sourceConfig.officialCompetitors ?? [],

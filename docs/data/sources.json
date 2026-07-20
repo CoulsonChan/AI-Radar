@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-05",
+  "updatedAt": "2026-07-20",
   "note": "公开网络情报源配置。竞品优先使用官方网站/官方投资者关系/官方新闻页；宏观趋势仍使用公开新闻 RSS。正式商用前建议补充公司内部经营数据、券商研报、公告接口、舆情平台和社媒数据源。",
   "productStores": [
     {
@@ -67,6 +67,88 @@
       "url": "https://www.chowsangsang.com/eshop-hk/en/Product/c/getProductList/anonymous/WhatsNew-WhatsNew?sort=&q=:newInStock&pageSize=8&page=0&country=HK",
       "storeUrl": "https://www.chowsangsang.com/en/product/WhatsNew-WhatsNew",
       "productBaseUrl": "https://www.chowsangsang.com/eshop-hk/en/",
+      "maxItems": 8
+    },
+    {
+      "id": "missoma-new-in",
+      "brand": "Missoma",
+      "name": "Missoma New In",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.missoma.com/collections/new-in/products.json?limit=8",
+      "storeUrl": "https://www.missoma.com/collections/new-in",
+      "currency": "GBP",
+      "currencySymbol": "£ ",
+      "maxItems": 8
+    },
+    {
+      "id": "pdpaola-new-in",
+      "brand": "PDPAOLA",
+      "name": "PDPAOLA New In",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.pdpaola.com/collections/new-in/products.json?limit=8",
+      "storeUrl": "https://www.pdpaola.com/collections/new-in",
+      "currency": "HKD",
+      "currencySymbol": "HK$ ",
+      "maxItems": 8
+    },
+    {
+      "id": "astrid-miyu-new-in",
+      "brand": "Astrid & Miyu",
+      "name": "Astrid & Miyu New In",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.astridandmiyu.com/collections/new-in/products.json?limit=8",
+      "storeUrl": "https://www.astridandmiyu.com/collections/new-in",
+      "currency": "GBP",
+      "currencySymbol": "£ ",
+      "maxItems": 8
+    },
+    {
+      "id": "hefang-new-in",
+      "brand": "HEFANG",
+      "name": "HEFANG New Products",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.hefangjewelry.com/products.json?limit=8",
+      "storeUrl": "https://www.hefangjewelry.com/collections/all",
+      "currency": "USD",
+      "currencySymbol": "US$ ",
+      "maxItems": 8
+    },
+    {
+      "id": "yvmin-new-in",
+      "brand": "YVMIN",
+      "name": "YVMIN New Products",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://yvmin.com/products.json?limit=8",
+      "storeUrl": "https://yvmin.com/collections/all",
+      "currency": "USD",
+      "currencySymbol": "US$ ",
+      "maxItems": 8
+    },
+    {
+      "id": "baublebar-new-arrivals",
+      "brand": "BaubleBar",
+      "name": "BaubleBar New Arrivals",
+      "platform": "品牌官网",
+      "type": "shopify-json",
+      "url": "https://www.baublebar.com/collections/new-arrivals/products.json?limit=8",
+      "storeUrl": "https://www.baublebar.com/collections/new-arrivals",
+      "currency": "USD",
+      "currencySymbol": "US$ ",
+      "maxItems": 8
+    },
+    {
+      "id": "tiffany-new-jewelry",
+      "brand": "Tiffany & Co.",
+      "name": "Tiffany New Jewelry",
+      "platform": "品牌官网",
+      "type": "tiffany-html",
+      "url": "https://www.tiffany.com/jewelry/new-jewelry/",
+      "storeUrl": "https://www.tiffany.com/jewelry/new-jewelry/",
       "maxItems": 8
     }
   ],
