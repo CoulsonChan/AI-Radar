@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-10-25T04:56:04.194Z",
+  "generatedAt": "2026-10-26T04:59:08.133Z",
   "mode": "live",
   "gold": {
     "id": "au9999",
     "symbol": "AU9999",
     "source": "上金所 Au99.99",
-    "price": 862.99,
+    "price": 863.25,
     "previousClose": 864,
     "open": 865,
     "high": 872.99,
     "low": 855,
-    "change": -1.01,
-    "changePercent": -0.12,
+    "change": -0.75,
+    "changePercent": -0.09,
     "unit": "CNY/g",
-    "updatedAt": "2026-10-23T18:29:55.000Z",
+    "updatedAt": "2026-10-26T04:58:55.000Z",
     "status": "live"
   },
   "goldMarket": {
@@ -21,15 +21,15 @@
       "id": "au9999",
       "symbol": "AU9999",
       "source": "上金所 Au99.99",
-      "price": 862.99,
+      "price": 863.25,
       "previousClose": 864,
       "open": 865,
       "high": 872.99,
       "low": 855,
-      "change": -1.01,
-      "changePercent": -0.12,
+      "change": -0.75,
+      "changePercent": -0.09,
       "unit": "CNY/g",
-      "updatedAt": "2026-10-23T18:29:55.000Z",
+      "updatedAt": "2026-10-26T04:58:55.000Z",
       "status": "live"
     },
     "secondary": [
@@ -37,45 +37,45 @@
         "id": "autd",
         "symbol": "AUTD",
         "source": "黄金 T+D",
-        "price": 859.5,
+        "price": 862.77,
         "previousClose": 863.38,
         "open": 865.1,
         "high": 866.79,
-        "low": 854.81,
-        "change": -3.88,
-        "changePercent": -0.64,
+        "low": 854.32,
+        "change": -0.61,
+        "changePercent": -0.26,
         "unit": "CNY/g",
-        "updatedAt": "2026-10-23T18:29:57.000Z",
+        "updatedAt": "2026-10-26T04:58:55.000Z",
         "status": "live"
       },
       {
         "id": "xau-usd",
         "symbol": "XAU",
         "source": "伦敦现货金",
-        "price": 3995.63,
-        "previousClose": 4024.55,
-        "open": 4024.95,
-        "high": 4034.04,
-        "low": 3975.88,
-        "change": -28.92,
-        "changePercent": -0.72,
+        "price": 4015.49,
+        "previousClose": 3995.63,
+        "open": 3999.13,
+        "high": 4016.74,
+        "low": 3978.19,
+        "change": 19.86,
+        "changePercent": 0.5,
         "unit": "USD/oz",
-        "updatedAt": "2026-10-23T20:59:00.000Z",
+        "updatedAt": "2026-10-26T04:59:00.000Z",
         "status": "live"
       },
       {
         "id": "comex-gold",
         "symbol": "GC00Y",
         "source": "COMEX 黄金",
-        "price": 4010,
-        "previousClose": 4060.4,
-        "open": 4042.2,
-        "high": 4050.2,
-        "low": 3989.1,
-        "change": -50.4,
-        "changePercent": -1.24,
+        "price": 4025.5,
+        "previousClose": 4007.9,
+        "open": 4012.2,
+        "high": 4030,
+        "low": 3990.9,
+        "change": 17.6,
+        "changePercent": 0.44,
         "unit": "USD/oz",
-        "updatedAt": "2026-10-23T21:00:00.000Z",
+        "updatedAt": "2026-10-26T04:49:00.000Z",
         "status": "live"
       }
     ],
@@ -85,95 +85,59 @@
         "price": 865
       },
       {
-        "time": "2026-10-23 20:05",
-        "price": 866.5
+        "time": "2026-10-23 20:08",
+        "price": 867.5
       },
       {
-        "time": "2026-10-23 20:10",
+        "time": "2026-10-23 20:16",
         "price": 866
       },
       {
-        "time": "2026-10-23 20:15",
+        "time": "2026-10-23 20:24",
         "price": 866
       },
       {
-        "time": "2026-10-23 20:20",
-        "price": 865.6
-      },
-      {
-        "time": "2026-10-23 20:25",
-        "price": 866.49
-      },
-      {
-        "time": "2026-10-23 20:30",
-        "price": 865.5
-      },
-      {
-        "time": "2026-10-23 20:35",
-        "price": 867
+        "time": "2026-10-23 20:32",
+        "price": 866
       },
       {
         "time": "2026-10-23 20:40",
         "price": 867
       },
       {
-        "time": "2026-10-23 20:45",
+        "time": "2026-10-23 20:48",
         "price": 867
       },
       {
-        "time": "2026-10-23 20:50",
-        "price": 867.5
-      },
-      {
-        "time": "2026-10-23 20:55",
+        "time": "2026-10-23 20:56",
         "price": 867
       },
       {
-        "time": "2026-10-23 21:00",
-        "price": 867
+        "time": "2026-10-23 21:04",
+        "price": 865.7
       },
       {
-        "time": "2026-10-23 21:05",
-        "price": 867
-      },
-      {
-        "time": "2026-10-23 21:10",
+        "time": "2026-10-23 21:12",
         "price": 871
-      },
-      {
-        "time": "2026-10-23 21:15",
-        "price": 870.99
       },
       {
         "time": "2026-10-23 21:20",
         "price": 867.1
       },
       {
-        "time": "2026-10-23 21:25",
+        "time": "2026-10-23 21:28",
         "price": 867.1
       },
       {
-        "time": "2026-10-23 21:30",
-        "price": 866.3
+        "time": "2026-10-23 21:36",
+        "price": 869.9
       },
       {
-        "time": "2026-10-23 21:35",
-        "price": 865.6
-      },
-      {
-        "time": "2026-10-23 21:40",
+        "time": "2026-10-23 21:44",
         "price": 866
       },
       {
-        "time": "2026-10-23 21:45",
-        "price": 866
-      },
-      {
-        "time": "2026-10-23 21:50",
-        "price": 866.79
-      },
-      {
-        "time": "2026-10-23 21:55",
+        "time": "2026-10-23 21:52",
         "price": 866
       },
       {
@@ -181,95 +145,59 @@
         "price": 866
       },
       {
-        "time": "2026-10-23 22:05",
-        "price": 869.49
-      },
-      {
-        "time": "2026-10-23 22:10",
+        "time": "2026-10-23 22:08",
         "price": 863.5
       },
       {
-        "time": "2026-10-23 22:15",
+        "time": "2026-10-23 22:16",
         "price": 862.5
       },
       {
-        "time": "2026-10-23 22:20",
+        "time": "2026-10-23 22:24",
         "price": 859
       },
       {
-        "time": "2026-10-23 22:25",
-        "price": 859
-      },
-      {
-        "time": "2026-10-23 22:30",
-        "price": 858.99
-      },
-      {
-        "time": "2026-10-23 22:35",
-        "price": 858
+        "time": "2026-10-23 22:32",
+        "price": 855.01
       },
       {
         "time": "2026-10-23 22:40",
         "price": 858
       },
       {
-        "time": "2026-10-23 22:45",
+        "time": "2026-10-23 22:48",
         "price": 861.9
       },
       {
-        "time": "2026-10-23 22:50",
-        "price": 863.98
-      },
-      {
-        "time": "2026-10-23 22:55",
+        "time": "2026-10-23 22:56",
         "price": 861
       },
       {
-        "time": "2026-10-23 23:00",
+        "time": "2026-10-23 23:04",
         "price": 863.97
       },
       {
-        "time": "2026-10-23 23:05",
-        "price": 863.97
-      },
-      {
-        "time": "2026-10-23 23:10",
-        "price": 856.8
-      },
-      {
-        "time": "2026-10-23 23:15",
-        "price": 863.88
+        "time": "2026-10-23 23:12",
+        "price": 862.99
       },
       {
         "time": "2026-10-23 23:20",
         "price": 860
       },
       {
-        "time": "2026-10-23 23:25",
+        "time": "2026-10-23 23:28",
         "price": 863.97
       },
       {
-        "time": "2026-10-23 23:30",
+        "time": "2026-10-23 23:36",
         "price": 860
       },
       {
-        "time": "2026-10-23 23:35",
-        "price": 860
-      },
-      {
-        "time": "2026-10-23 23:40",
+        "time": "2026-10-23 23:44",
         "price": 859.66
       },
       {
-        "time": "2026-10-23 23:45",
-        "price": 859.66
-      },
-      {
-        "time": "2026-10-23 23:50",
-        "price": 859
-      },
-      {
-        "time": "2026-10-23 23:55",
+        "time": "2026-10-23 23:52",
         "price": 859
       },
       {
@@ -277,31 +205,19 @@
         "price": 859
       },
       {
-        "time": "2026-10-24 00:05",
+        "time": "2026-10-24 00:08",
         "price": 859
       },
       {
-        "time": "2026-10-24 00:10",
+        "time": "2026-10-24 00:16",
         "price": 859
       },
       {
-        "time": "2026-10-24 00:15",
+        "time": "2026-10-24 00:24",
         "price": 859
       },
       {
-        "time": "2026-10-24 00:20",
-        "price": 859
-      },
-      {
-        "time": "2026-10-24 00:25",
-        "price": 859
-      },
-      {
-        "time": "2026-10-24 00:30",
-        "price": 859
-      },
-      {
-        "time": "2026-10-24 00:35",
+        "time": "2026-10-24 00:32",
         "price": 859
       },
       {
@@ -309,31 +225,19 @@
         "price": 859
       },
       {
-        "time": "2026-10-24 00:45",
+        "time": "2026-10-24 00:48",
         "price": 863
       },
       {
-        "time": "2026-10-24 00:50",
+        "time": "2026-10-24 00:56",
         "price": 863
       },
       {
-        "time": "2026-10-24 00:55",
+        "time": "2026-10-24 01:04",
         "price": 863
       },
       {
-        "time": "2026-10-24 01:00",
-        "price": 863
-      },
-      {
-        "time": "2026-10-24 01:05",
-        "price": 863
-      },
-      {
-        "time": "2026-10-24 01:10",
-        "price": 863
-      },
-      {
-        "time": "2026-10-24 01:15",
+        "time": "2026-10-24 01:12",
         "price": 863
       },
       {
@@ -341,125 +245,265 @@
         "price": 859.01
       },
       {
-        "time": "2026-10-24 01:25",
+        "time": "2026-10-24 01:28",
         "price": 859.01
       },
       {
-        "time": "2026-10-24 01:30",
+        "time": "2026-10-24 01:36",
         "price": 859.01
       },
       {
-        "time": "2026-10-24 01:35",
-        "price": 859.01
-      },
-      {
-        "time": "2026-10-24 01:40",
-        "price": 859.01
-      },
-      {
-        "time": "2026-10-24 01:45",
+        "time": "2026-10-24 01:44",
         "price": 859
       },
       {
-        "time": "2026-10-24 01:50",
+        "time": "2026-10-24 01:52",
         "price": 859
-      },
-      {
-        "time": "2026-10-24 01:55",
-        "price": 862.99
       },
       {
         "time": "2026-10-24 02:00",
         "price": 862.99
       },
       {
-        "time": "2026-10-24 02:05",
+        "time": "2026-10-24 02:08",
         "price": 862.99
       },
       {
-        "time": "2026-10-24 02:10",
+        "time": "2026-10-24 02:16",
         "price": 862.99
       },
       {
-        "time": "2026-10-24 02:15",
+        "time": "2026-10-24 02:24",
         "price": 862.99
       },
       {
-        "time": "2026-10-24 02:20",
-        "price": 862.99
+        "time": "2026-10-26 09:02",
+        "price": 858.8
       },
       {
-        "time": "2026-10-24 02:25",
-        "price": 862.99
+        "time": "2026-10-26 09:10",
+        "price": 857.9
       },
       {
-        "time": "2026-10-24 02:29",
-        "price": 862.99
+        "time": "2026-10-26 09:18",
+        "price": 859.76
+      },
+      {
+        "time": "2026-10-26 09:26",
+        "price": 859.18
+      },
+      {
+        "time": "2026-10-26 09:34",
+        "price": 857.3
+      },
+      {
+        "time": "2026-10-26 09:42",
+        "price": 856.8
+      },
+      {
+        "time": "2026-10-26 09:50",
+        "price": 856.01
+      },
+      {
+        "time": "2026-10-26 09:58",
+        "price": 856.05
+      },
+      {
+        "time": "2026-10-26 10:06",
+        "price": 858.69
+      },
+      {
+        "time": "2026-10-26 10:14",
+        "price": 858.5
+      },
+      {
+        "time": "2026-10-26 10:22",
+        "price": 858.15
+      },
+      {
+        "time": "2026-10-26 10:30",
+        "price": 858.54
+      },
+      {
+        "time": "2026-10-26 10:38",
+        "price": 857.8
+      },
+      {
+        "time": "2026-10-26 10:46",
+        "price": 858.59
+      },
+      {
+        "time": "2026-10-26 10:54",
+        "price": 859.2
+      },
+      {
+        "time": "2026-10-26 11:02",
+        "price": 859.9
+      },
+      {
+        "time": "2026-10-26 11:10",
+        "price": 861.72
+      },
+      {
+        "time": "2026-10-26 11:18",
+        "price": 862.7
+      },
+      {
+        "time": "2026-10-26 11:26",
+        "price": 863.3
+      },
+      {
+        "time": "2026-10-26 11:34",
+        "price": 862.6
+      },
+      {
+        "time": "2026-10-26 11:42",
+        "price": 862.3
+      },
+      {
+        "time": "2026-10-26 11:50",
+        "price": 862.35
+      },
+      {
+        "time": "2026-10-26 11:58",
+        "price": 862
+      },
+      {
+        "time": "2026-10-26 12:06",
+        "price": 862.2
+      },
+      {
+        "time": "2026-10-26 12:14",
+        "price": 862
+      },
+      {
+        "time": "2026-10-26 12:22",
+        "price": 862.3
+      },
+      {
+        "time": "2026-10-26 12:30",
+        "price": 862.4
+      },
+      {
+        "time": "2026-10-26 12:38",
+        "price": 862.4
+      },
+      {
+        "time": "2026-10-26 12:46",
+        "price": 862.71
+      },
+      {
+        "time": "2026-10-26 12:54",
+        "price": 863.5
+      },
+      {
+        "time": "2026-10-26 12:59",
+        "price": 863.3
       }
     ],
     "refreshSeconds": 60,
     "sourceUrl": "https://www.sge.com.cn/sjzx/yshqbg",
-    "checkedAt": "2026-10-25T04:55:59.606Z",
+    "checkedAt": "2026-10-26T04:59:02.880Z",
     "status": "live"
   },
   "products": [
     {
-      "id": "swarovski-new-in:5741221",
-      "productId": "5741221",
+      "id": "swarovski-new-in:5740456",
+      "productId": "5740456",
       "storeId": "swarovski-new-in",
       "brand": "Swarovski",
       "storeName": "Swarovski 新品上市",
       "platform": "品牌官网",
-      "title": "Swarovski Classica Y 型链坠, 圆形切割, 白色, 925 银",
-      "price": 2500,
+      "title": "Swarovski Classica 大圈耳环, 圆形切割, 白色, 925 银",
+      "price": 2800,
       "currency": "CNY",
-      "priceLabel": "2,500 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5741221/Swarovski-Classica-Y-%E5%9E%8B%E9%93%BE%E5%9D%A0-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5741221",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5741221_png/swarovski-classica-y-%E5%9E%8B%E9%93%BE%E5%9D%A0--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5741221.png",
-      "listedOrder": 2,
+      "priceLabel": "2,800 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5740456/Swarovski-Classica-%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740456",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5740456_png/swarovski-classica-%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740456.png",
+      "listedOrder": 4,
       "sourcePublishedAt": null,
-      "firstSeenAt": "2026-10-25T04:56:04.194Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
+      "firstSeenAt": "2026-10-26T04:59:08.133Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
       "isNew": true,
       "official": true
     },
     {
-      "id": "swarovski-new-in:5740455",
-      "productId": "5740455",
+      "id": "swarovski-new-in:5733476",
+      "productId": "5733476",
       "storeId": "swarovski-new-in",
       "brand": "Swarovski",
       "storeName": "Swarovski 新品上市",
       "platform": "品牌官网",
-      "title": "Swarovski Classica 垂坠式大圈耳环, 圆形切割, 白色, 925 银",
-      "price": 3300,
-      "currency": "CNY",
-      "priceLabel": "3,300 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5740455/Swarovski-Classica-%E5%9E%82%E5%9D%A0%E5%BC%8F%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740455",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5740455_png/swarovski-classica-%E5%9E%82%E5%9D%A0%E5%BC%8F%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740455.png",
-      "listedOrder": 5,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-10-25T04:56:04.194Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5718051",
-      "productId": "5718051",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Annual Edition 挂饰 2026",
+      "title": "Kris 小熊 — 万圣节，小，多色的",
       "price": 800,
       "currency": "CNY",
       "priceLabel": "800 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-5718051/Annual-Edition-%E6%8C%82%E9%A5%B0-2026",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5718051_png/annual-edition-%E6%8C%82%E9%A5%B0-2026-swarovski-5718051.png",
-      "listedOrder": 1,
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5733476/Kris-%E5%B0%8F%E7%86%8A-%E4%B8%87%E5%9C%A3%E8%8A%82-%E5%B0%8F-%E5%A4%9A%E8%89%B2%E7%9A%84?variantID=5733476",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5733476_png/kris-%E5%B0%8F%E7%86%8A-%E2%80%94-%E4%B8%87%E5%9C%A3%E8%8A%82%EF%BC%8C%E5%B0%8F%EF%BC%8C%E5%A4%9A%E8%89%B2%E7%9A%84-swarovski-5733476.png",
+      "listedOrder": 5,
       "sourcePublishedAt": null,
-      "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.193Z",
+      "firstSeenAt": "2026-10-26T04:59:08.133Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5740344",
+      "productId": "5740344",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Swarovski Classica 链坠, 圆形切割, 长款, 白色, 925 银",
+      "price": 2300,
+      "currency": "CNY",
+      "priceLabel": "2,300 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5740344/Swarovski-Classica-%E9%93%BE%E5%9D%A0-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E9%95%BF%E6%AC%BE-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740344",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5740344_png/swarovski-classica-%E9%93%BE%E5%9D%A0--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E9%95%BF%E6%AC%BE--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740344.png",
+      "listedOrder": 6,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-10-26T04:59:08.133Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5740347",
+      "productId": "5740347",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Swarovski Classica 手镯, 交织造型，圆形切割, 白色, 925 银",
+      "price": 3500,
+      "currency": "CNY",
+      "priceLabel": "3,500 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5740348/Swarovski-Classica-%E6%89%8B%E9%95%AF-%E4%BA%A4%E7%BB%87%E9%80%A0%E5%9E%8B-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740347",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5740347_png/swarovski-classica-%E6%89%8B%E9%95%AF--%E4%BA%A4%E7%BB%87%E9%80%A0%E5%9E%8B%EF%BC%8C%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740347.png",
+      "listedOrder": 7,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-10-26T04:59:08.133Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5752906",
+      "productId": "5752906",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Octagon 手链, 总重 0.25 克拉培育钻石，Octagon 形, 银",
+      "price": 3600,
+      "currency": "CNY",
+      "priceLabel": "3,600 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5752906/Octagon-%E6%89%8B%E9%93%BE-%E6%80%BB%E9%87%8D-0-25-%E5%85%8B%E6%8B%89%E5%9F%B9%E8%82%B2%E9%92%BB%E7%9F%B3-Octagon-%E5%BD%A2-%E9%93%B6?variantID=5752906",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5752906_png/octagon-%E6%89%8B%E9%93%BE--%E6%80%BB%E9%87%8D-0.25-%E5%85%8B%E6%8B%89%E5%9F%B9%E8%82%B2%E9%92%BB%E7%9F%B3%EF%BC%8Coctagon-%E5%BD%A2--%E9%93%B6-swarovski-5752906.png",
+      "listedOrder": 8,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-10-26T04:59:08.133Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
       "isNew": true,
       "official": true
     },
@@ -476,10 +520,10 @@
       "priceLabel": "1,600 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5742582/Swarovski-Classica-%E5%BC%80%E5%8F%A3%E6%88%92%E6%8C%87-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5742581",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5742581_png/swarovski-classica-%E5%BC%80%E5%8F%A3%E6%88%92%E6%8C%87--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5742581.png",
-      "listedOrder": 3,
+      "listedOrder": 1,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
+      "lastSeenAt": "2026-10-26T04:59:08.132Z",
       "isNew": true,
       "official": true
     },
@@ -496,30 +540,10 @@
       "priceLabel": "1,300 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5731941/Annual-Edition-3D-%E6%8C%82%E9%A5%B0-2026-%E7%99%BD%E8%89%B2?variantID=5731941",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5731941_png/annual-edition-3d-%E6%8C%82%E9%A5%B0-2026%EF%BC%8C%E7%99%BD%E8%89%B2-swarovski-5731941.png",
-      "listedOrder": 4,
+      "listedOrder": 2,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5731942",
-      "productId": "5731942",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Annual Edition Festive 3D 挂饰 2026，金色调",
-      "price": 1300,
-      "currency": "CNY",
-      "priceLabel": "1,300 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5731941/Annual-Edition-Festive-3D-%E6%8C%82%E9%A5%B0-2026-%E9%87%91%E8%89%B2%E8%B0%83?variantID=5731942",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5731942_png/annual-edition-festive-3d-%E6%8C%82%E9%A5%B0-2026%EF%BC%8C%E9%87%91%E8%89%B2%E8%B0%83-swarovski-5731942.png",
-      "listedOrder": 6,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
       "isNew": true,
       "official": true
     },
@@ -536,30 +560,10 @@
       "priceLabel": "4,800 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5740463/Swarovski-Classica-%E6%89%8B%E9%95%AF-%E5%BC%80%E6%94%BE%E5%BC%8F-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740462",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5740462_png/swarovski-classica-%E6%89%8B%E9%95%AF--%E5%BC%80%E6%94%BE%E5%BC%8F%EF%BC%8C%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740462.png",
-      "listedOrder": 7,
+      "listedOrder": 3,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5739632",
-      "productId": "5739632",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Matrix octagon 腕表, 长方形切割, 金属手链, 蓝色, 不锈钢",
-      "price": 6800,
-      "currency": "CNY",
-      "priceLabel": "6,800 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5724516/Matrix-octagon-%E8%85%95%E8%A1%A8-%E9%95%BF%E6%96%B9%E5%BD%A2%E5%88%87%E5%89%B2-%E9%87%91%E5%B1%9E%E6%89%8B%E9%93%BE-%E8%93%9D%E8%89%B2-%E4%B8%8D%E9%94%88%E9%92%A2?variantID=5739632",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5739632_png/matrix-octagon-%E8%85%95%E8%A1%A8--%E9%95%BF%E6%96%B9%E5%BD%A2%E5%88%87%E5%89%B2--%E9%87%91%E5%B1%9E%E6%89%8B%E9%93%BE--%E8%93%9D%E8%89%B2--%E4%B8%8D%E9%94%88%E9%92%A2-swarovski-5739632.png",
-      "listedOrder": 8,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-10-24T04:47:40.449Z",
-      "lastSeenAt": "2026-10-25T04:56:04.194Z",
+      "lastSeenAt": "2026-10-26T04:59:08.133Z",
       "isNew": true,
       "official": true
     },
@@ -579,7 +583,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-24T04:47:39.712Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
       "isNew": true,
       "official": true
     },
@@ -599,7 +603,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-23T08:33:14.000Z",
       "firstSeenAt": "2026-10-24T04:47:38.637Z",
-      "lastSeenAt": "2026-10-25T04:56:02.241Z",
+      "lastSeenAt": "2026-10-26T04:59:05.716Z",
       "isNew": true,
       "official": true
     },
@@ -619,7 +623,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-23T07:57:41.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.503Z",
       "isNew": true,
       "official": true
     },
@@ -639,7 +643,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-23T07:48:14.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -659,7 +663,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-23T07:37:10.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -679,7 +683,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-23T07:34:30.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -699,7 +703,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-23T07:04:12.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -719,7 +723,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-23T06:55:36.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -739,7 +743,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-23T06:19:26.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -759,7 +763,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-23T06:16:50.000Z",
       "firstSeenAt": "2026-10-24T04:47:40.572Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.830Z",
       "isNew": true,
       "official": true
     },
@@ -779,7 +783,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-23T06:16:19.000Z",
       "firstSeenAt": "2026-10-24T04:47:39.535Z",
-      "lastSeenAt": "2026-10-25T04:56:02.952Z",
+      "lastSeenAt": "2026-10-26T04:59:06.504Z",
       "isNew": true,
       "official": true
     },
@@ -799,7 +803,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-23T06:08:24.000Z",
       "firstSeenAt": "2026-10-24T04:47:40.572Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.830Z",
       "isNew": true,
       "official": true
     },
@@ -819,8 +823,8 @@
       "listedOrder": 2,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-22T05:02:47.359Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -839,8 +843,8 @@
       "listedOrder": 3,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-22T05:02:47.359Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -859,8 +863,8 @@
       "listedOrder": 4,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-22T05:02:47.359Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -879,8 +883,8 @@
       "listedOrder": 7,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-22T05:02:47.359Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -899,7 +903,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-21T05:00:47.276Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
       "isNew": false,
       "official": true
     },
@@ -919,7 +923,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-21T05:00:47.276Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
       "isNew": false,
       "official": true
     },
@@ -939,7 +943,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-10-21T05:00:47.276Z",
-      "lastSeenAt": "2026-10-25T04:56:03.014Z",
+      "lastSeenAt": "2026-10-26T04:59:06.698Z",
       "isNew": false,
       "official": true
     },
@@ -959,8 +963,8 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-20T13:33:38.000Z",
       "firstSeenAt": "2026-10-22T05:02:47.247Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -979,7 +983,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-20T13:08:23.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -999,7 +1003,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-20T10:06:22.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -1019,7 +1023,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-20T07:56:45.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.598Z",
       "isNew": false,
       "official": true
     },
@@ -1039,7 +1043,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-20T07:56:44.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.598Z",
       "isNew": false,
       "official": true
     },
@@ -1059,7 +1063,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-20T07:56:43.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.598Z",
       "isNew": false,
       "official": true
     },
@@ -1079,7 +1083,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-20T07:21:20.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.599Z",
       "isNew": false,
       "official": true
     },
@@ -1099,7 +1103,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-20T07:08:28.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.599Z",
       "isNew": false,
       "official": true
     },
@@ -1119,7 +1123,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-20T05:46:31.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.000Z",
+      "lastSeenAt": "2026-10-26T04:59:06.599Z",
       "isNew": false,
       "official": true
     },
@@ -1139,7 +1143,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-20T05:33:31.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.740Z",
-      "lastSeenAt": "2026-10-25T04:56:03.001Z",
+      "lastSeenAt": "2026-10-26T04:59:06.599Z",
       "isNew": false,
       "official": true
     },
@@ -1159,7 +1163,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-20T05:33:30.000Z",
       "firstSeenAt": "2026-10-23T05:02:52.071Z",
-      "lastSeenAt": "2026-10-25T04:56:03.001Z",
+      "lastSeenAt": "2026-10-26T04:59:06.599Z",
       "isNew": true,
       "official": true
     },
@@ -1179,8 +1183,8 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-16T15:10:12.000Z",
       "firstSeenAt": "2026-10-22T05:02:47.247Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1199,8 +1203,8 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-16T15:08:03.000Z",
       "firstSeenAt": "2026-10-22T05:02:47.247Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1219,8 +1223,8 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-16T13:14:01.000Z",
       "firstSeenAt": "2026-10-22T05:02:47.247Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1239,7 +1243,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-16T03:46:47.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1259,7 +1263,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-16T03:03:24.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1279,7 +1283,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-15T06:19:08.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1299,7 +1303,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-15T06:19:08.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1319,7 +1323,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-15T06:19:08.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1339,7 +1343,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-15T06:19:08.000Z",
       "firstSeenAt": "2026-10-16T04:43:01.027Z",
-      "lastSeenAt": "2026-10-25T04:56:03.928Z",
+      "lastSeenAt": "2026-10-26T04:59:07.831Z",
       "isNew": false,
       "official": true
     },
@@ -1359,8 +1363,8 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-10T03:58:57.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1379,8 +1383,8 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-10T03:30:13.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1399,8 +1403,8 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-10T02:18:59.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1419,8 +1423,8 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-10T01:50:15.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1439,8 +1443,8 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-10T01:27:48.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1459,8 +1463,8 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-10T01:11:57.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1479,8 +1483,8 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-09T18:44:17.000Z",
       "firstSeenAt": "2026-10-22T05:02:47.247Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1499,8 +1503,8 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-09T09:15:59.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-10-25T04:56:02.242Z",
-      "isNew": true,
+      "lastSeenAt": "2026-10-26T04:59:05.717Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -1519,7 +1523,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-08T14:15:22.000Z",
       "firstSeenAt": "2026-10-09T06:20:27.257Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
       "isNew": false,
       "official": true
     },
@@ -1539,7 +1543,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-08T13:57:18.000Z",
       "firstSeenAt": "2026-10-09T06:20:27.257Z",
-      "lastSeenAt": "2026-10-25T04:56:03.018Z",
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
       "isNew": false,
       "official": true
     },
@@ -1559,7 +1563,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-08T13:57:17.000Z",
       "firstSeenAt": "2026-10-09T06:20:27.257Z",
-      "lastSeenAt": "2026-10-25T04:56:03.019Z",
+      "lastSeenAt": "2026-10-26T04:59:06.754Z",
       "isNew": false,
       "official": true
     },
@@ -1579,7 +1583,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-08T09:01:56.000Z",
       "firstSeenAt": "2026-10-09T06:20:26.680Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1599,7 +1603,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-08T09:01:20.000Z",
       "firstSeenAt": "2026-10-09T06:20:26.680Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1619,7 +1623,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-07T08:36:18.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1639,7 +1643,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-07T08:36:17.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1659,7 +1663,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-07T08:36:15.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1679,7 +1683,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-07T08:36:14.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1699,7 +1703,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-07T08:36:13.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1719,7 +1723,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-07T08:36:12.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.370Z",
-      "lastSeenAt": "2026-10-25T04:56:02.702Z",
+      "lastSeenAt": "2026-10-26T04:59:06.304Z",
       "isNew": false,
       "official": true
     },
@@ -1739,7 +1743,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-09-18T08:47:31.000Z",
       "firstSeenAt": "2026-09-22T05:09:14.354Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1759,7 +1763,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-09-18T08:46:58.000Z",
       "firstSeenAt": "2026-10-01T06:08:48.861Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1779,7 +1783,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-09-18T08:46:38.000Z",
       "firstSeenAt": "2026-09-22T05:09:14.354Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1799,7 +1803,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-09-18T08:45:12.000Z",
       "firstSeenAt": "2026-10-10T06:02:32.333Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1819,7 +1823,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-09-18T08:44:58.000Z",
       "firstSeenAt": "2026-10-08T06:18:16.490Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1839,7 +1843,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-09-18T08:44:07.000Z",
       "firstSeenAt": "2026-09-22T05:09:14.354Z",
-      "lastSeenAt": "2026-10-25T04:56:02.785Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1859,7 +1863,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-09-18T08:43:47.000Z",
       "firstSeenAt": "2026-09-22T05:09:14.354Z",
-      "lastSeenAt": "2026-10-25T04:56:02.786Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1879,7 +1883,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-09-18T08:42:58.000Z",
       "firstSeenAt": "2026-09-22T05:09:14.354Z",
-      "lastSeenAt": "2026-10-25T04:56:02.786Z",
+      "lastSeenAt": "2026-10-26T04:59:06.416Z",
       "isNew": false,
       "official": true
     },
@@ -1899,7 +1903,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-09-01T06:46:07.000Z",
       "firstSeenAt": "2026-09-02T04:45:05.618Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -2079,7 +2083,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2099,7 +2103,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2119,7 +2123,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2139,7 +2143,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2159,7 +2163,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2179,7 +2183,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2199,7 +2203,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-10-25T04:56:02.777Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2219,7 +2223,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.182Z",
-      "lastSeenAt": "2026-10-25T04:56:02.776Z",
+      "lastSeenAt": "2026-10-26T04:59:05.869Z",
       "isNew": false,
       "official": true
     },
@@ -2239,7 +2243,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-06-19T18:10:09.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -2259,7 +2263,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-05-27T05:45:56.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.201Z",
       "isNew": false,
       "official": true
     },
@@ -2279,7 +2283,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-05-27T05:45:51.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.201Z",
       "isNew": false,
       "official": true
     },
@@ -2299,7 +2303,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-05-27T05:45:51.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.201Z",
       "isNew": false,
       "official": true
     },
@@ -2319,7 +2323,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-05-27T05:45:46.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.201Z",
       "isNew": false,
       "official": true
     },
@@ -2339,7 +2343,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-05-27T05:45:44.000Z",
       "firstSeenAt": "2026-09-01T05:20:11.140Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.202Z",
       "isNew": false,
       "official": true
     },
@@ -2359,7 +2363,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-05-27T05:45:38.000Z",
       "firstSeenAt": "2026-09-01T05:20:11.140Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.202Z",
       "isNew": false,
       "official": true
     },
@@ -2379,7 +2383,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-05-27T05:45:35.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.515Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.202Z",
       "isNew": false,
       "official": true
     },
@@ -2399,7 +2403,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-05-27T05:45:33.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.515Z",
-      "lastSeenAt": "2026-10-25T04:56:02.584Z",
+      "lastSeenAt": "2026-10-26T04:59:06.202Z",
       "isNew": false,
       "official": true
     },
@@ -2419,7 +2423,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-04-23T08:41:22.000Z",
       "firstSeenAt": "2026-07-20T02:54:26.011Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -2439,7 +2443,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-04-09T11:28:03.000Z",
       "firstSeenAt": "2026-09-02T04:45:05.618Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -2459,7 +2463,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2025-10-15T06:35:57.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.631Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     },
@@ -2479,15 +2483,15 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2025-04-01T06:29:01.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.631Z",
-      "lastSeenAt": "2026-10-25T04:56:02.813Z",
+      "lastSeenAt": "2026-10-26T04:59:06.397Z",
       "isNew": false,
       "official": true
     }
   ],
   "productCollection": {
-    "checkedAt": "2026-10-25T04:56:04.194Z",
+    "checkedAt": "2026-10-26T04:59:08.133Z",
     "totalItems": 104,
-    "newItems": 37,
+    "newItems": 21,
     "successfulStores": 12,
     "failedStores": 1,
     "stores": [
@@ -2661,7 +2665,7 @@
     }
   ],
   "summary": {
-    "totalItems": 37,
+    "totalItems": 36,
     "opportunityIndex": 95,
     "riskIndex": 82,
     "highPriority": 18
@@ -2675,21 +2679,42 @@
   ],
   "signals": [
     {
-      "id": "2b50f31fab4a",
-      "title": "金价下跌，年轻人买黄金的逻辑也变了",
-      "summary": "金价下跌，年轻人买黄金的逻辑也变了 &nbsp;&nbsp; 21财经",
-      "source": "金价与黄金消费",
-      "sourceId": "gold-price",
-      "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPLUdUUVZKSHFpaGUtdkRfWDdWVDFqVDRKcG8yeHZseFkwTVhOWnBWSTBsZWZpOENBa3dZM2dleEF0bi1VbkswNDZVbkhTbHMydk85N3FEajlsazlzb0dNUjFucnBDaE4wUlZJMDFkcm4zV1hPNzRJdHViRnZ0TldTMEhPdFJ5SFc1bHdLRTBBUWFuSHM5?oc=5",
-      "publishedAt": "2026-10-24T10:09:03.000Z",
-      "weight": 1.3,
-      "category": "经营风险",
-      "priority": "高",
-      "score": 68,
-      "impact": "可能影响金价周期下的消费意愿、库存周转、加盟质量或经营现金流，需要前置跟踪。",
-      "action": "加入风险看板，补充内部经营指标后形成董事长周度预警。",
-      "confidence": "公开网络情报，需人工复核"
+      "id": "f9534a1d3366",
+      "title": "周大福 官方更新入口",
+      "summary": "周大福持续推进品牌转型 携手 PANTONE 发布「周大福红」专属颜色诠释中式美学 2024-07-23 「周大福红」，源自品牌基因，传承中华文化之美，满载传奇珠宝世家近百年时光积淀，展示周大福时尚现代... / 周大福红传承中式美学 2024-07-08 周大福红，源自品牌基因，传承中华文化之美，满载传奇珠宝世家近百年时光积淀，展示周大福时尚现代、自...",
+      "source": "周大福官网",
+      "sourceId": "ctf",
+      "group": "competitor",
+      "url": "https://www.ctf.com.cn/zh-hans/about/index.html",
+      "publishedAt": "2026-10-26T04:59:05.345Z",
+      "weight": 1.25,
+      "official": true,
+      "focus": "产品、门店网络、财务表现、品牌年轻化",
+      "category": "竞品观察",
+      "priority": "中高",
+      "score": 60,
+      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
+      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
+      "confidence": "竞品官方网站，需人工复核页面更新"
+    },
+    {
+      "id": "1380acc048d1",
+      "title": "Pandora 官方更新入口",
+      "summary": "Act I is a limited-edition freshwater pearl collection, co-created with renowned British stylist Harry Lambert. / The carbon footprint of Pandora’s lab-grown diamonds is around 90% lower than mined alternatives.",
+      "source": "Pandora官网",
+      "sourceId": "pandora",
+      "group": "competitor",
+      "url": "https://www.pandoragroup.com/media/press-releases",
+      "publishedAt": "2026-10-26T04:59:04.890Z",
+      "weight": 1.25,
+      "official": true,
+      "focus": "串饰、培育钻石、全球新品、可持续",
+      "category": "竞品观察",
+      "priority": "中",
+      "score": 60,
+      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
+      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
+      "confidence": "竞品官方网站，需人工复核页面更新"
     },
     {
       "id": "8869007c1ef6",
@@ -2699,7 +2724,7 @@
       "sourceId": "swarovski",
       "group": "competitor",
       "url": "https://www.swarovski.com/",
-      "publishedAt": "2026-10-25T04:56:01.802Z",
+      "publishedAt": "2026-10-26T04:59:04.679Z",
       "weight": 1.25,
       "official": true,
       "focus": "国际轻奢、视觉符号、礼赠与零售体验",
@@ -2718,50 +2743,12 @@
       "sourceId": "laofengxiang",
       "group": "competitor",
       "url": "https://www.laofengxiang.com/",
-      "publishedAt": "2026-10-25T04:56:01.556Z",
+      "publishedAt": "2026-10-26T04:59:04.640Z",
       "weight": 1.25,
       "official": true,
       "focus": "老字号黄金心智、产品与活动、公告声明",
       "category": "竞品观察",
       "priority": "中",
-      "score": 60,
-      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
-      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
-      "confidence": "竞品官方网站，需人工复核页面更新"
-    },
-    {
-      "id": "1380acc048d1",
-      "title": "Pandora 官方更新入口",
-      "summary": "Act I is a limited-edition freshwater pearl collection, co-created with renowned British stylist Harry Lambert. / The carbon footprint of Pandora’s lab-grown diamonds is around 90% lower than mined alternatives. / 2026 Pandora Investor Relations Media Relations Sustainability Careers About Pandora",
-      "source": "Pandora官网",
-      "sourceId": "pandora",
-      "group": "competitor",
-      "url": "https://www.pandoragroup.com/media/press-releases",
-      "publishedAt": "2026-10-25T04:56:01.555Z",
-      "weight": 1.25,
-      "official": true,
-      "focus": "串饰、培育钻石、全球新品、可持续",
-      "category": "竞品观察",
-      "priority": "中",
-      "score": 60,
-      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
-      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
-      "confidence": "竞品官方网站，需人工复核页面更新"
-    },
-    {
-      "id": "f9534a1d3366",
-      "title": "周大福 官方更新入口",
-      "summary": "周大福持续推进品牌转型 携手 PANTONE 发布「周大福红」专属颜色诠释中式美学 2024-07-23 「周大福红」，源自品牌基因，传承中华文化之美，满载传奇珠宝世家近百年时光积淀，展示周大福时尚现代... / 周大福红传承中式美学 2024-07-08 周大福红，源自品牌基因，传承中华文化之美，满载传奇珠宝世家近百年时光积淀，展示周大福时尚现代、自...",
-      "source": "周大福官网",
-      "sourceId": "ctf",
-      "group": "competitor",
-      "url": "https://www.ctf.com.cn/zh-hans/about/index.html",
-      "publishedAt": "2026-10-25T04:56:01.481Z",
-      "weight": 1.25,
-      "official": true,
-      "focus": "产品、门店网络、财务表现、品牌年轻化",
-      "category": "竞品观察",
-      "priority": "中高",
       "score": 60,
       "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
       "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
@@ -2775,7 +2762,7 @@
       "sourceId": "chow-tai-seng",
       "group": "competitor",
       "url": "https://www.chowtaiseng.com/",
-      "publishedAt": "2026-10-25T04:56:01.009Z",
+      "publishedAt": "2026-10-26T04:59:04.165Z",
       "weight": 1.25,
       "official": true,
       "focus": "东方美学产品、门店规模、品牌合作",
@@ -2804,37 +2791,20 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "ffeae5cf9f53",
-      "title": "金价暴跌进入8 字头：年轻用户审美革命与传统珠宝品牌定位重构危机",
-      "summary": "金价暴跌进入8 字头：年轻用户审美革命与传统珠宝品牌定位重构危机 &nbsp;&nbsp; 腾讯新闻",
+      "id": "2b50f31fab4a",
+      "title": "金价下跌，年轻人买黄金的逻辑也变了",
+      "summary": "金价下跌，年轻人买黄金的逻辑也变了 &nbsp;&nbsp; 21财经",
       "source": "金价与黄金消费",
       "sourceId": "gold-price",
       "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5TZWcxYVlUY0hQUTBsSVp1OWZUUWtITktlOG9hXy1vTG1XTkFhZmNCcEk5WE1ydjNRV3oxcWdWVkFkRW1vekk2UF9veTByR0JhSUtkRktn?oc=5",
-      "publishedAt": "2026-10-12T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxPLUdUUVZKSHFpaGUtdkRfWDdWVDFqVDRKcG8yeHZseFkwTVhOWnBWSTBsZWZpOENBa3dZM2dleEF0bi1VbkswNDZVbkhTbHMydk85N3FEajlsazlzb0dNUjFucnBDaE4wUlZJMDFkcm4zV1hPNzRJdHViRnZ0TldTMEhPdFJ5SFc1bHdLRTBBUWFuSHM5?oc=5",
+      "publishedAt": "2026-10-24T10:09:03.000Z",
       "weight": 1.3,
       "category": "经营风险",
       "priority": "高",
       "score": 58,
       "impact": "可能影响金价周期下的消费意愿、库存周转、加盟质量或经营现金流，需要前置跟踪。",
       "action": "加入风险看板，补充内部经营指标后形成董事长周度预警。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "417fe0537f00",
-      "title": "股票行情快报：潮宏基（002345）10月22日主力资金净卖出1614.58万元_主力研究",
-      "summary": "股票行情快报：潮宏基（002345）10月22日主力资金净卖出1614.58万元_主力研究 &nbsp;&nbsp; 证券之星",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBGZkI5YkFrTGNIUlVVWU14QUhPRzk5dU96NllfbDVwRkVjR3k4VTVudllrT0dFT05SZkJVVllORkN2LVlFR2g2Y2d2WURLWjFPc2tKSFVSUHlOek02R0x4SFJR?oc=5",
-      "publishedAt": "2026-10-22T13:09:15.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 53,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -2846,23 +2816,6 @@
       "group": "company",
       "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5DZkZ5NlNIbkpuVnQ2eFpBRG5HNWZWOC13YjUwUjdJRkFmaGlOMmxGdlQyYnJ4Rk44LW9WcERGcHY0VnVpT2ZoS0tFcTJzQ0xRLWRhd0NIU0NNaE8wWFVlVA?oc=5",
       "publishedAt": "2026-08-26T07:00:00.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 53,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "673ee0c275ce",
-      "title": "潮宏基：预计2025年净利润翻倍 珠宝业务增长显著|财报解读",
-      "summary": "潮宏基：预计2025年净利润翻倍 珠宝业务增长显著|财报解读 &nbsp;&nbsp; 财联社",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiSEFVX3lxTE9EbFMxY3JCVnpSR3oyQ3A4ZmY4cFZKc2Y4N2ItT2Z2TU9hZ05vcmNVUHA1R1EzR3NLRWJ2Sm9YdlZhWk9ZTy1Gcg?oc=5",
-      "publishedAt": "2026-01-12T08:00:00.000Z",
       "weight": 1.5,
       "category": "战略机会",
       "priority": "高",
@@ -2889,13 +2842,13 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "e4208e407e30",
+      "id": "4b84ddab5461",
       "title": "黄金消费降温了吗 金价波动影响明显",
       "summary": "黄金消费降温了吗 金价波动影响明显 &nbsp;&nbsp; 中华网",
       "source": "金价与黄金消费",
       "sourceId": "gold-price",
       "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE53OEN3SUl1NHJmUnc0eXp3TzdmNUp0XzMzOWRkcUptUWJoV3kxTWlvRHNSOFM0QmY3VXI2TVNON2RrbVJiYjBBX2w0ZFpFQjE0QjZGVEZ4VDA5R2gyYkVmeGc3OHVCMHB2WGFnS2Jn?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMicEFVX3lxTE1KSTVteVRpc0VVQ0x1S0sycy1DZGFEV1g2QWNNcFpoMHRjcXBRRzMxWFFOTlp1M2t4MzVWLXRfLWUxZkhtZ29xRi0xTFVwTW5RM25MYjg0cXYyblh1dlpvbGY1NEZJN0hIeGJHVzBNQTc?oc=5",
       "publishedAt": "2026-10-21T03:20:42.000Z",
       "weight": 1.3,
       "category": "经营风险",
@@ -2903,6 +2856,23 @@
       "score": 52,
       "impact": "可能影响金价周期下的消费意愿、库存周转、加盟质量或经营现金流，需要前置跟踪。",
       "action": "加入风险看板，补充内部经营指标后形成董事长周度预警。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "6bac936b39ef",
+      "title": "潮宏基的IPO叙事进度卡在哪了？",
+      "summary": "潮宏基的IPO叙事进度卡在哪了？ &nbsp;&nbsp; 观点网",
+      "source": "潮宏基动态",
+      "sourceId": "chj-company",
+      "group": "company",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE52OHBYeG9SZDA4SEl5RlhYQng2SmdpOW9Jb0Faa0RremVuWlVQOEdSNXNrRXh5eGMzT0NxVlQyQUp0MXRRVTJudjV2R3lBTXc2a3RrWWVlQzg4cU1DMDRRRTZn?oc=5",
+      "publishedAt": "2026-08-31T07:00:00.000Z",
+      "weight": 1.5,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 47,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -2974,6 +2944,23 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
+      "id": "7ee0e3bcb878",
+      "title": "粤豪珠宝2027新品展启幕：600+新品首发，布局黄金珠宝消费新周期",
+      "summary": "粤豪珠宝2027新品展启幕：600+新品首发，布局黄金珠宝消费新周期 &nbsp;&nbsp; Jiemian.com",
+      "source": "珠宝新品与消费趋势",
+      "sourceId": "jewelry-trend",
+      "group": "trend",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1EUTRxM3VtXzgybExPNk56X0hPeW1lWmdoa2lveWpjT0k4aUl6eHB5bkxFS0M3RDNkaEVUdEZJclRLLWJ2Y3ZXQWZsalp1WUJDdktPLUs4Zlc?oc=5",
+      "publishedAt": "2026-10-19T09:30:16.000Z",
+      "weight": 1.15,
+      "category": "战略机会",
+      "priority": "中高",
+      "score": 46,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
       "id": "f4a45d323aab",
       "title": "颠覆预想！《给阿嬷的情书》东南亚票房出炉，新加坡超过马来西亚拔得头筹",
       "summary": "颠覆预想！《给阿嬷的情书》东南亚票房出炉，新加坡超过马来西亚拔得头筹 &nbsp;&nbsp; 搜狐网",
@@ -2988,6 +2975,23 @@
       "score": 42,
       "impact": "有助于判断海外市场的客群、产品、价格带和内容表达是否具备复制价值。",
       "action": "沉淀国家市场假设卡，并标注需要业务部门验证的数据。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "b1c23c4eca46",
+      "title": "突发！潮宏基大股东计划减持！昨日涨停，今日跌停，股价年内大涨了197%",
+      "summary": "突发！潮宏基大股东计划减持！昨日涨停，今日跌停，股价年内大涨了197% &nbsp;&nbsp; 每日经济新闻",
+      "source": "潮宏基动态",
+      "sourceId": "chj-company",
+      "group": "company",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1yX29VRk5Xc1VZQXVfY2JLTmRJMlB0eDFlWV9kU2QyZGpqREk3YnpLTWplb2tUUmt4YXRtbk1iMXBfUmVEeVVsMFlzaHFvUE5Velc4cjd1SWVTQjA0STBiODdR?oc=5",
+      "publishedAt": "2026-06-05T07:00:00.000Z",
+      "weight": 1.5,
+      "category": "资本市场",
+      "priority": "高",
+      "score": 41,
+      "impact": "可服务港股 IPO 叙事、投资者沟通和公司增长质量表达。",
+      "action": "整理为资本市场观察，评估对港股 IPO 叙事和投资者问答的影响。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -3008,20 +3012,20 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "e4a762db0b1f",
-      "title": "“规模陷阱”背后，潮宏基赴港上市卡壳",
-      "summary": "“规模陷阱”背后，潮宏基赴港上市卡壳 &nbsp;&nbsp; 21财经",
+      "id": "9a0db6607108",
+      "title": "三十而立，向高而进：潮宏基如何以非遗珠宝底蕴，拿到重奢场的“东方入场券”？",
+      "summary": "三十而立，向高而进：潮宏基如何以非遗珠宝底蕴，拿到重奢场的“东方入场券”？ &nbsp;&nbsp; 新浪财经",
       "source": "潮宏基动态",
       "sourceId": "chj-company",
       "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxOMkplYmJxaGk5aWdxZGk1M3BBNGJaUGpUeDBoZ2lBVnB4dnpUVDBTWE5wTFdCM3prM09NVHoxWXJCWWE1cXhmLW9mLXVZNW5wTEdibUFyZzZXenBaNjJ3alRvRjJEU0ttZVRjSGFhX1RHMk5ucjlyM0YtVWhPeXZEWnJBbUdMZFFjQnQ5c3F6Zw?oc=5",
-      "publishedAt": "2026-03-20T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE9GdDBHZGJSSjdSUTBlVUpkaGdCVTJLeFhWZDJnYmljeUpYNDRYWUJhS1JJQUJUWWhzT1JCZmZZM2pkOVVnSkNLSVAwVHg0T20wQ3ZHY00zdGNrMkJlQnBVLWZQQU4wSUtYNlBhZmhzcTdlZlhLZkE?oc=5",
+      "publishedAt": "2026-05-19T07:00:00.000Z",
       "weight": 1.5,
-      "category": "资本市场",
+      "category": "战略机会",
       "priority": "高",
       "score": 41,
-      "impact": "可服务港股 IPO 叙事、投资者沟通和公司增长质量表达。",
-      "action": "整理为资本市场观察，评估对港股 IPO 叙事和投资者问答的影响。",
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -3042,20 +3046,20 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "8e2039e881b7",
-      "title": "潮宏基的IPO叙事进度卡在哪了？",
-      "summary": "潮宏基的IPO叙事进度卡在哪了？ &nbsp;&nbsp; 观点网",
-      "source": "东南亚珠宝与黄金市场",
-      "sourceId": "sea-expansion",
-      "group": "overseas",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE52OHBYeG9SZDA4SEl5RlhYQng2SmdpOW9Jb0Faa0RremVuWlVQOEdSNXNrRXh5eGMzT0NxVlQyQUp0MXRRVTJudjV2R3lBTXc2a3RrWWVlQzg4cU1DMDRRRTZn?oc=5",
-      "publishedAt": "2026-08-31T07:00:00.000Z",
-      "weight": 1.2,
-      "category": "战略机会",
+      "id": "70f33636bbf5",
+      "title": "“库存算下来，亏了100万……”金价暴跌，杭州珠宝城经营户：补仓都来不及！该“上车”还是“离场”？",
+      "summary": "“库存算下来，亏了100万……”金价暴跌，杭州珠宝城经营户：补仓都来不及！该“上车”还是“离场”？ &nbsp;&nbsp; QQ News",
+      "source": "金价与黄金消费",
+      "sourceId": "gold-price",
+      "group": "macro",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBrRmE0VmM2eDRiR0hyUjlscjY5WEFWT3hoOVlnekl6SmZUaG9pd2FqUjhmMkFna2R5QmFudW9xZUN5R3FUdE1Qb2NiLVRJVUl5T0xrMVZn?oc=5",
+      "publishedAt": "2026-03-24T07:00:00.000Z",
+      "weight": 1.3,
+      "category": "经营风险",
       "priority": "高",
-      "score": 36,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "score": 40,
+      "impact": "可能影响金价周期下的消费意愿、库存周转、加盟质量或经营现金流，需要前置跟踪。",
+      "action": "加入风险看板，补充内部经营指标后形成董事长周度预警。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -3093,14 +3097,14 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "66759d5e0509",
-      "title": "平安证券维持潮宏基“推荐”评级",
-      "summary": "平安证券维持潮宏基“推荐”评级 &nbsp;&nbsp; 观点网",
+      "id": "24dc1a0e8eba",
+      "title": "潮汕父子的百亿金店，潮宏基难掩高存货焦虑",
+      "summary": "潮汕父子的百亿金店，潮宏基难掩高存货焦虑 &nbsp;&nbsp; 21财经",
       "source": "潮宏基动态",
       "sourceId": "chj-company",
       "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE1RR080M2RRSFRJQ0RKVjZ6NTdpR1J4R3hta3Rqem9UbnFjYVhXemJLODlkcWRPNFozZGVrS0RPVEJ1QUJ5Ql9VS0FFb3JJZw?oc=5",
-      "publishedAt": "2026-09-01T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQOUt5OVU2b2wzWVRITVZhbV9qbnNqQU1ma0w0d3Y0VWNlcGpsZU9WMjJFelEzM2J2Q2pGcnFNN21YWEE4RGxkc0E1Tng0bk5yZjZ5QlgxM1JzVjJvMnRsNjRaMUxqZlNzLWI1cEVXWDRkT29iTm1uVE5DbW96ZVNqSDIwTkxWZTkzc0Z2ZjZTMA?oc=5",
+      "publishedAt": "2026-04-28T07:00:00.000Z",
       "weight": 1.5,
       "category": "战略机会",
       "priority": "高",
@@ -3110,14 +3114,31 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "efeb4aa1a794",
-      "title": "实探：金价回调遇上国庆消费旺季，深圳水贝市场人气火爆",
-      "summary": "实探：金价回调遇上国庆消费旺季，深圳水贝市场人气火爆 &nbsp;&nbsp; 证券时报",
+      "id": "85722d47a78f",
+      "title": "潮宏基：2026上半年净利大增27.42%，时尚珠宝成业绩增长核心引擎",
+      "summary": "潮宏基：2026上半年净利大增27.42%，时尚珠宝成业绩增长核心引擎 &nbsp;&nbsp; wenxuan.news",
+      "source": "珠宝新品与消费趋势",
+      "sourceId": "jewelry-trend",
+      "group": "trend",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE1ZdkVSM0hXM0hMWkN0T2I0WjBFMWFPU1Q5cW5aWWVaaXFPQTJmR2ctV1JYbE1vRmo1eHJqa050aFZkRGUwTEJYVTZ6cHRHRTdaTUE?oc=5",
+      "publishedAt": "2026-10-10T19:38:06.000Z",
+      "weight": 1.15,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 34,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "f18b870247f9",
+      "title": "金价回调叠加节日促销，国庆假期杭州黄金消费升温",
+      "summary": "金价回调叠加节日促销，国庆假期杭州黄金消费升温 &nbsp;&nbsp; 凤凰网",
       "source": "金价与黄金消费",
       "sourceId": "gold-price",
       "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9kWWp0UlN6NW16T05nNkNIdmZ2S1c0VUROMlV4ajBCZXJWWXNXeDJQVGs3U0V2dUhreW1SUGJVcEVLVlNuN3dkWlJia1c4QlMxejExOUtiMHZVYTho?oc=5",
-      "publishedAt": "2026-10-05T02:49:57.000Z",
+      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTFBkbGVjSzBBejJVMEpTa09rQXg0cFU1M01jdGFLekVWSW1lR2xmVHoxU3BXLVNUUGxLYklrV09FWk5heVc0X0xvZ2VWVG0?oc=5",
+      "publishedAt": "2026-10-07T07:00:00.000Z",
       "weight": 1.3,
       "category": "经营风险",
       "priority": "高",
@@ -3144,23 +3165,6 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "ba59f62c1706",
-      "title": "非遗金艺碰撞仙剑江湖 老凤祥携仙剑奇侠传登陆ChinaJoy展会",
-      "summary": "非遗金艺碰撞仙剑江湖 老凤祥携仙剑奇侠传登陆ChinaJoy展会 &nbsp;&nbsp; 新华网客户端",
-      "source": "珠宝新品与消费趋势",
-      "sourceId": "jewelry-trend",
-      "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQSERtRExfRkJ1ZGlDWFhua0hfNC1CUkFGMnF5OHNjN0VqSUpCcU5adVpDUC1uamRZZUNtaHc1cTQwRHQwWHZWZnI0UEpkWlpxQ0tzMlBSeUhtTFF5SHdfV29OYmlMVHRJbnU5ZER2dDJQeWt6d19YTUJoWVlPNTRyVjlCX3pxQ2tSNTRUWFZMd1ozbVZtdVNCV1Zn?oc=5",
-      "publishedAt": "2026-08-04T07:00:00.000Z",
-      "weight": 1.15,
-      "category": "战略机会",
-      "priority": "中",
-      "score": 34,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
       "id": "eec6d3656b69",
       "title": "门店形象升级 产品更年轻化 六福珠宝强势回归新加坡",
       "summary": "门店形象升级 产品更年轻化 六福珠宝强势回归新加坡 &nbsp;&nbsp; 联合早报",
@@ -3169,6 +3173,23 @@
       "group": "trend",
       "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE0tMG9YYlUtLUdvYXN0eEVoRW5FVGRET0t3MG9FWWo1RXE4dWR0SFBFaWFPTm5YYVdfVDA2em9jVGhFSEduTzFqZ2JGYWhEcmhUYTY3a0VCMlhZWUg0TVd3N05zMV9kWHZDaGp6SmtaUzlXOGVwNUU5M0Z4ZWU?oc=5",
       "publishedAt": "2026-07-24T07:00:00.000Z",
+      "weight": 1.15,
+      "category": "战略机会",
+      "priority": "中高",
+      "score": 34,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "abf55754468e",
+      "title": "2026年东方美学珠宝新品：Qeelin麒麟Wulu Eternity系列的福气哲学",
+      "summary": "2026年东方美学珠宝新品：Qeelin麒麟Wulu Eternity系列的福气哲学 &nbsp;&nbsp; ELLE China",
+      "source": "珠宝新品与消费趋势",
+      "sourceId": "jewelry-trend",
+      "group": "trend",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBKelJkUUNkLUFDcGUzbWNTalNpOVk5ZjNVUFFyOHFBUm9SMUxqdzFQUVZiYVA2NTIyeUN6dkExZXZvc1o2OVdHRThPeFMwaWVyeGltVm4xaVBsUUdPSVpQRDRBNy0zTk9qdGVVUkczbzFtZw?oc=5",
+      "publishedAt": "2026-01-05T08:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
       "priority": "中高",
@@ -3246,23 +3267,6 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "cad0c0288048",
-      "title": "粤豪珠宝2027新品展启幕：600+新品首发，布局黄金珠宝消费新周期",
-      "summary": "粤豪珠宝2027新品展启幕：600+新品首发，布局黄金珠宝消费新周期 &nbsp;&nbsp; 凤凰网",
-      "source": "珠宝新品与消费趋势",
-      "sourceId": "jewelry-trend",
-      "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMiTEFVX3lxTE5Oc2VoMWY2M3JzdS1ZcUgxYnZra1FJcjlzM3VSUE1jVHNidkExcGRFUXM4S0ZQWGNyN2tBU1FZWHdaQy1wdjFreUhTU0Y?oc=5",
-      "publishedAt": "2026-09-15T07:00:00.000Z",
-      "weight": 1.15,
-      "category": "战略机会",
-      "priority": "中高",
-      "score": 28,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
       "id": "c908cb93bce5",
       "title": "当黄金被卖成爱马仕：开始挑客人了",
       "summary": "当黄金被卖成爱马仕：开始挑客人了 &nbsp;&nbsp; 新京报",
@@ -3288,23 +3292,6 @@
       "group": "trend",
       "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTFBXVDV6bHo4QUhtV01QUlFLdGhlMzhuU2Q0YlVodmRNMGdNZ3ROdWNtYjV6eFBoZUhTSDNsdjdEd3EzRXBITlB4LTRUR09RMEJPNEFZVFg3NXZVQUYzQXIwZ3dHdTJHTGw4SUo1VE4xMC11SDlFcmZrZjJsWXpXQQ?oc=5",
       "publishedAt": "2025-12-10T08:00:00.000Z",
-      "weight": 1.15,
-      "category": "战略机会",
-      "priority": "中高",
-      "score": 22,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "c4b6611c40c1",
-      "title": "年度珠宝购物大展闪耀申城——2025上海国际珠宝展即将启幕",
-      "summary": "年度珠宝购物大展闪耀申城——2025上海国际珠宝展即将启幕 &nbsp;&nbsp; 新华网上海频道",
-      "source": "珠宝新品与消费趋势",
-      "sourceId": "jewelry-trend",
-      "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE11NEVfa3dXWG9aa2RLbUl0ZWZUcGsxWnIzenVJMW85emZNV0FjbXo4Qko1bDd6M1MycmYwczBWVWtsWTNDbURUOHpWcVpCN0dOc3NNYUpNc2VUS2lDc1FaQ29NUS1nY3c3Nm5UWHpnYnlfNVdR?oc=5",
-      "publishedAt": "2025-11-12T08:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
       "priority": "中高",
