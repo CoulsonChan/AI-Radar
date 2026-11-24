@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-11-23T07:53:24.926Z",
+  "generatedAt": "2026-11-24T10:05:40.529Z",
   "mode": "live",
   "gold": {
     "id": "au9999",
     "symbol": "AU9999",
     "source": "上金所 Au99.99",
-    "price": 755.01,
-    "previousClose": 764.55,
-    "open": 770.5,
-    "high": 773.5,
-    "low": 755.01,
-    "change": -9.54,
-    "changePercent": -1.25,
+    "price": 777.72,
+    "previousClose": 781.4,
+    "open": 778,
+    "high": 794.5,
+    "low": 775.4,
+    "change": -3.68,
+    "changePercent": -0.47,
     "unit": "CNY/g",
-    "updatedAt": "2026-11-20T18:29:57.000Z",
+    "updatedAt": "2026-11-24T07:45:00.000Z",
     "status": "live"
   },
   "goldMarket": {
@@ -21,399 +21,665 @@
       "id": "au9999",
       "symbol": "AU9999",
       "source": "上金所 Au99.99",
-      "price": 755.01,
-      "previousClose": 764.55,
-      "open": 770.5,
-      "high": 773.5,
-      "low": 755.01,
-      "change": -9.54,
-      "changePercent": -1.25,
+      "price": 777.72,
+      "previousClose": 781.4,
+      "open": 778,
+      "high": 794.5,
+      "low": 775.4,
+      "change": -3.68,
+      "changePercent": -0.47,
       "unit": "CNY/g",
-      "updatedAt": "2026-11-20T18:29:57.000Z",
+      "updatedAt": "2026-11-24T07:45:00.000Z",
       "status": "live"
     },
-    "secondary": [],
+    "secondary": [
+      {
+        "id": "autd",
+        "symbol": "AUTD",
+        "source": "黄金 T+D",
+        "price": 777.21,
+        "previousClose": 780.24,
+        "open": 777.79,
+        "high": 793.26,
+        "low": 775.68,
+        "change": -3.03,
+        "changePercent": 0.43,
+        "unit": "CNY/g",
+        "updatedAt": "2026-11-24T07:45:00.000Z",
+        "status": "live"
+      },
+      {
+        "id": "xau-usd",
+        "symbol": "XAU",
+        "source": "伦敦现货金",
+        "price": 3620.49,
+        "previousClose": 3635.45,
+        "open": 3641.08,
+        "high": 3678.15,
+        "low": 3607.61,
+        "change": -14.96,
+        "changePercent": -0.41,
+        "unit": "USD/oz",
+        "updatedAt": "2026-11-24T10:05:34.000Z",
+        "status": "live"
+      },
+      {
+        "id": "comex-gold",
+        "symbol": "GC00Y",
+        "source": "COMEX 黄金",
+        "price": 3622.3,
+        "previousClose": 3651.4,
+        "open": 3636.4,
+        "high": 3676.7,
+        "low": 3606.4,
+        "change": -29.1,
+        "changePercent": -0.8,
+        "unit": "USD/oz",
+        "updatedAt": "2026-11-24T09:55:35.000Z",
+        "status": "live"
+      }
+    ],
     "history": [
       {
-        "time": "2026-11-20 20:00",
-        "price": 764.55
-      },
-      {
-        "time": "2026-11-20 20:10",
-        "price": 770
-      },
-      {
-        "time": "2026-11-20 20:20",
-        "price": 770.9
-      },
-      {
-        "time": "2026-11-20 20:30",
-        "price": 770.13
-      },
-      {
-        "time": "2026-11-20 20:40",
-        "price": 771.97
-      },
-      {
-        "time": "2026-11-20 20:50",
-        "price": 771.98
-      },
-      {
-        "time": "2026-11-20 21:00",
-        "price": 771.9
-      },
-      {
-        "time": "2026-11-20 21:10",
-        "price": 770.02
-      },
-      {
-        "time": "2026-11-20 21:20",
-        "price": 771.5
-      },
-      {
-        "time": "2026-11-20 21:30",
-        "price": 768.95
-      },
-      {
-        "time": "2026-11-20 21:40",
-        "price": 769.98
-      },
-      {
-        "time": "2026-11-20 21:50",
-        "price": 769.98
-      },
-      {
-        "time": "2026-11-20 22:00",
-        "price": 770
-      },
-      {
-        "time": "2026-11-20 22:10",
-        "price": 769.98
-      },
-      {
-        "time": "2026-11-20 22:20",
-        "price": 770.98
-      },
-      {
-        "time": "2026-11-20 22:30",
-        "price": 768.2
-      },
-      {
-        "time": "2026-11-20 22:40",
-        "price": 770.99
-      },
-      {
-        "time": "2026-11-20 22:50",
-        "price": 770.48
-      },
-      {
-        "time": "2026-11-20 23:00",
-        "price": 767.11
-      },
-      {
-        "time": "2026-11-20 23:10",
-        "price": 770.48
-      },
-      {
-        "time": "2026-11-20 23:20",
-        "price": 763
-      },
-      {
-        "time": "2026-11-20 23:30",
-        "price": 760
-      },
-      {
-        "time": "2026-11-20 23:40",
-        "price": 764.16
-      },
-      {
-        "time": "2026-11-20 23:50",
-        "price": 764.87
-      },
-      {
-        "time": "2026-11-21 00:00",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 00:10",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 00:20",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 00:30",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 00:40",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 00:50",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 01:00",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 01:10",
-        "price": 766
-      },
-      {
-        "time": "2026-11-21 01:20",
-        "price": 763.11
-      },
-      {
-        "time": "2026-11-21 01:30",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 01:40",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 01:50",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 02:00",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 02:10",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 02:20",
-        "price": 760
-      },
-      {
-        "time": "2026-11-21 02:30",
-        "price": 755.01
-      },
-      {
-        "time": "2026-11-23 09:10",
-        "price": 775
-      },
-      {
-        "time": "2026-11-23 09:20",
-        "price": 780.8
-      },
-      {
-        "time": "2026-11-23 09:30",
+        "time": "2026-11-23 20:00",
         "price": 778
       },
       {
-        "time": "2026-11-23 09:40",
-        "price": 776
+        "time": "2026-11-23 20:10",
+        "price": 779
       },
       {
-        "time": "2026-11-23 09:50",
-        "price": 776.2
-      },
-      {
-        "time": "2026-11-23 10:00",
-        "price": 775.2
-      },
-      {
-        "time": "2026-11-23 10:10",
-        "price": 772.2
-      },
-      {
-        "time": "2026-11-23 10:20",
-        "price": 771.6
-      },
-      {
-        "time": "2026-11-23 10:30",
-        "price": 771.3
-      },
-      {
-        "time": "2026-11-23 10:40",
-        "price": 770.1
-      },
-      {
-        "time": "2026-11-23 10:50",
-        "price": 770.8
-      },
-      {
-        "time": "2026-11-23 11:00",
-        "price": 773
-      },
-      {
-        "time": "2026-11-23 11:10",
-        "price": 773.5
-      },
-      {
-        "time": "2026-11-23 11:20",
-        "price": 774.8
-      },
-      {
-        "time": "2026-11-23 11:30",
-        "price": 775.51
-      },
-      {
-        "time": "2026-11-23 11:40",
-        "price": 775.99
-      },
-      {
-        "time": "2026-11-23 11:50",
-        "price": 775.79
-      },
-      {
-        "time": "2026-11-23 12:00",
-        "price": 776
-      },
-      {
-        "time": "2026-11-23 12:10",
-        "price": 776
-      },
-      {
-        "time": "2026-11-23 12:20",
-        "price": 776.31
-      },
-      {
-        "time": "2026-11-23 12:30",
-        "price": 776.87
-      },
-      {
-        "time": "2026-11-23 12:40",
-        "price": 776.88
-      },
-      {
-        "time": "2026-11-23 12:50",
+        "time": "2026-11-23 20:20",
         "price": 776.8
       },
       {
-        "time": "2026-11-23 13:00",
-        "price": 776.99
-      },
-      {
-        "time": "2026-11-23 13:10",
-        "price": 775.7
-      },
-      {
-        "time": "2026-11-23 13:20",
-        "price": 776.6
-      },
-      {
-        "time": "2026-11-23 13:30",
-        "price": 778.19
-      },
-      {
-        "time": "2026-11-23 13:40",
-        "price": 778.8
-      },
-      {
-        "time": "2026-11-23 13:50",
-        "price": 778.4
-      },
-      {
-        "time": "2026-11-23 14:00",
+        "time": "2026-11-23 20:30",
         "price": 777
       },
       {
-        "time": "2026-11-23 14:10",
-        "price": 778.99
+        "time": "2026-11-23 20:40",
+        "price": 779.97
       },
       {
-        "time": "2026-11-23 14:20",
-        "price": 778.35
+        "time": "2026-11-23 20:50",
+        "price": 779.96
       },
       {
-        "time": "2026-11-23 14:30",
-        "price": 777.6
+        "time": "2026-11-23 21:00",
+        "price": 777
       },
       {
-        "time": "2026-11-23 14:40",
+        "time": "2026-11-23 21:10",
+        "price": 778
+      },
+      {
+        "time": "2026-11-23 21:20",
         "price": 778.01
       },
       {
-        "time": "2026-11-23 14:50",
-        "price": 779.2
+        "time": "2026-11-23 21:30",
+        "price": 778.8
       },
       {
-        "time": "2026-11-23 15:00",
+        "time": "2026-11-23 21:40",
+        "price": 778.8
+      },
+      {
+        "time": "2026-11-23 21:50",
+        "price": 778.8
+      },
+      {
+        "time": "2026-11-23 22:00",
+        "price": 790
+      },
+      {
+        "time": "2026-11-23 22:10",
+        "price": 787.98
+      },
+      {
+        "time": "2026-11-23 22:20",
+        "price": 788.5
+      },
+      {
+        "time": "2026-11-23 22:30",
+        "price": 792
+      },
+      {
+        "time": "2026-11-23 22:40",
+        "price": 790
+      },
+      {
+        "time": "2026-11-23 22:50",
+        "price": 793
+      },
+      {
+        "time": "2026-11-23 23:00",
+        "price": 793
+      },
+      {
+        "time": "2026-11-23 23:10",
+        "price": 788
+      },
+      {
+        "time": "2026-11-23 23:20",
+        "price": 789.98
+      },
+      {
+        "time": "2026-11-23 23:30",
+        "price": 788
+      },
+      {
+        "time": "2026-11-23 23:40",
+        "price": 788
+      },
+      {
+        "time": "2026-11-23 23:50",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:00",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:10",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:20",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:30",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:40",
+        "price": 791.99
+      },
+      {
+        "time": "2026-11-24 00:50",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:00",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:10",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:20",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:30",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:40",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 01:50",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 02:00",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 02:10",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 02:20",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 02:30",
+        "price": 788.1
+      },
+      {
+        "time": "2026-11-24 09:10",
+        "price": 786.4
+      },
+      {
+        "time": "2026-11-24 09:20",
+        "price": 786.54
+      },
+      {
+        "time": "2026-11-24 09:30",
+        "price": 787.9
+      },
+      {
+        "time": "2026-11-24 09:40",
+        "price": 789
+      },
+      {
+        "time": "2026-11-24 09:50",
+        "price": 788.3
+      },
+      {
+        "time": "2026-11-24 10:00",
+        "price": 785.5
+      },
+      {
+        "time": "2026-11-24 10:10",
+        "price": 784.5
+      },
+      {
+        "time": "2026-11-24 10:20",
+        "price": 785.1
+      },
+      {
+        "time": "2026-11-24 10:30",
+        "price": 784.9
+      },
+      {
+        "time": "2026-11-24 10:40",
+        "price": 784
+      },
+      {
+        "time": "2026-11-24 10:50",
+        "price": 782.6
+      },
+      {
+        "time": "2026-11-24 11:00",
+        "price": 782.5
+      },
+      {
+        "time": "2026-11-24 11:10",
+        "price": 780.28
+      },
+      {
+        "time": "2026-11-24 11:20",
+        "price": 781
+      },
+      {
+        "time": "2026-11-24 11:30",
+        "price": 780.3
+      },
+      {
+        "time": "2026-11-24 11:40",
+        "price": 781.5
+      },
+      {
+        "time": "2026-11-24 11:50",
+        "price": 779.72
+      },
+      {
+        "time": "2026-11-24 12:00",
+        "price": 781
+      },
+      {
+        "time": "2026-11-24 12:10",
+        "price": 780.5
+      },
+      {
+        "time": "2026-11-24 12:20",
+        "price": 780.5
+      },
+      {
+        "time": "2026-11-24 12:30",
+        "price": 779.06
+      },
+      {
+        "time": "2026-11-24 12:40",
         "price": 778.9
       },
       {
-        "time": "2026-11-23 15:10",
-        "price": 779.5
+        "time": "2026-11-24 12:50",
+        "price": 781
       },
       {
-        "time": "2026-11-23 15:20",
-        "price": 781.4
+        "time": "2026-11-24 13:00",
+        "price": 780.5
       },
       {
-        "time": "2026-11-23 15:30",
-        "price": 780.25
+        "time": "2026-11-24 13:10",
+        "price": 781.5
+      },
+      {
+        "time": "2026-11-24 13:20",
+        "price": 780.55
+      },
+      {
+        "time": "2026-11-24 13:30",
+        "price": 779.9
+      },
+      {
+        "time": "2026-11-24 13:40",
+        "price": 781.12
+      },
+      {
+        "time": "2026-11-24 13:50",
+        "price": 780
+      },
+      {
+        "time": "2026-11-24 14:00",
+        "price": 780.2
+      },
+      {
+        "time": "2026-11-24 14:10",
+        "price": 778.1
+      },
+      {
+        "time": "2026-11-24 14:20",
+        "price": 778.3
+      },
+      {
+        "time": "2026-11-24 14:30",
+        "price": 776.99
+      },
+      {
+        "time": "2026-11-24 14:40",
+        "price": 776.49
+      },
+      {
+        "time": "2026-11-24 14:50",
+        "price": 778.39
+      },
+      {
+        "time": "2026-11-24 15:00",
+        "price": 778.49
+      },
+      {
+        "time": "2026-11-24 15:10",
+        "price": 778
+      },
+      {
+        "time": "2026-11-24 15:20",
+        "price": 777.5
+      },
+      {
+        "time": "2026-11-24 15:30",
+        "price": 777.7
       }
     ],
     "refreshSeconds": 60,
     "sourceUrl": "https://www.sge.com.cn/sjzx/yshqbg",
-    "checkedAt": "2026-11-23T07:53:21.126Z",
+    "checkedAt": "2026-11-24T10:05:36.232Z",
     "status": "live"
   },
   "products": [
     {
-      "id": "swarovski-new-in:5747939",
-      "productId": "5747939",
+      "id": "swarovski-new-in:5752906",
+      "productId": "5752906",
       "storeId": "swarovski-new-in",
       "brand": "Swarovski",
       "storeName": "Swarovski 新品上市",
       "platform": "品牌官网",
-      "title": "Mesmera 手链, 混合切割, 白色, 金色饰面",
-      "price": 1500,
+      "title": "Octagon 手链, 总重 0.25 克拉培育钻石，Octagon 形, 银",
+      "price": 3600,
       "currency": "CNY",
-      "priceLabel": "1,500 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5764801/Mesmera-%E6%89%8B%E9%93%BE-%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-%E9%87%91%E8%89%B2%E9%A5%B0%E9%9D%A2?variantID=5747939",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5747939_png/mesmera-%E6%89%8B%E9%93%BE--%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--%E9%87%91%E8%89%B2%E9%A5%B0%E9%9D%A2-swarovski-5747939.png",
+      "priceLabel": "3,600 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5752906/Octagon-%E6%89%8B%E9%93%BE-%E6%80%BB%E9%87%8D-0-25-%E5%85%8B%E6%8B%89%E5%9F%B9%E8%82%B2%E9%92%BB%E7%9F%B3-Octagon-%E5%BD%A2-%E9%93%B6?variantID=5752906",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5752906_png/octagon-%E6%89%8B%E9%93%BE--%E6%80%BB%E9%87%8D-0.25-%E5%85%8B%E6%8B%89%E5%9F%B9%E8%82%B2%E9%92%BB%E7%9F%B3%EF%BC%8Coctagon-%E5%BD%A2--%E9%93%B6-swarovski-5752906.png",
+      "listedOrder": 1,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-11-24T10:05:40.152Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5742581",
+      "productId": "5742581",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Swarovski Classica 开口戒指, 圆形切割, 白色, 925 银",
+      "price": 1600,
+      "currency": "CNY",
+      "priceLabel": "1,600 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5742582/Swarovski-Classica-%E5%BC%80%E5%8F%A3%E6%88%92%E6%8C%87-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5742581",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5742581_png/swarovski-classica-%E5%BC%80%E5%8F%A3%E6%88%92%E6%8C%87--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5742581.png",
+      "listedOrder": 3,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-11-24T10:05:40.152Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5731941",
+      "productId": "5731941",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Annual Edition 3D 挂饰 2026，白色",
+      "price": 1300,
+      "currency": "CNY",
+      "priceLabel": "1,300 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5731941/Annual-Edition-3D-%E6%8C%82%E9%A5%B0-2026-%E7%99%BD%E8%89%B2?variantID=5731941",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5731941_png/annual-edition-3d-%E6%8C%82%E9%A5%B0-2026%EF%BC%8C%E7%99%BD%E8%89%B2-swarovski-5731941.png",
       "listedOrder": 4,
       "sourcePublishedAt": null,
-      "firstSeenAt": "2026-11-23T07:53:24.925Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
+      "firstSeenAt": "2026-11-24T10:05:40.152Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
       "isNew": true,
       "official": true
     },
     {
-      "id": "swarovski-new-in:5758682",
-      "productId": "5758682",
+      "id": "swarovski-new-in:5740455",
+      "productId": "5740455",
       "storeId": "swarovski-new-in",
       "brand": "Swarovski",
       "storeName": "Swarovski 新品上市",
       "platform": "品牌官网",
-      "title": "Swan 手链, 混合切割, 天鹅, 白色, 镀铑",
-      "price": 950,
+      "title": "Swarovski Classica 垂坠式大圈耳环, 圆形切割, 白色, 925 银",
+      "price": 3300,
       "currency": "CNY",
-      "priceLabel": "950 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5758682/Swan-%E6%89%8B%E9%93%BE-%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2-%E5%A4%A9%E9%B9%85-%E7%99%BD%E8%89%B2-%E9%95%80%E9%93%91?variantID=5758682",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5758682_png/swan-%E6%89%8B%E9%93%BE--%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2--%E5%A4%A9%E9%B9%85--%E7%99%BD%E8%89%B2--%E9%95%80%E9%93%91-swarovski-5758682.png",
-      "listedOrder": 5,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-11-23T07:53:24.925Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5748650",
-      "productId": "5748650",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Mesmera 手链, 榄尖形切割, 白色, 镀铑",
-      "price": 1850,
-      "currency": "CNY",
-      "priceLabel": "1,850 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5748650/Mesmera-%E6%89%8B%E9%93%BE-%E6%A6%84%E5%B0%96%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-%E9%95%80%E9%93%91?variantID=5748650",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5748650_png/mesmera-%E6%89%8B%E9%93%BE--%E6%A6%84%E5%B0%96%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--%E9%95%80%E9%93%91-swarovski-5748650.png",
+      "priceLabel": "3,300 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5740455/Swarovski-Classica-%E5%9E%82%E5%9D%A0%E5%BC%8F%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5740455",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5740455_png/swarovski-classica-%E5%9E%82%E5%9D%A0%E5%BC%8F%E5%A4%A7%E5%9C%88%E8%80%B3%E7%8E%AF--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5740455.png",
       "listedOrder": 7,
       "sourcePublishedAt": null,
-      "firstSeenAt": "2026-11-23T07:53:24.925Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
+      "firstSeenAt": "2026-11-24T10:05:40.152Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "swarovski-new-in:5752866",
+      "productId": "5752866",
+      "storeId": "swarovski-new-in",
+      "brand": "Swarovski",
+      "storeName": "Swarovski 新品上市",
+      "platform": "品牌官网",
+      "title": "Hyperbola 水滴形耳环, 圆形切割, 绳结, 白色, 混合金属润饰",
+      "price": 2000,
+      "currency": "CNY",
+      "priceLabel": "2,000 元",
+      "url": "https://www.swarovski.com.cn/zh-CN/p-M5752866/Hyperbola-%E6%B0%B4%E6%BB%B4%E5%BD%A2%E8%80%B3%E7%8E%AF-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%BB%B3%E7%BB%93-%E7%99%BD%E8%89%B2-%E6%B7%B7%E5%90%88%E9%87%91%E5%B1%9E%E6%B6%A6%E9%A5%B0?variantID=5752866",
+      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5752866_png/hyperbola-%E6%B0%B4%E6%BB%B4%E5%BD%A2%E8%80%B3%E7%8E%AF--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%BB%B3%E7%BB%93--%E7%99%BD%E8%89%B2--%E6%B7%B7%E5%90%88%E9%87%91%E5%B1%9E%E6%B6%A6%E9%A5%B0-swarovski-5752866.png",
+      "listedOrder": 8,
+      "sourcePublishedAt": null,
+      "firstSeenAt": "2026-11-24T10:05:40.152Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356634394824",
+      "productId": "8356634394824",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Polka Dot Greeting Bear Hair Clip",
+      "price": 80,
+      "currency": "USD",
+      "priceLabel": "US$ 80",
+      "url": "https://yvmin.com/products/polka-dot-waving-bear-hair-clip",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/19_3ec94117-9be5-4c15-924c-8743ddbb99ac.png?v=1795432965",
+      "listedOrder": 1,
+      "sourcePublishedAt": "2026-11-24T08:06:16.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.610Z",
+      "lastSeenAt": "2026-11-24T10:05:39.610Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356634198216",
+      "productId": "8356634198216",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Crochet Mini Bunny Bow Necklace",
+      "price": 211,
+      "currency": "USD",
+      "priceLabel": "US$ 211",
+      "url": "https://yvmin.com/products/crochet-mini-bunny-bow-necklace",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/2_0e5ff4bc-e0b6-427e-9b3f-67d9fb585014.png?v=1795432701",
+      "listedOrder": 2,
+      "sourcePublishedAt": "2026-11-24T08:06:16.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.610Z",
+      "lastSeenAt": "2026-11-24T10:05:39.610Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356634034376",
+      "productId": "8356634034376",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Crochet Mini Bunny Bow Pearl Stud Earrings",
+      "price": 240,
+      "currency": "USD",
+      "priceLabel": "US$ 240",
+      "url": "https://yvmin.com/products/crochet-mini-bunny-bow-pearl-stud-earrings",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_32f9a7ec-cf17-4d52-a0fb-ef889f8f5c19.png?v=1795432501",
+      "listedOrder": 3,
+      "sourcePublishedAt": "2026-11-24T08:06:15.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.610Z",
+      "lastSeenAt": "2026-11-24T10:05:39.610Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356634001608",
+      "productId": "8356634001608",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Crochet Mini Bunny Safety Pin Delicate Chain Necklace",
+      "price": 194,
+      "currency": "USD",
+      "priceLabel": "US$ 194",
+      "url": "https://yvmin.com/products/crochet-mini-bunny-safety-pin-delicate-chain-necklace",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/2_f8af1320-3b1e-4c0b-bbe8-75bee8c1d860.png?v=1795432370",
+      "listedOrder": 4,
+      "sourcePublishedAt": "2026-11-24T08:06:14.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.610Z",
+      "lastSeenAt": "2026-11-24T10:05:39.610Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356633936072",
+      "productId": "8356633936072",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Small Multi-Layer Pearl Tangled Crying Bear Necklace",
+      "price": 457,
+      "currency": "USD",
+      "priceLabel": "US$ 457",
+      "url": "https://yvmin.com/products/small-multi-layer-pearl-tangled-crying-bear-necklace",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/4_d6649c64-094b-478d-a57c-04e0e9444160.png?v=1795431934",
+      "listedOrder": 5,
+      "sourcePublishedAt": "2026-11-24T08:06:14.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.610Z",
+      "lastSeenAt": "2026-11-24T10:05:39.610Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356633837768",
+      "productId": "8356633837768",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Layers Daisy Bear Gem Necklace",
+      "price": 600,
+      "currency": "USD",
+      "priceLabel": "US$ 600",
+      "url": "https://yvmin.com/products/ornate-daisy-bear-gem-necklace",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_5cff954c-4edb-4122-b1af-79de996b711b.png?v=1795431934",
+      "listedOrder": 6,
+      "sourcePublishedAt": "2026-11-24T08:06:13.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.611Z",
+      "lastSeenAt": "2026-11-24T10:05:39.611Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356633477320",
+      "productId": "8356633477320",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Gem Fragment Watch Choker",
+      "price": 329,
+      "currency": "USD",
+      "priceLabel": "US$ 329",
+      "url": "https://yvmin.com/products/gem-fragment-watch-choker",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_1b888b10-1fbc-4b84-8c27-6ba1fbdac3e6.png?v=1795431792",
+      "listedOrder": 7,
+      "sourcePublishedAt": "2026-11-24T08:06:12.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.611Z",
+      "lastSeenAt": "2026-11-24T10:05:39.611Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "yvmin-new-in:8356633313480",
+      "productId": "8356633313480",
+      "storeId": "yvmin-new-in",
+      "brand": "YVMIN",
+      "storeName": "YVMIN New Products",
+      "platform": "品牌官网",
+      "title": "Paradise / Gem Bow Textured Link Necklace",
+      "price": 266,
+      "currency": "USD",
+      "priceLabel": "US$ 266",
+      "url": "https://yvmin.com/products/gem-bow-textured-link-necklace",
+      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_02810869-a6e9-48d1-a520-1a9bd4105d75.png?v=1795431617",
+      "listedOrder": 8,
+      "sourcePublishedAt": "2026-11-24T08:06:12.000Z",
+      "firstSeenAt": "2026-11-24T10:05:39.611Z",
+      "lastSeenAt": "2026-11-24T10:05:39.611Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "lukfook-new-products:044090EA",
+      "productId": "044090EA",
+      "storeId": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "storeName": "六福珠宝新品",
+      "platform": "品牌官网",
+      "title": "【新品预售】六福珠宝葫至系列幸葫涟漪黄金耳环钻石葫芦足金耳钉女款044090EA",
+      "price": 14500,
+      "currency": "CNY",
+      "priceLabel": "¥ 14,500",
+      "url": "https://www.lukfookeshop.com.cn/lfg-category/earring/044090EA",
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E9/wKgAWGsEDPCAeZkeAAt9ORtGmKA606.jpg",
+      "listedOrder": 1,
+      "sourcePublishedAt": "2026-11-23T09:52:49.000Z",
+      "firstSeenAt": "2026-11-24T10:05:40.528Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
       "isNew": true,
       "official": true
     },
@@ -430,10 +696,10 @@
       "priceLabel": "2,500 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5741221/Swarovski-Classica-Y-%E5%9E%8B%E9%93%BE%E5%9D%A0-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-925-%E9%93%B6?variantID=5741221",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5741221_png/swarovski-classica-y-%E5%9E%8B%E9%93%BE%E5%9D%A0--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--925-%E9%93%B6-swarovski-5741221.png",
-      "listedOrder": 8,
+      "listedOrder": 2,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-11-23T07:53:24.925Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
       "isNew": true,
       "official": true
     },
@@ -453,7 +719,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-11-23T05:48:28.000Z",
       "firstSeenAt": "2026-11-20T07:29:34.791Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.356Z",
       "isNew": false,
       "official": true
     },
@@ -473,7 +739,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-11-23T05:48:27.000Z",
       "firstSeenAt": "2026-11-23T07:53:23.748Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": true,
       "official": true
     },
@@ -493,7 +759,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-11-23T05:48:26.000Z",
       "firstSeenAt": "2026-11-20T07:29:34.791Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
       "official": true
     },
@@ -513,28 +779,8 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-11-23T05:48:25.000Z",
       "firstSeenAt": "2026-11-20T07:29:34.791Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5752851",
-      "productId": "5752851",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Hyperbola 项链, 圆形切割, 白色, 混合金属润饰",
-      "price": 3500,
-      "currency": "CNY",
-      "priceLabel": "3,500 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5752851/Hyperbola-%E9%A1%B9%E9%93%BE-%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-%E6%B7%B7%E5%90%88%E9%87%91%E5%B1%9E%E6%B6%A6%E9%A5%B0?variantID=5752851",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5752851_png/hyperbola-%E9%A1%B9%E9%93%BE--%E5%9C%86%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--%E6%B7%B7%E5%90%88%E9%87%91%E5%B1%9E%E6%B6%A6%E9%A5%B0-swarovski-5752851.png",
-      "listedOrder": 1,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-11-22T07:05:48.874Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
-      "isNew": true,
       "official": true
     },
     {
@@ -550,11 +796,11 @@
       "priceLabel": "1,850 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5754566/Mesmera-%E8%83%B8%E9%92%88-%E6%A6%84%E5%B0%96%E5%BD%A2%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-%E9%95%80%E9%93%91?variantID=5754566",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5754566_png/mesmera-%E8%83%B8%E9%92%88--%E6%A6%84%E5%B0%96%E5%BD%A2%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--%E9%95%80%E9%93%91-swarovski-5754566.png",
-      "listedOrder": 2,
+      "listedOrder": 5,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-11-21T07:24:54.292Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -570,71 +816,11 @@
       "priceLabel": "3,300 元",
       "url": "https://www.swarovski.com.cn/zh-CN/p-M5749209/Vienna-%E9%93%BE%E5%9D%A0%E5%92%8C%E8%83%B8%E9%92%88-%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2-%E7%BE%BD%E6%AF%9B-%E7%99%BD%E8%89%B2-%E9%95%80%E9%93%91?variantID=5749209",
       "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5749209_png/vienna-%E9%93%BE%E5%9D%A0%E5%92%8C%E8%83%B8%E9%92%88--%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2--%E7%BE%BD%E6%AF%9B--%E7%99%BD%E8%89%B2--%E9%95%80%E9%93%91-swarovski-5749209.png",
-      "listedOrder": 3,
-      "sourcePublishedAt": null,
-      "firstSeenAt": "2026-11-21T07:24:54.292Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "swarovski-new-in:5747953",
-      "productId": "5747953",
-      "storeId": "swarovski-new-in",
-      "brand": "Swarovski",
-      "storeName": "Swarovski 新品上市",
-      "platform": "品牌官网",
-      "title": "Mesmera 手链, 混合切割, 白色, 金色饰面",
-      "price": 2000,
-      "currency": "CNY",
-      "priceLabel": "2,000 元",
-      "url": "https://www.swarovski.com.cn/zh-CN/p-M5747953/Mesmera-%E6%89%8B%E9%93%BE-%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2-%E7%99%BD%E8%89%B2-%E9%87%91%E8%89%B2%E9%A5%B0%E9%9D%A2?variantID=5747953",
-      "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff%2Cc_scale%2Cdpr_1.0%2Cf_auto%2Cw_360/5747953_png/mesmera-%E6%89%8B%E9%93%BE--%E6%B7%B7%E5%90%88%E5%88%87%E5%89%B2--%E7%99%BD%E8%89%B2--%E9%87%91%E8%89%B2%E9%A5%B0%E9%9D%A2-swarovski-5747953.png",
       "listedOrder": 6,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-11-21T07:24:54.292Z",
-      "lastSeenAt": "2026-11-23T07:53:24.925Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8306586026184",
-      "productId": "8306586026184",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X Ashley Williams / Bowknot Comb Earring",
-      "price": 189,
-      "currency": "USD",
-      "priceLabel": "US$ 189",
-      "url": "https://yvmin.com/products/yvmin-x-ashley-williams-bowknot-comb-earring",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_b533cd70-c9c4-42b4-9fd3-1ef593337b06.jpg?v=1774246975",
-      "listedOrder": 1,
-      "sourcePublishedAt": "2026-11-20T08:57:16.000Z",
-      "firstSeenAt": "2026-11-21T07:24:52.259Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": true,
-      "official": true
-    },
-    {
-      "id": "lukfook-new-products:045138nab",
-      "productId": "045138nab",
-      "storeId": "lukfook-new-products",
-      "brand": "六福珠宝",
-      "storeName": "六福珠宝新品",
-      "platform": "品牌官网",
-      "title": "【23日上新】六福珠宝双环铂950项链铂金古巴链十字链男女可戴045138nab",
-      "price": 17250,
-      "currency": "CNY",
-      "priceLabel": "¥ 17,250",
-      "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/045138nab",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E7/wKgAWGr-wwGAFXlyAAPDxyDQV_4430.jpg",
-      "listedOrder": 1,
-      "sourcePublishedAt": "2026-11-19T09:37:30.000Z",
-      "firstSeenAt": "2026-11-23T07:53:24.526Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
-      "isNew": true,
+      "lastSeenAt": "2026-11-24T10:05:40.152Z",
+      "isNew": false,
       "official": true
     },
     {
@@ -653,27 +839,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-11-19T07:30:43.000Z",
       "firstSeenAt": "2026-11-19T07:39:03.223Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "lukfook-new-products:042878CA",
-      "productId": "042878CA",
-      "storeId": "lukfook-new-products",
-      "brand": "六福珠宝",
-      "storeName": "六福珠宝新品",
-      "platform": "品牌官网",
-      "title": "【19日上新】六福珠宝锤纹铂950戒指实心开口戒男款中性电黑工艺042878CA",
-      "price": 17105,
-      "currency": "CNY",
-      "priceLabel": "¥ 17,105",
-      "url": "https://www.lukfookeshop.com.cn/lfg-category/ring/042878CA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E6/wKgAWGr-eQGAU8tgAArxwgIYTiE264.jpg",
-      "listedOrder": 2,
-      "sourcePublishedAt": "2026-11-19T04:20:17.000Z",
-      "firstSeenAt": "2026-11-20T07:29:35.931Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
+      "lastSeenAt": "2026-11-24T10:05:39.549Z",
       "isNew": false,
       "official": true
     },
@@ -690,31 +856,11 @@
       "priceLabel": "¥ 1,268",
       "url": "https://www.lukfookeshop.com.cn/lfg-category/bracelet/L19J0024DZ",
       "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E9/wKgAWGsDstuAIe6WAA5jCYVV24M951.jpg",
-      "listedOrder": 3,
+      "listedOrder": 2,
       "sourcePublishedAt": "2026-11-17T09:23:38.000Z",
       "firstSeenAt": "2026-11-23T07:53:24.526Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
       "isNew": true,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353886732488",
-      "productId": "8353886732488",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "Fluffy Puppy Bag",
-      "price": 180,
-      "currency": "USD",
-      "priceLabel": "US$ 180",
-      "url": "https://yvmin.com/products/fluffy-puppy-bag",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/76891794463052_.pic.jpg?v=1794463193",
-      "listedOrder": 2,
-      "sourcePublishedAt": "2026-11-17T06:02:20.000Z",
-      "firstSeenAt": "2026-11-17T08:07:49.825Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
       "official": true
     },
     {
@@ -733,7 +879,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-11-13T15:47:03.000Z",
       "firstSeenAt": "2026-11-14T06:43:31.076Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -753,147 +899,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-11-13T14:26:43.000Z",
       "firstSeenAt": "2026-11-14T06:43:31.076Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353555382472",
-      "productId": "8353555382472",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Bowknot Embossed Square Stud Earrings",
-      "price": 140,
-      "currency": "USD",
-      "priceLabel": "US$ 140",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-butterfly-embossed-square-stud-earrings",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_bbc05843-3057-4cdb-85ab-86b7dc02df95.png?v=1794389284",
-      "listedOrder": 3,
-      "sourcePublishedAt": "2026-11-12T06:49:44.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353555054792",
-      "productId": "8353555054792",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Visor-Inspired Flocked Headband",
-      "price": 211,
-      "currency": "USD",
-      "priceLabel": "US$ 211",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-visor-inspired-flocked-headband",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/5_0025d81b-3896-45e0-9a93-f223e0183308.png?v=1794388943",
-      "listedOrder": 4,
-      "sourcePublishedAt": "2026-11-12T06:49:42.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353553645768",
-      "productId": "8353553645768",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Bow Metal Bracelet",
-      "price": 154,
-      "currency": "USD",
-      "priceLabel": "US$ 154",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-bow-metal-bracelet",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_eb7d449f-b657-4705-86b8-66ed67de2cfd.png?v=1794388164",
-      "listedOrder": 5,
-      "sourcePublishedAt": "2026-11-12T06:49:41.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353553383624",
-      "productId": "8353553383624",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Bow Metal Arm Cuff",
-      "price": 182,
-      "currency": "USD",
-      "priceLabel": "US$ 182",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-bow-metal-arm-cuff",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/1_04d8050e-94b8-463a-b30d-bf83271f82c6.png?v=1794387863",
-      "listedOrder": 6,
-      "sourcePublishedAt": "2026-11-12T06:49:40.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353553121480",
-      "productId": "8353553121480",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Embossed Floral Bow Pearl Necklace",
-      "price": 182,
-      "currency": "USD",
-      "priceLabel": "US$ 182",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-embossed-floral-bow-pearl-necklace",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/4_c2bb7cad-c0dd-498e-b9d8-9edc194d508a.png?v=1794387761",
-      "listedOrder": 7,
-      "sourcePublishedAt": "2026-11-12T06:49:38.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "yvmin-new-in:8353552826568",
-      "productId": "8353552826568",
-      "storeId": "yvmin-new-in",
-      "brand": "YVMIN",
-      "storeName": "YVMIN New Products",
-      "platform": "品牌官网",
-      "title": "YVMIN X SHUSHUTONG / Bow Pearl Beaded Choker",
-      "price": 240,
-      "currency": "USD",
-      "priceLabel": "US$ 240",
-      "url": "https://yvmin.com/products/yvmin-x-shushutong-bow-pearl-beaded-choker",
-      "image": "https://cdn.shopify.com/s/files/1/0579/5305/9016/files/4_8083ca5e-2ab2-4eed-a700-1c9a07c2b2cc.png?v=1794387360",
-      "listedOrder": 8,
-      "sourcePublishedAt": "2026-11-12T06:49:37.000Z",
-      "firstSeenAt": "2026-11-12T07:24:54.278Z",
-      "lastSeenAt": "2026-11-23T07:53:23.732Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "lukfook-new-products:044090NA",
-      "productId": "044090NA",
-      "storeId": "lukfook-new-products",
-      "brand": "六福珠宝",
-      "storeName": "六福珠宝新品",
-      "platform": "品牌官网",
-      "title": "【15日上新】六福珠宝葫至系列幸葫涟漪黄金项链钻石葫芦足金套链女款044090NA成毅同款",
-      "price": 12355,
-      "currency": "CNY",
-      "priceLabel": "¥ 12,355",
-      "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/044090NA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr1bxGAXsKuAAqVBdKMOZE183.jpg",
-      "listedOrder": 4,
-      "sourcePublishedAt": "2026-11-12T02:43:18.000Z",
-      "firstSeenAt": "2026-11-15T06:48:28.916Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -909,51 +915,11 @@
       "currency": "CNY",
       "priceLabel": "¥ 12,150",
       "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/044080NA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr1bveANEVJAAn_DcwEoDc155.jpg",
-      "listedOrder": 5,
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E9/wKgAWGsEDT-AY-8nAAnzUZXrFhw873.jpg",
+      "listedOrder": 3,
       "sourcePublishedAt": "2026-11-12T02:38:02.000Z",
       "firstSeenAt": "2026-11-15T06:48:28.916Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "lukfook-new-products:044067NA",
-      "productId": "044067NA",
-      "storeId": "lukfook-new-products",
-      "brand": "六福珠宝",
-      "storeName": "六福珠宝新品",
-      "platform": "品牌官网",
-      "title": "【15日上新】六福珠宝葫至系列幸葫涟漪黄金项链钻石孔雀石足金女款044067NA",
-      "price": 14555,
-      "currency": "CNY",
-      "priceLabel": "¥ 14,555",
-      "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/044067NA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E0/wKgAWGr1XVaAPTQRAAnejZdmos8493.jpg",
-      "listedOrder": 6,
-      "sourcePublishedAt": "2026-11-12T02:14:15.000Z",
-      "firstSeenAt": "2026-11-15T06:48:28.916Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
-      "isNew": false,
-      "official": true
-    },
-    {
-      "id": "lukfook-new-products:044068NA",
-      "productId": "044068NA",
-      "storeId": "lukfook-new-products",
-      "brand": "六福珠宝",
-      "storeName": "六福珠宝新品",
-      "platform": "品牌官网",
-      "title": "【15日上新】六福珠宝葫至系列幸葫钥匙黄金项链钻石拍平鎏彩套链女款044068NA",
-      "price": 13905,
-      "currency": "CNY",
-      "priceLabel": "¥ 13,905",
-      "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/044068NA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr1b06ALOQKAAXQkn8hQ4g406.jpg",
-      "listedOrder": 7,
-      "sourcePublishedAt": "2026-11-12T02:03:32.000Z",
-      "firstSeenAt": "2026-11-15T06:48:28.916Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
       "isNew": false,
       "official": true
     },
@@ -969,11 +935,11 @@
       "currency": "CNY",
       "priceLabel": "¥ 21,550",
       "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/044063NA",
-      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr1by6AOLZHAAQGAU62-yo198.jpg",
-      "listedOrder": 8,
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E9/wKgAWGsEDXaAX22BAAP2oXRMzcI317.jpg",
+      "listedOrder": 4,
       "sourcePublishedAt": "2026-11-12T01:29:08.000Z",
       "firstSeenAt": "2026-11-15T06:48:28.916Z",
-      "lastSeenAt": "2026-11-23T07:53:24.526Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
       "isNew": false,
       "official": true
     },
@@ -998,6 +964,46 @@
       "official": true
     },
     {
+      "id": "lukfook-new-products:L19G0024DZ",
+      "productId": "L19G0024DZ",
+      "storeId": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "storeName": "六福珠宝新品",
+      "platform": "品牌官网",
+      "title": "【11日上新】六福珠宝光影金四叶之境黄金手链四叶草女款计价L19G0024DZ",
+      "price": 6643,
+      "currency": "CNY",
+      "priceLabel": "¥ 6,643",
+      "url": "https://www.lukfookeshop.com.cn/lfg-category/bracelet/L19G0024DZ",
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr2chqAUlD3AAyaRm6axx0203.jpg",
+      "listedOrder": 5,
+      "sourcePublishedAt": "2026-11-11T02:28:04.000Z",
+      "firstSeenAt": "2026-11-24T10:05:40.528Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "lukfook-new-products:L19G0023DZ",
+      "productId": "L19G0023DZ",
+      "storeId": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "storeName": "六福珠宝新品",
+      "platform": "品牌官网",
+      "title": "【11日上新】六福珠宝光影金四叶之境黄金项链四叶草套链女款计价L19G0023DZ组合2",
+      "price": 4945,
+      "currency": "CNY",
+      "priceLabel": "¥ 4,945",
+      "url": "https://www.lukfookeshop.com.cn/lfg-category/necklace/L19G0023DZ",
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr2ZLyAa_uhAA8R7aDYpK0224.jpg",
+      "listedOrder": 6,
+      "sourcePublishedAt": "2026-11-11T02:23:25.000Z",
+      "firstSeenAt": "2026-11-24T10:05:40.528Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
+      "isNew": true,
+      "official": true
+    },
+    {
       "id": "chowtaiseng-new-arrivals:15474793283796",
       "productId": "15474793283796",
       "storeId": "chowtaiseng-new-arrivals",
@@ -1013,8 +1019,48 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-11-10T08:12:35.000Z",
       "firstSeenAt": "2026-11-11T06:45:52.090Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.096Z",
       "isNew": false,
+      "official": true
+    },
+    {
+      "id": "lukfook-new-products:L19G0025DZ",
+      "productId": "L19G0025DZ",
+      "storeId": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "storeName": "六福珠宝新品",
+      "platform": "品牌官网",
+      "title": "【11日上新】六福珠宝光影金四叶之境黄金吊坠5G四叶草女款计价L19G0025DZ",
+      "price": 1732,
+      "currency": "CNY",
+      "priceLabel": "¥ 1,732",
+      "url": "https://www.lukfookeshop.com.cn/lfg-category/charm/L19G0025DZ",
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr2cgCATUnnAA7o5B4T3q8176.jpg",
+      "listedOrder": 7,
+      "sourcePublishedAt": "2026-11-10T03:55:38.000Z",
+      "firstSeenAt": "2026-11-24T10:05:40.528Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
+      "isNew": true,
+      "official": true
+    },
+    {
+      "id": "lukfook-new-products:L19G0018DZ",
+      "productId": "L19G0018DZ",
+      "storeId": "lukfook-new-products",
+      "brand": "六福珠宝",
+      "storeName": "六福珠宝新品",
+      "platform": "品牌官网",
+      "title": "【11日上新】六福珠宝光影金四叶之境黄金耳环5G四叶草耳钉女款计价L19G0018DZ【联系客服补货】",
+      "price": 1390,
+      "currency": "CNY",
+      "priceLabel": "¥ 1,390",
+      "url": "https://www.lukfookeshop.com.cn/lfg-category/earring/L19G0018DZ",
+      "image": "https://www.lukfookeshop.com.cn/group1/M00/06/E1/wKgAWGr2ckaAOeReAAh0uQEl6KU259.jpg",
+      "listedOrder": 8,
+      "sourcePublishedAt": "2026-11-10T03:46:42.000Z",
+      "firstSeenAt": "2026-11-24T10:05:40.528Z",
+      "lastSeenAt": "2026-11-24T10:05:40.528Z",
+      "isNew": true,
       "official": true
     },
     {
@@ -1033,7 +1079,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-11-07T07:21:59.000Z",
       "firstSeenAt": "2026-11-08T06:18:37.739Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.096Z",
       "isNew": false,
       "official": true
     },
@@ -1053,7 +1099,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-11-07T05:10:14.000Z",
       "firstSeenAt": "2026-11-07T06:13:38.870Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1213,7 +1259,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-11-05T06:17:36.000Z",
       "firstSeenAt": "2026-11-05T07:00:14.465Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1233,7 +1279,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-11-04T14:36:04.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.898Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.453Z",
       "isNew": false,
       "official": true
     },
@@ -1253,7 +1299,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-11-04T14:28:49.000Z",
       "firstSeenAt": "2026-11-05T07:00:15.025Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1273,7 +1319,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-11-04T14:28:37.000Z",
       "firstSeenAt": "2026-11-19T07:39:03.188Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1293,7 +1339,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-11-04T14:28:29.000Z",
       "firstSeenAt": "2026-11-05T07:00:15.025Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1313,7 +1359,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-11-04T14:28:14.000Z",
       "firstSeenAt": "2026-11-05T07:00:15.025Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1333,7 +1379,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-11-04T14:27:34.000Z",
       "firstSeenAt": "2026-11-19T07:39:03.188Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1353,7 +1399,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-11-04T14:23:29.000Z",
       "firstSeenAt": "2026-11-14T06:43:31.076Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -1373,7 +1419,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-11-04T08:50:02.000Z",
       "firstSeenAt": "2026-11-05T07:00:14.985Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
       "official": true
     },
@@ -1393,7 +1439,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-11-04T08:50:00.000Z",
       "firstSeenAt": "2026-11-05T07:00:14.985Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
       "official": true
     },
@@ -1413,7 +1459,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-11-04T08:49:58.000Z",
       "firstSeenAt": "2026-11-05T07:00:14.985Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
       "official": true
     },
@@ -1433,7 +1479,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-11-04T08:49:57.000Z",
       "firstSeenAt": "2026-11-05T07:00:14.985Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.357Z",
       "isNew": false,
       "official": true
     },
@@ -1453,7 +1499,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-30T13:44:37.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.659Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -1473,7 +1519,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-30T07:11:31.000Z",
       "firstSeenAt": "2026-10-30T06:01:04.058Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1493,7 +1539,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-10-30T07:11:30.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.635Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1513,7 +1559,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-10-30T07:11:29.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.636Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1533,7 +1579,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-30T07:11:28.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.636Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1553,7 +1599,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-30T07:11:28.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.636Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1573,7 +1619,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-30T07:11:27.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.636Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1593,7 +1639,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-30T07:11:26.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.636Z",
-      "lastSeenAt": "2026-11-23T07:53:23.768Z",
+      "lastSeenAt": "2026-11-24T10:05:39.550Z",
       "isNew": false,
       "official": true
     },
@@ -1613,7 +1659,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-29T10:35:11.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.899Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1633,7 +1679,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-23T08:33:14.000Z",
       "firstSeenAt": "2026-10-24T04:47:38.637Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1653,7 +1699,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-10-20T13:08:23.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -1665,15 +1711,15 @@
       "storeName": "PDPAOLA New In",
       "platform": "品牌官网",
       "title": "Look personalized new in 1",
-      "price": 74,
+      "price": 73,
       "currency": "HKD",
-      "priceLabel": "HK$ 74",
+      "priceLabel": "HK$ 73",
       "url": "https://www.pdpaola.com/products/look-personalized-new-in-1",
       "image": "https://cdn.shopify.com/s/files/1/0739/2637/7767/files/1792423517952-2026-10-05-pdepaola-personalization-capaign-anto-0102_2704cfd4-9f1c-4e03-9eca-d0536a931280.jpg?v=1792483904",
       "listedOrder": 2,
       "sourcePublishedAt": "2026-10-20T10:06:22.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -1693,7 +1739,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-10T03:58:57.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1713,7 +1759,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-10-10T03:30:13.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1733,7 +1779,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-10-10T02:18:59.000Z",
       "firstSeenAt": "2026-10-22T05:02:46.341Z",
-      "lastSeenAt": "2026-11-23T07:53:23.626Z",
+      "lastSeenAt": "2026-11-24T10:05:39.097Z",
       "isNew": false,
       "official": true
     },
@@ -1753,7 +1799,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-10-09T18:44:11.000Z",
       "firstSeenAt": "2026-11-14T06:43:31.076Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -1773,7 +1819,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-10-02T00:25:45.000Z",
       "firstSeenAt": "2026-11-14T06:43:31.076Z",
-      "lastSeenAt": "2026-11-23T07:53:23.730Z",
+      "lastSeenAt": "2026-11-24T10:05:39.620Z",
       "isNew": false,
       "official": true
     },
@@ -1793,7 +1839,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-09-18T08:46:38.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.899Z",
-      "lastSeenAt": "2026-11-23T07:53:23.748Z",
+      "lastSeenAt": "2026-11-24T10:05:39.454Z",
       "isNew": false,
       "official": true
     },
@@ -1813,7 +1859,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-09-01T06:46:07.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.960Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -1833,7 +1879,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-07-22T12:31:52.000Z",
       "firstSeenAt": "2026-11-05T07:00:15.231Z",
-      "lastSeenAt": "2026-11-23T07:53:23.731Z",
+      "lastSeenAt": "2026-11-24T10:05:39.621Z",
       "isNew": false,
       "official": true
     },
@@ -2013,7 +2059,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2033,7 +2079,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2053,7 +2099,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2073,7 +2119,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2093,7 +2139,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2113,7 +2159,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2133,7 +2179,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.183Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2153,7 +2199,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": null,
       "firstSeenAt": "2026-07-19T15:26:13.182Z",
-      "lastSeenAt": "2026-11-23T07:53:23.744Z",
+      "lastSeenAt": "2026-11-24T10:05:39.343Z",
       "isNew": false,
       "official": true
     },
@@ -2173,7 +2219,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-06-19T18:10:09.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.630Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -2193,7 +2239,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-06-05T19:41:02.000Z",
       "firstSeenAt": "2026-10-31T05:56:35.660Z",
-      "lastSeenAt": "2026-11-23T07:53:23.731Z",
+      "lastSeenAt": "2026-11-24T10:05:39.621Z",
       "isNew": false,
       "official": true
     },
@@ -2213,7 +2259,7 @@
       "listedOrder": 1,
       "sourcePublishedAt": "2026-05-27T05:45:51.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2233,7 +2279,7 @@
       "listedOrder": 2,
       "sourcePublishedAt": "2026-05-27T05:45:51.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2253,7 +2299,7 @@
       "listedOrder": 3,
       "sourcePublishedAt": "2026-05-27T05:45:46.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.514Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2273,7 +2319,7 @@
       "listedOrder": 4,
       "sourcePublishedAt": "2026-05-27T05:45:44.000Z",
       "firstSeenAt": "2026-09-01T05:20:11.140Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2293,7 +2339,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-05-27T05:45:38.000Z",
       "firstSeenAt": "2026-09-01T05:20:11.140Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2313,7 +2359,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-05-27T05:45:36.000Z",
       "firstSeenAt": "2026-11-12T07:24:54.096Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2333,7 +2379,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2026-05-27T05:45:35.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.515Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2353,7 +2399,7 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2026-05-27T05:45:33.000Z",
       "firstSeenAt": "2026-07-30T03:37:40.515Z",
-      "lastSeenAt": "2026-11-23T07:53:23.749Z",
+      "lastSeenAt": "2026-11-24T10:05:39.639Z",
       "isNew": false,
       "official": true
     },
@@ -2373,7 +2419,7 @@
       "listedOrder": 5,
       "sourcePublishedAt": "2026-04-23T08:41:22.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.961Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -2393,7 +2439,7 @@
       "listedOrder": 6,
       "sourcePublishedAt": "2026-04-09T11:28:03.000Z",
       "firstSeenAt": "2026-11-14T06:43:30.961Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -2413,7 +2459,7 @@
       "listedOrder": 7,
       "sourcePublishedAt": "2025-10-15T06:35:57.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.631Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     },
@@ -2433,15 +2479,15 @@
       "listedOrder": 8,
       "sourcePublishedAt": "2025-04-01T06:29:01.000Z",
       "firstSeenAt": "2026-10-21T05:00:46.631Z",
-      "lastSeenAt": "2026-11-23T07:53:23.785Z",
+      "lastSeenAt": "2026-11-24T10:05:39.401Z",
       "isNew": false,
       "official": true
     }
   ],
   "productCollection": {
-    "checkedAt": "2026-11-23T07:53:24.926Z",
+    "checkedAt": "2026-11-24T10:05:40.529Z",
     "totalItems": 104,
-    "newItems": 12,
+    "newItems": 21,
     "successfulStores": 11,
     "failedStores": 2,
     "stores": [
@@ -2617,7 +2663,7 @@
   "summary": {
     "totalItems": 36,
     "opportunityIndex": 95,
-    "riskIndex": 69,
+    "riskIndex": 63,
     "highPriority": 17
   },
   "errors": [
@@ -2634,14 +2680,14 @@
   ],
   "signals": [
     {
-      "id": "31cd3ac43d98",
-      "title": "金价创年内新低，长沙黄金消费市场迎“捡漏热”",
-      "summary": "金价创年内新低，长沙黄金消费市场迎“捡漏热” &nbsp;&nbsp; 华声在线",
+      "id": "6ae7f549e885",
+      "title": "国际金价大幅回调，买黄金是消费还是投资？",
+      "summary": "国际金价大幅回调，买黄金是消费还是投资？ &nbsp;&nbsp; 京报网",
       "source": "金价与黄金消费",
       "sourceId": "gold-price",
       "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTFB1UUNVT0pCUFpBUVVUM0I3YmloeGE1cG5KempEZkNIZHdIMEhJZ3NyaFpDMjk2MFBNSURVdGtZaWFqSnR0VW9xVUx6QV9DdF9sRjZiSEUxS1dzSUFraWFZ?oc=5",
-      "publishedAt": "2026-11-22T12:14:50.000Z",
+      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTE9neEVEd1l1QmMwSVpEcXNLUGdlUXEzRnJRVlAzTGJLYjZEdDJSSy1aV28tblRfZGVzaXdvZmN3X1pqLTIwZlhMT2hPSlVNUzRwNWt3N1NHV0gxUDJzUXRSZmRQZDU4czB6YTc3dEFMWlc5dw?oc=5",
+      "publishedAt": "2026-11-23T04:43:25.000Z",
       "weight": 1.3,
       "category": "经营风险",
       "priority": "高",
@@ -2658,10 +2704,29 @@
       "sourceId": "laofengxiang",
       "group": "competitor",
       "url": "https://www.laofengxiang.com/",
-      "publishedAt": "2026-11-23T07:53:22.975Z",
+      "publishedAt": "2026-11-24T10:05:38.810Z",
       "weight": 1.25,
       "official": true,
       "focus": "老字号黄金心智、产品与活动、公告声明",
+      "category": "竞品观察",
+      "priority": "中",
+      "score": 60,
+      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
+      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
+      "confidence": "竞品官方网站，需人工复核页面更新"
+    },
+    {
+      "id": "8869007c1ef6",
+      "title": "Swarovski 官方更新入口",
+      "summary": "Our collection of holiday d&eacute;cor brings the magic of the theater into your home. / Each piece, shining with laboratory grown diamonds, is cut for brilliance to make every moment festive and bright.",
+      "source": "Swarovski官网",
+      "sourceId": "swarovski",
+      "group": "competitor",
+      "url": "https://www.swarovski.com/",
+      "publishedAt": "2026-11-24T10:05:37.743Z",
+      "weight": 1.25,
+      "official": true,
+      "focus": "国际轻奢、视觉符号、礼赠与零售体验",
       "category": "竞品观察",
       "priority": "中",
       "score": 60,
@@ -2677,31 +2742,12 @@
       "sourceId": "ctf",
       "group": "competitor",
       "url": "https://www.ctf.com.cn/zh-hans/about/index.html",
-      "publishedAt": "2026-11-23T07:53:22.327Z",
+      "publishedAt": "2026-11-24T10:05:37.614Z",
       "weight": 1.25,
       "official": true,
       "focus": "产品、门店网络、财务表现、品牌年轻化",
       "category": "竞品观察",
       "priority": "中高",
-      "score": 60,
-      "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
-      "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
-      "confidence": "竞品官方网站，需人工复核页面更新"
-    },
-    {
-      "id": "8869007c1ef6",
-      "title": "Swarovski 官方更新入口",
-      "summary": "Our collection of holiday d&eacute;cor brings the magic of the theater into your home. / Each piece, shining with laboratory grown diamonds, is cut for brilliance to make every moment festive and bright.",
-      "source": "Swarovski官网",
-      "sourceId": "swarovski",
-      "group": "competitor",
-      "url": "https://www.swarovski.com/",
-      "publishedAt": "2026-11-23T07:53:22.266Z",
-      "weight": 1.25,
-      "official": true,
-      "focus": "国际轻奢、视觉符号、礼赠与零售体验",
-      "category": "竞品观察",
-      "priority": "中",
       "score": 60,
       "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
       "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
@@ -2715,7 +2761,7 @@
       "sourceId": "pandora",
       "group": "competitor",
       "url": "https://www.pandoragroup.com/media/press-releases",
-      "publishedAt": "2026-11-23T07:53:22.177Z",
+      "publishedAt": "2026-11-24T10:05:37.533Z",
       "weight": 1.25,
       "official": true,
       "focus": "串饰、培育钻石、全球新品、可持续",
@@ -2734,7 +2780,7 @@
       "sourceId": "chow-tai-seng",
       "group": "competitor",
       "url": "https://www.chowtaiseng.com/",
-      "publishedAt": "2026-11-23T07:53:21.824Z",
+      "publishedAt": "2026-11-24T10:05:37.070Z",
       "weight": 1.25,
       "official": true,
       "focus": "东方美学产品、门店规模、品牌合作",
@@ -2744,6 +2790,57 @@
       "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
       "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
       "confidence": "竞品官方网站，需人工复核页面更新"
+    },
+    {
+      "id": "4f1721b3f0fe",
+      "title": "潮宏基：11月18日组织现场参观活动，光大证券、天风证券等多家机构参与",
+      "summary": "潮宏基：11月18日组织现场参观活动，光大证券、天风证券等多家机构参与 &nbsp;&nbsp; Sohu",
+      "source": "潮宏基动态",
+      "sourceId": "chj-company",
+      "group": "company",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9ESzZmUC1DMTRLdzlBSUNfb2ZtWkd1MTVYQnFPd3NDSW9BRS10d1hFUWZkeXl4aUhpU3BjVmFuV2xIdXhqMkNwQThUeE5nQU5RZFJXR3g0cU1vRElQX01zclRQS3IyUlE?oc=5",
+      "publishedAt": "2026-11-19T11:04:54.000Z",
+      "weight": 1.5,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 53,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "fa687cb21cef",
+      "title": "股票行情快报：潮宏基（002345）11月17日主力资金净买入96.63万元_主力研究",
+      "summary": "股票行情快报：潮宏基（002345）11月17日主力资金净买入96.63万元_主力研究 &nbsp;&nbsp; 证券之星",
+      "source": "潮宏基动态",
+      "sourceId": "chj-company",
+      "group": "company",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE9Ba25maWFDTjZBeFo5S3hxOHQyYUNlX2RTUlZIaU9nMk5icW5GZGZIeVVQcGFfcXlaZGN0clVKNFJhWHBCVmxDTVZqMHEweURtTmJwaTJNRWZWdnZ3a1VpWklR?oc=5",
+      "publishedAt": "2026-11-17T13:55:09.000Z",
+      "weight": 1.5,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 53,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "deb09aa34230",
+      "title": "潮宏基(002345):2026年第二次临时股东会决议",
+      "summary": "潮宏基(002345):2026年第二次临时股东会决议 &nbsp;&nbsp; 中财网",
+      "source": "潮宏基动态",
+      "sourceId": "chj-company",
+      "group": "company",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE42NE5FNTVIcDVzZktvLTBIVTdsWDlEa0owVG4xNThiZF9ya3V3UDVPaTVmVDFuTHdfZHJidm40WGJ4amhfanRYNzFwUXlhbUtLZVVGclBB?oc=5",
+      "publishedAt": "2026-11-16T11:01:47.000Z",
+      "weight": 1.5,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 53,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
     },
     {
       "id": "0db7a8272926",
@@ -2763,54 +2860,20 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "4fb1323179d9",
-      "title": "潮宏基赴港IPO背后：短债缺口超4亿，出海进程缓慢",
-      "summary": "潮宏基赴港IPO背后：短债缺口超4亿，出海进程缓慢 &nbsp;&nbsp; 新浪财经",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9mb0tSc3ppMFFERXVfdUtpNGkwMjNkWnBGOHNlMmVzMExQWWIwMElwWWhlYVdHV0lCR3pKT2VqbXB5cWdPWFY4bm4tNElPY3RoV1JpOEdyaTFTRFFLdlJ3VC1oc0w0N3RlcjQtdm5Wdw?oc=5",
-      "publishedAt": "2026-04-24T07:00:00.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 53,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "dc4dcadc8bb7",
-      "title": "深度拆解Lazada全域出海生态：不同阶段品牌进入东南亚的增长指南- 跨境电商",
-      "summary": "深度拆解Lazada全域出海生态：不同阶段品牌进入东南亚的增长指南- 跨境电商 &nbsp;&nbsp; 亿邦动力",
+      "id": "5a7264622f0b",
+      "title": "颠覆预想！《给阿嬷的情书》东南亚票房出炉，新加坡超过马来西亚拔得头筹",
+      "summary": "颠覆预想！《给阿嬷的情书》东南亚票房出炉，新加坡超过马来西亚拔得头筹 &nbsp;&nbsp; Sohu",
       "source": "东南亚珠宝与黄金市场",
       "sourceId": "sea-expansion",
       "group": "overseas",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9tYjlLR1VtcUZDUHQwS1BhMjVmN0dNdERaRzVHb0hoMkg1d0JDUUFCVHVLQXhGVkJCbEVQWkpqbXRIeVh3QTV5QzlhSVgxbDh4M0tVcmRn?oc=5",
-      "publishedAt": "2026-08-24T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9tVFBtSS1GYzNtVzlTODl2UGV2U2xzRkZOR0JaNjNZckxyRFNudldLQzZTMGVEeUpvMlN1Rnc5eWZnbl9EZnVUYXNPY3RMaWZwVDJDMnNn?oc=5",
+      "publishedAt": "2026-06-23T07:00:00.000Z",
       "weight": 1.2,
-      "category": "战略机会",
+      "category": "出海机会",
       "priority": "高",
       "score": 42,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "aac60df98ce0",
-      "title": "潮宏基：以时尚设计诠释东方美学_公司新闻",
-      "summary": "潮宏基：以时尚设计诠释东方美学_公司新闻 &nbsp;&nbsp; 证券之星",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE5yVU5qZHdSWWEyTXV2cHJOaTZZOFl6ZUUyRVNxZC1weVhZLWU5QXBLS3NPNVN1aDZjVU83M2VPVnYtY00wczlnRGlSZWtXRnYyc0FXenBjUGZBVnVOLW9ndER3?oc=5",
-      "publishedAt": "2026-11-04T12:30:13.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 41,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "impact": "有助于判断海外市场的客群、产品、价格带和内容表达是否具备复制价值。",
+      "action": "沉淀国家市场假设卡，并标注需要业务部门验证的数据。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -2848,13 +2911,13 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "ae94df779de2",
+      "id": "eabc9519c4e8",
       "title": "沁珠宝二十四节气·夏系列新品上市，夏日盛景中的东方美学焕新当代新中式珠宝",
-      "summary": "沁珠宝二十四节气·夏系列新品上市，夏日盛景中的东方美学焕新当代新中式珠宝 &nbsp;&nbsp; 中华网",
+      "summary": "沁珠宝二十四节气·夏系列新品上市，夏日盛景中的东方美学焕新当代新中式珠宝 &nbsp;&nbsp; 新讯网",
       "source": "珠宝新品与消费趋势",
       "sourceId": "jewelry-trend",
       "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTE5FdHRHUmxoejFPeEVrb29RVnl3TTdZVWFVckgxUXZ2QS0zY0hGa3BEX3pRcHgtQkZhVHVZWjRKcHpRdU8zVVo0MnFEZklzTFNiM08tc2Q3VzN2cFlWSlVKT0pad2toeEx3OTFrVkl6d3BOdzVyRnc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiX0FVX3lxTE83dldtNTJoTjVySjdyYWNsa1QzQzFtM29RWU5TYjlsTU1MOFlmUEFYaS1XU3pCNk1VdTNEc0tiVW5DT2RaaWhEQlpEbFdmd1RSUG5DMk5KRHBVeEhxbUc0?oc=5",
       "publishedAt": "2026-05-07T07:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
@@ -2862,6 +2925,40 @@
       "score": 40,
       "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
       "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "8e2039e881b7",
+      "title": "潮宏基的IPO叙事进度卡在哪了？",
+      "summary": "潮宏基的IPO叙事进度卡在哪了？ &nbsp;&nbsp; 观点网",
+      "source": "东南亚珠宝与黄金市场",
+      "sourceId": "sea-expansion",
+      "group": "overseas",
+      "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE52OHBYeG9SZDA4SEl5RlhYQng2SmdpOW9Jb0Faa0RremVuWlVQOEdSNXNrRXh5eGMzT0NxVlQyQUp0MXRRVTJudjV2R3lBTXc2a3RrWWVlQzg4cU1DMDRRRTZn?oc=5",
+      "publishedAt": "2026-08-31T07:00:00.000Z",
+      "weight": 1.2,
+      "category": "战略机会",
+      "priority": "高",
+      "score": 36,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "00671ab5c6bc",
+      "title": "开设新加坡首店 老铺黄金出海要分几步走",
+      "summary": "开设新加坡首店 老铺黄金出海要分几步走 &nbsp;&nbsp; 新华网",
+      "source": "东南亚珠宝与黄金市场",
+      "sourceId": "sea-expansion",
+      "group": "overseas",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNdGpJZFZyV3BzbVRfeExNSmhKOXlGNnlJTEFudWFxRGpOVTA5QUxMbEF6QktoblZGelJHZlVJMDNoRnI5VFQ5UzV2Y0hwNG85TzdhZ25YN1JISDFZQ3BZLUlBMmNZc0tFOVh6V0czbGxxRU81T2FNOEczeEplTmcxQw?oc=5",
+      "publishedAt": "2025-02-25T08:00:00.000Z",
+      "weight": 1.2,
+      "category": "出海机会",
+      "priority": "高",
+      "score": 36,
+      "impact": "有助于判断海外市场的客群、产品、价格带和内容表达是否具备复制价值。",
+      "action": "沉淀国家市场假设卡，并标注需要业务部门验证的数据。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -2873,40 +2970,6 @@
       "group": "company",
       "url": "https://news.google.com/rss/articles/CBMiYkFVX3lxTFBWbkdUM2p3QmRHUjNzeFVPaGplR1RneDI1aFEwZXpIWXVHM3E5bVc4c2Rsb3ZtMHFKSFdFcWk4X1FiTnZETHo2cUZGM3RIT19JVUVHanM2YXBuTlE2Q1BrR0V3?oc=5",
       "publishedAt": "2026-11-06T09:01:28.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 35,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "e68c9013d972",
-      "title": "潮宏基：关于公司10月份新增直营门店情况简报的公告",
-      "summary": "潮宏基：关于公司10月份新增直营门店情况简报的公告 &nbsp;&nbsp; 东方财富",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFBNa3VlYnFSZ2pZNkxGTWN2M2VfZm5VYjVmMjdzOGxzZVVsWVdPYXlUNkdVQ3NKTXZkOW5ta1pVMU56eTFsX0pqYVpOSVZzVXpOeHJsUEc1VEFfbHdJd1ZDZw?oc=5",
-      "publishedAt": "2026-11-06T08:00:00.000Z",
-      "weight": 1.5,
-      "category": "战略机会",
-      "priority": "高",
-      "score": 35,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "8eed7b960ac8",
-      "title": "三千馆藏之上，潮宏基如何打造黄金的“佩戴时代”",
-      "summary": "三千馆藏之上，潮宏基如何打造黄金的“佩戴时代” &nbsp;&nbsp; 华丽志",
-      "source": "潮宏基动态",
-      "sourceId": "chj-company",
-      "group": "company",
-      "url": "https://news.google.com/rss/articles/CBMiQEFVX3lxTE5FTy14Rm9UcVVCd3pMSXJGU3Y2TXVfSlRGTFpsaEZjSjRsSTlCNGZZZlp4eExKcmJoOFJQOWZQcTE?oc=5",
-      "publishedAt": "2026-07-08T07:00:00.000Z",
       "weight": 1.5,
       "category": "战略机会",
       "priority": "高",
@@ -2933,13 +2996,13 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "bb5413661454",
+      "id": "6cb9634ac199",
       "title": "金价高位下消费分化：金饰量跌价升，低克重受青睐",
       "summary": "金价高位下消费分化：金饰量跌价升，低克重受青睐 &nbsp;&nbsp; 21财经",
       "source": "金价与黄金消费",
       "sourceId": "gold-price",
       "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNZldsTmYwQVlaVjNxdXFlZnR5VmUybldpWXF6S1pHa19HMnZGNWJNbjJhb2F0cEdRc2tVNUhORkRtY2w1NUhTWENoT1pwNHBnQ09ZNWtJeGRkeG93M2lhc1lWMkxKcUdMS1paR3Z3LUg4cTY2YjBGM01rbDRiMW1kWm1xUFNvTjlhLWc4X0pTTFlBQlQw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQMzk0LUJwVzQycHE4ejhQdTRQNTRVRUg1S1RyUWxBRHFiRUIzVGExaG9BMU9GSTBWbS14a3VjUnFIM2pIcGFxLUdibDZ0YUk2QTdZNlJjbWxtNlFrV0tNd1lOaDQ3OXdNTGhtdWx6VWhiQ1hkYTNra3VOY1o4SGhwcWVkUC1ZY0lONW81SDQxRQ?oc=5",
       "publishedAt": "2026-10-22T07:00:00.000Z",
       "weight": 1.3,
       "category": "经营风险",
@@ -2967,6 +3030,40 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
+      "id": "ba59f62c1706",
+      "title": "非遗金艺碰撞仙剑江湖 老凤祥携仙剑奇侠传登陆ChinaJoy展会",
+      "summary": "非遗金艺碰撞仙剑江湖 老凤祥携仙剑奇侠传登陆ChinaJoy展会 &nbsp;&nbsp; 新华网客户端",
+      "source": "珠宝新品与消费趋势",
+      "sourceId": "jewelry-trend",
+      "group": "trend",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxQSERtRExfRkJ1ZGlDWFhua0hfNC1CUkFGMnF5OHNjN0VqSUpCcU5adVpDUC1uamRZZUNtaHc1cTQwRHQwWHZWZnI0UEpkWlpxQ0tzMlBSeUhtTFF5SHdfV29OYmlMVHRJbnU5ZER2dDJQeWt6d19YTUJoWVlPNTRyVjlCX3pxQ2tSNTRUWFZMd1ozbVZtdVNCV1Zn?oc=5",
+      "publishedAt": "2026-08-04T07:00:00.000Z",
+      "weight": 1.15,
+      "category": "战略机会",
+      "priority": "中",
+      "score": 34,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
+      "id": "17f9287ef534",
+      "title": "黄金珠宝企业业绩分化：一季度头部品牌关店近千家，一口价产品助推毛利",
+      "summary": "黄金珠宝企业业绩分化：一季度头部品牌关店近千家，一口价产品助推毛利 &nbsp;&nbsp; ThePaper.cn",
+      "source": "金价与黄金消费",
+      "sourceId": "gold-price",
+      "group": "macro",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFB1MjljdklyZDM3RldERHVrcmlyRmQ0YjJiZ1BhOVVtRHFnY2k5MkVfanNiZ0FVOEFMUGN5QXF4SU1PeWZRajZPYlNlRnZNRlZUTjBhWGFfZmtIMF93WTBMUw?oc=5",
+      "publishedAt": "2026-05-20T07:00:00.000Z",
+      "weight": 1.3,
+      "category": "资本市场",
+      "priority": "高",
+      "score": 34,
+      "impact": "可服务港股 IPO 叙事、投资者沟通和公司增长质量表达。",
+      "action": "整理为资本市场观察，评估对港股 IPO 叙事和投资者问答的影响。",
+      "confidence": "公开网络情报，需人工复核"
+    },
+    {
       "id": "d85345e1cbda",
       "title": "金价一路上涨 带火了萧山这家珠宝城 网友称它是“杭州版水贝”",
       "summary": "金价一路上涨 带火了萧山这家珠宝城 网友称它是“杭州版水贝” &nbsp;&nbsp; 杭州政协",
@@ -2984,13 +3081,13 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "abf55754468e",
+      "id": "7ec675aada8a",
       "title": "2026年东方美学珠宝新品：Qeelin麒麟Wulu Eternity系列的福气哲学",
-      "summary": "2026年东方美学珠宝新品：Qeelin麒麟Wulu Eternity系列的福气哲学 &nbsp;&nbsp; ELLE China",
+      "summary": "2026年东方美学珠宝新品：Qeelin麒麟Wulu Eternity系列的福气哲学 &nbsp;&nbsp; 时尚COSMO",
       "source": "珠宝新品与消费趋势",
       "sourceId": "jewelry-trend",
       "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBKelJkUUNkLUFDcGUzbWNTalNpOVk5ZjNVUFFyOHFBUm9SMUxqdzFQUVZiYVA2NTIyeUN6dkExZXZvc1o2OVdHRThPeFMwaWVyeGltVm4xaVBsUUdPSVpQRDRBNy0zTk9qdGVVUkczbzFtZw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9kM3JaVXRuUkx6ZXFpYkRvVk1MX09qbGE0bkRRY0doN0dGZldXVXFYYUtkU3RaZjBQTzBiRVFpaGlTQXJrbEVqSDFOQVN3dzB2MjhDQnFLVTFzbGc5UXc?oc=5",
       "publishedAt": "2026-01-05T08:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
@@ -3015,23 +3112,6 @@
       "score": 34,
       "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
       "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "64de4e55a48f",
-      "title": "财经聚焦｜高金价下，黄金消费市场冷热交织",
-      "summary": "财经聚焦｜高金价下，黄金消费市场冷热交织 &nbsp;&nbsp; 新华网",
-      "source": "金价与黄金消费",
-      "sourceId": "gold-price",
-      "group": "macro",
-      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxQaXc0eU1QT3JFYWVDNmtNS0NLcGtIRVNieVhSaXR5UUF1YUdLNWlIaUtYUFAxM3NKc2VOTDRjbWwxNWZHYWtmYWZ4S3Y3VWctcW9qbU9iVVJxcUFqWFJpWGZ6SXo4WEVUWjNaYUNOMmY4RzEzZWVPM1JubnUySDRUNmRadFlIRWsx?oc=5",
-      "publishedAt": "2025-02-26T08:00:00.000Z",
-      "weight": 1.3,
-      "category": "经营风险",
-      "priority": "高",
-      "score": 34,
-      "impact": "可能影响金价周期下的消费意愿、库存周转、加盟质量或经营现金流，需要前置跟踪。",
-      "action": "加入风险看板，补充内部经营指标后形成董事长周度预警。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -3103,37 +3183,37 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "727fb9a27469",
-      "title": "关店风波后，周大福半年涨了600亿",
-      "summary": "关店风波后，周大福半年涨了600亿 &nbsp;&nbsp; 36氪",
+      "id": "7403019a91c5",
+      "title": "想变、懂变、敢变——周大福珠宝在变革中稳健穿越行业周期",
+      "summary": "想变、懂变、敢变——周大福珠宝在变革中稳健穿越行业周期 &nbsp;&nbsp; 新华网",
       "source": "东南亚珠宝与黄金市场",
       "sourceId": "sea-expansion",
       "group": "overseas",
-      "url": "https://news.google.com/rss/articles/CBMiTkFVX3lxTE5FNUl3MEhOWlE2bTZTOVpIUTBoTDlmenhrUEt0MTdQUnptZ0UwUjgtRWdJdUx0WDBLaURHZnhWaHdtYzFlOWpaS09GcnVUQQ?oc=5",
-      "publishedAt": "2025-06-23T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQWEM3UXZ4bDN1WFBDcUx1SV9HVE83WTVDSWhDNWlDYk1XRWxiaU1rOUgwWU1ESGhlNWdBbVpYVUhuLTlwWFB2ZDQ3UGFuWTViWWZwUHRVckhad21CTjRSNUJmYzRST28wRzl2NF96aEdLd3RRSFA1Q1J3UU84dTllQUxua2h1VFpUeE9fMjB0TQ?oc=5",
+      "publishedAt": "2025-03-27T07:00:00.000Z",
       "weight": 1.2,
       "category": "竞品观察",
-      "priority": "中",
+      "priority": "中高",
       "score": 30,
       "impact": "可用于判断竞品在产品、渠道、品牌表达和年轻化上的动作，避免同质化竞争。",
       "action": "纳入竞品周报，拆解其新品、渠道、传播和价格带动作。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "87145737d53e",
-      "title": "老铺黄金出海捞金",
-      "summary": "老铺黄金出海捞金 &nbsp;&nbsp; 京报网",
-      "source": "东南亚珠宝与黄金市场",
-      "sourceId": "sea-expansion",
-      "group": "overseas",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBQVGFyanBUdlRaaGNNYUpWRlUzT1FZemxFZTJiMGxhWEVPM3IyYjFfU3VReDZDMlJoZkh6SF9fX0gtWXl6OC1NVjZZVTAwdTQ0dHN0RkszRVhQaHV6SF9mNVpVRGVNTnRMUkI1X05BSjBUZw?oc=5",
-      "publishedAt": "2025-02-25T08:00:00.000Z",
-      "weight": 1.2,
-      "category": "出海机会",
-      "priority": "高",
-      "score": 30,
-      "impact": "有助于判断海外市场的客群、产品、价格带和内容表达是否具备复制价值。",
-      "action": "沉淀国家市场假设卡，并标注需要业务部门验证的数据。",
+      "id": "61f5bc0657e3",
+      "title": "循竹而行，织光成境周生生「竹境・织光」限时精品店亮相重庆携手全球品牌代言人陈坤共探东方美学新境",
+      "summary": "循竹而行，织光成境周生生「竹境・织光」限时精品店亮相重庆携手全球品牌代言人陈坤共探东方美学新境 &nbsp;&nbsp; ELLE China",
+      "source": "珠宝新品与消费趋势",
+      "sourceId": "jewelry-trend",
+      "group": "trend",
+      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxOekl2Zmlja1pRMzlDak1tZWp1SGVVTTk5ZVJpU2VhNEtKUVBlX1dYNHFOcGotWEtGdnJ3dFlLNnd3TDNtZkM1UUtYaXZXQl9EVTl3eTdrdUZLTWRENmlQNFVubFo4RnpnRTdpeENzdDJXVElxZTNraV9ocVNhc0I2YUlscXNYc1dqNTRsSkNWTHJHQ2M?oc=5",
+      "publishedAt": "2026-11-10T08:00:00.000Z",
+      "weight": 1.15,
+      "category": "战略机会",
+      "priority": "中",
+      "score": 28,
+      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
+      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
@@ -3171,14 +3251,14 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "b6d268e49f87",
-      "title": "“京润珍珠杯”东方美学珠宝设计交流会落户罗湖粤海城",
-      "summary": "“京润珍珠杯”东方美学珠宝设计交流会落户罗湖粤海城 &nbsp;&nbsp; 凤凰网深圳",
+      "id": "08810cb0989e",
+      "title": "中国黄金羊年新品首发，十二生肖全家福首秀",
+      "summary": "中国黄金羊年新品首发，十二生肖全家福首秀 &nbsp;&nbsp; 21财经",
       "source": "珠宝新品与消费趋势",
       "sourceId": "jewelry-trend",
       "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMiSkFVX3lxTFBjWF9xMXNlTFZwYXFrZlRLOExaZTd0aFNFNWVMM19VaXU2R0FUX25iSFpERy1aUEo1cjJlcUt0cjVvemIyaGR3a2ZB?oc=5",
-      "publishedAt": "2026-09-23T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMilAFBVV95cUxNcHYzSjBTbmJ4bGJyVTBZdkR4WXVLZGQ2SUJQLVZVWGRVc2V1a3h5VXFGQ3cxZE1wczhCX2ZiUzg3QWtHQU1GMmtOaDAtOFNDR3JtZXhxd3hsbThCLXZzTlV4cFN6RENROXdqRWFpWmVJVmNNaXpTTloyaXl4bk55akFjLUlwOFRKeE90aFlCMXpZXzgz?oc=5",
+      "publishedAt": "2026-10-22T07:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
       "priority": "中高",
@@ -3188,69 +3268,35 @@
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "cc1d8eb10149",
-      "title": "新金臻藏落子武汉万象城，本土珠宝品牌以东方美学再启高端新章",
-      "summary": "新金臻藏落子武汉万象城，本土珠宝品牌以东方美学再启高端新章 &nbsp;&nbsp; 中华网",
+      "id": "304b62c46f47",
+      "title": "焕彩35载，为爱盛放｜六福珠宝35年的“盛放”跃迁_行业动态",
+      "summary": "焕彩35载，为爱盛放｜六福珠宝35年的“盛放”跃迁_行业动态 &nbsp;&nbsp; 投资界",
       "source": "珠宝新品与消费趋势",
       "sourceId": "jewelry-trend",
       "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5GNjFoX05ZM2s4Z3hvMnRyWlF1ak50SGlQbHNCX3dJT2puRm80cm5WVVBvWWxmODNCaHFjMV9DOXBoWWNzVHI3X2plQjdzZ3Qzdml1cG53VFRaTG9Va2c?oc=5",
-      "publishedAt": "2026-06-27T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE5mUzU0LTFFNXFkUHNyQjI0b3JRUTVRcnlLUFY2STduVElMQnRRQi1MV0gzRVE0Q2JFMnJFRnRmMUJzQ3RDaG1sR0ZzMEZWX0RhMUZzTm1LVXQ?oc=5",
+      "publishedAt": "2026-09-18T07:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
       "priority": "中高",
-      "score": 28,
+      "score": 22,
       "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
       "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
     },
     {
-      "id": "e5ead206cb94",
-      "title": "「周六福·吉」文化主题形象盛大启幕，东方美学盛宴点亮京城",
-      "summary": "「周六福·吉」文化主题形象盛大启幕，东方美学盛宴点亮京城 &nbsp;&nbsp; 赢商网",
+      "id": "c4b6611c40c1",
+      "title": "年度珠宝购物大展闪耀申城——2025上海国际珠宝展即将启幕",
+      "summary": "年度珠宝购物大展闪耀申城——2025上海国际珠宝展即将启幕 &nbsp;&nbsp; 新华网上海频道",
       "source": "珠宝新品与消费趋势",
       "sourceId": "jewelry-trend",
       "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE9FcHgtckdldHhpdjVST05nS1FMMnpnRnFDbWhtYkRNWjIzOG00eVhZSTdQbEVMa0Rwemt2SzJvSWlVTkRJam1leWNyWGx4Wjg?oc=5",
-      "publishedAt": "2025-05-06T07:00:00.000Z",
-      "weight": 1.15,
-      "category": "战略机会",
-      "priority": "中",
-      "score": 28,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "15e019706b47",
-      "title": "深度｜Qeelin 如何用东方美学破局“高级珠宝”？",
-      "summary": "深度｜Qeelin 如何用东方美学破局“高级珠宝”？ &nbsp;&nbsp; 华丽志",
-      "source": "珠宝新品与消费趋势",
-      "sourceId": "jewelry-trend",
-      "group": "trend",
-      "url": "https://news.google.com/rss/articles/CBMiQEFVX3lxTFBZWWdMZzlGMXpmTHRkeHM4WXhzdVp1dEVSaWVqd3VTNEt3OVZQaTJ3YW1fVUhwdzd3VFRjd05xdUE?oc=5",
-      "publishedAt": "2025-04-07T07:00:00.000Z",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE11NEVfa3dXWG9aa2RLbUl0ZWZUcGsxWnIzenVJMW85emZNV0FjbXo4Qko1bDd6M1MycmYwczBWVWtsWTNDbURUOHpWcVpCN0dOc3NNYUpNc2VUS2lDc1FaQ29NUS1nY3c3Nm5UWHpnYnlfNVdR?oc=5",
+      "publishedAt": "2025-11-12T08:00:00.000Z",
       "weight": 1.15,
       "category": "战略机会",
       "priority": "中高",
-      "score": 28,
-      "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
-      "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
-      "confidence": "公开网络情报，需人工复核"
-    },
-    {
-      "id": "0958923c2471",
-      "title": "老铺黄金收割外国中产，还有点难",
-      "summary": "老铺黄金收割外国中产，还有点难 &nbsp;&nbsp; 新浪财经",
-      "source": "东南亚珠宝与黄金市场",
-      "sourceId": "sea-expansion",
-      "group": "overseas",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE8zOWdOR0MwcXNVT3lTZWo0MmJjQm5hSUtCUGRtcTZTcko1NFZYQjZSWjQ4NzVRUnYycjBxT2VzWHRJM3VXZUhqR29NZ1JoSFdOdXVMREU5RmJvSTE0bFBSV2N5cDZ1Mm1tMGRtc1paZDRhNFFvWVd2UA?oc=5",
-      "publishedAt": "2025-06-23T07:00:00.000Z",
-      "weight": 1.2,
-      "category": "战略机会",
-      "priority": "中高",
-      "score": 24,
+      "score": 22,
       "impact": "可能强化潮宏基在东方美学、时尚黄金、年轻化内容和礼赠场景中的差异化机会。",
       "action": "进入战略机会池，判断是否需要形成专题研究或会议议题。",
       "confidence": "公开网络情报，需人工复核"
